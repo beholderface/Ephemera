@@ -10,6 +10,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class EphemeraMixin {
     @Inject(at = @At("HEAD"), method = "init()V")
     private void init(CallbackInfo info) {
-        System.out.println("Hello from ephemera common mixin!");
+        //System.out.println("Hello from ephemera common mixin!");
     }
 }

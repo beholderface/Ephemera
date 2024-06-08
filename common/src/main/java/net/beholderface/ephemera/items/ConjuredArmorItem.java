@@ -28,6 +28,7 @@ public class ConjuredArmorItem extends ArmorItem {
                 validSlot = true;
             }
         }
+        //yeah this really isn't intended for non-players
         if (entity instanceof PlayerEntity player){
             for (ItemStack armorpiece : player.getArmorItems()){
                 if (stack == armorpiece){

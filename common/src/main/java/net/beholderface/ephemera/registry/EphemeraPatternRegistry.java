@@ -7,6 +7,7 @@ import at.petrak.hexcasting.api.spell.math.HexDir;
 import at.petrak.hexcasting.api.spell.math.HexPattern;
 import at.petrak.hexcasting.common.casting.operators.spells.OpPotionEffect;
 import kotlin.Triple;
+import net.beholderface.ephemera.casting.patterns.spells.great.OpMageArmor;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.util.Identifier;
 
@@ -24,6 +25,7 @@ public class EphemeraPatternRegistry {
 
     public static HexPattern INVISIBILITY = registerPerWorld(HexPattern.fromAngles("qqqqqaewawaweqa", HexDir.SOUTH_WEST), "invisibility", new OpPotionEffect(
             StatusEffects.INVISIBILITY, (int)(MediaConstants.DUST_UNIT / 3), false, false, true));
+    public static HexPattern MAGE_ARMOR = registerPerWorld(HexPattern.fromAngles("qaweqqwqqewaqeqqqqqad", HexDir.NORTH_WEST), "magearmor", new OpMageArmor());
 
     public static void init() {
         try {
