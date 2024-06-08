@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "net.beholderface.ephemera.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+    "EphemeraMixin"
+  ],
+  "mixins": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

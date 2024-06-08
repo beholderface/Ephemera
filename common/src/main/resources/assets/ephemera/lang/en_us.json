@@ -1,0 +1,13 @@
+{
+  "item.ephemera.dummy_item": "Dummy Item",
+  "hexcasting.spell.ephemera:congrats": "Congrats",
+  "hexcasting.spell.ephemera:signum": "Signum Purification",
+  "hexcasting.spell.book.ephemera:congrats": "Dum. Spell Actn.",
+  "hexcasting.spell.book.ephemera:signum": "Dum. Actn.",
+  "ephemera.entry.dummy_spells": "Dummy Spells",
+  "ephemera.entry.dummy_actions": "Dummy Actions",
+  "ephemera.page.dummy_spells.congrats": "Accepts a player entity, tells them they are doing a good job and makes them look up.",
+  "ephemera.page.dummy_actions.signum": "Accepts a $(l:casting/101)number/$, returns -1 if it is negative, 0 if 0, 1 if positive.",
+  "text.ephemera.congrats": "Good job, %1$s!",
+  "text.ephemera.congrats.player": "a Player"
+}

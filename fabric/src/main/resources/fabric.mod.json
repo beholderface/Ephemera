@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "ephemera",
+  "version": "${version}",
+  "name": "Ephemera",
+  "description": "Assorted hexcasting things.",
+  "authors": [
+    "beholderface"
+  ],
+  "contact": {
+    "homepage": "https://beholderface.github.io/ephemera",
+    "sources": "https://github.com/beholderface/ephemera"
+  },
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.beholderface.ephemera.fabric.EphemeraFabric"
+    ],
+    "client": [
+      "net.beholderface.ephemera.fabric.EphemeraClientFabric"
+    ]
+  },
+  "mixins": [
+    "ephemera-common.mixins.json",
+    "ephemera.mixins.json"
+  ],
+  "depends": {
+    "minecraft": ">=${minecraftVersion}",
+    "fabricloader": ">=${fabricLoaderVersion}",
+    "fabric-api": "*",
+    "fabric-language-kotlin": ">=${fabricKotlinVersion}",
+    "architectury": ">=${architecturyVersion}",
+    "hexcasting": ">=${hexcastingVersion}"
+  }
+}
