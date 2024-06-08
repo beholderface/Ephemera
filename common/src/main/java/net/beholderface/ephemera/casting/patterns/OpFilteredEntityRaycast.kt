@@ -6,6 +6,7 @@ import at.petrak.hexcasting.api.spell.casting.CastingContext
 import at.petrak.hexcasting.api.spell.iota.Iota
 import at.petrak.hexcasting.api.spell.iota.NullIota
 import at.petrak.hexcasting.api.spell.mishaps.MishapInvalidIota
+import dev.architectury.platform.Platform
 import net.minecraft.entity.Entity
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.projectile.ProjectileUtil
@@ -18,7 +19,7 @@ class OpFilteredEntityRaycast : ConstMediaAction {
     override val mediaCost = MediaConstants.DUST_UNIT / 50
 
     private fun isAllowedInFilter(entity : Entity, filter : List<Iota>) : Boolean{
-        if (entity is LivingEntity){
+        if (entity is LivingEntity && Platform.isFabric()){ //probably-marginal performance gain when on Forge and thus oneironaut can't be present
             val livingEntity = entity as LivingEntity
             val effects = livingEntity.statusEffects
             for (effect in effects){
