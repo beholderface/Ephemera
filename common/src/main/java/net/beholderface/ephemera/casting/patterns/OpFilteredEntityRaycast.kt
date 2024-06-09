@@ -11,7 +11,9 @@ import net.minecraft.entity.Entity
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.projectile.ProjectileUtil
 import net.minecraft.text.Text
+import net.minecraft.util.Identifier
 import net.minecraft.util.math.Box
+import net.minecraft.util.registry.Registry
 import ram.talia.hexal.api.spell.iota.EntityTypeIota
 
 class OpFilteredEntityRaycast : ConstMediaAction {
@@ -23,7 +25,7 @@ class OpFilteredEntityRaycast : ConstMediaAction {
             val livingEntity = entity as LivingEntity
             val effects = livingEntity.statusEffects
             for (effect in effects){
-                if (effect.effectType.translationKey.equals("effect.oneironaut.detection_resistance")){
+                if (effect.effectType == Registry.STATUS_EFFECT.get(Identifier.tryParse("oneironaut:detection_resistance"))){
                     return false
                 }
             }

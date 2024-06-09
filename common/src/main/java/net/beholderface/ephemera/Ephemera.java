@@ -2,6 +2,7 @@ package net.beholderface.ephemera;
 
 import net.beholderface.ephemera.registry.EphemeraIotaTypeRegistry;
 import net.beholderface.ephemera.registry.EphemeraItemRegistry;
+import net.beholderface.ephemera.registry.EphemeraMiscRegistry;
 import net.beholderface.ephemera.registry.EphemeraPatternRegistry;
 import net.beholderface.ephemera.networking.EphemeraNetworking;
 import net.minecraft.util.Identifier;
@@ -18,8 +19,8 @@ public class Ephemera {
 
 
     public static void init() {
-        LOGGER.info("Ephemera says hello!");
-
+        LOGGER.info("bee");
+        EphemeraMiscRegistry.init();
         EphemeraAbstractions.initPlatformSpecific();
         EphemeraItemRegistry.init();
         EphemeraIotaTypeRegistry.init();
