@@ -86,43 +86,45 @@ class OpMageArmor() : SpellAction {
             }
             for ((currentSlot, slotBool) in slots.withIndex()){
                 if (slotBool){
-                    val adjustedDurability = durability
                     val stack = items[currentSlot].defaultStack
                     val stackNbt = stack.orCreateNbt
                     val currentArmorSlot = armorSlots[currentSlot]
                     //stackNbt.putList("Enchantments", listEmpty)
-                    stackNbt.putInt("DurabilityOverride", adjustedDurability)
-                    stack.addAttributeModifier(EntityAttributes.GENERIC_ARMOR,
-                        EntityAttributeModifier("armor",
-                            (armorStrength * slotDefenseMultipliers[currentSlot]).coerceAtLeast(1f).toDouble(),
-                            EntityAttributeModifier.Operation.ADDITION), currentArmorSlot)
+                    val normalArmor = EntityAttributeModifier("armor", (armorStrength * slotDefenseMultipliers[currentSlot]).coerceAtLeast(1f).toDouble(), EntityAttributeModifier.Operation.ADDITION)
+                    val armorToughness = EntityAttributeModifier("toughness", toughness.toDouble(), EntityAttributeModifier.Operation.ADDITION)
+                    val knockbackResistMod = EntityAttributeModifier("kbResist", knockbackResist.toDouble(), EntityAttributeModifier.Operation.ADDITION)
+                    stack.addAttributeModifier(EntityAttributes.GENERIC_ARMOR, normalArmor, currentArmorSlot)
                     if (toughness > 0){
-                        stack.addAttributeModifier(EntityAttributes.GENERIC_ARMOR_TOUGHNESS,
-                            EntityAttributeModifier("toughness",
-                                toughness.toDouble(),
-                                EntityAttributeModifier.Operation.ADDITION), currentArmorSlot)
+                        stack.addAttributeModifier(EntityAttributes.GENERIC_ARMOR_TOUGHNESS, armorToughness, currentArmorSlot)
                     }
                     if (knockbackResist > 0){
-                        stack.addAttributeModifier(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE,
-                            EntityAttributeModifier("kbResist",
-                                knockbackResist.toDouble(),
-                                EntityAttributeModifier.Operation.ADDITION), currentArmorSlot)
+                        stack.addAttributeModifier(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, knockbackResistMod, currentArmorSlot)
                     }
-                    stack.damage = stack.maxDamage - adjustedDurability
+                    stackNbt.putInt("DurabilityOverride", durability)
+                    stack.damage = stack.maxDamage - durability
                     //Ephemera.LOGGER.info(stack.damage)
                     player.equipStack(items[currentSlot].slotType, stack)
                 }
             }
             //only one effect at a time
-            if (effect != null){
-                for (equippedArmor in player.armorItems){
+            //if (effect != null){
+                for ((currentSlot, equippedArmor) in player.armorItems.withIndex()){
                     if (items.contains(equippedArmor.item)){
+                        val stackNbt = equippedArmor.orCreateNbt;
+                        stackNbt.putInt("DurabilityOverride", durability)
+                        equippedArmor.damage = equippedArmor.maxDamage - durability
                         ConjuredArmorItem.setStoredStatus(equippedArmor, effect, effectStrength)
-                        //TODO: make this section update attribute modifiers as well as status effects
-                        equippedArmor.getAttributeModifiers((equippedArmor.item as ArmorItem).slotType)
+                        stackNbt.remove("AttributeModifiers");
+                        equippedArmor.addAttributeModifier(EntityAttributes.GENERIC_ARMOR, EntityAttributeModifier("armor", (armorStrength * slotDefenseMultipliers[currentSlot]).coerceAtLeast(1f).toDouble(), EntityAttributeModifier.Operation.ADDITION), armorSlots[currentSlot])
+                        if (toughness > 0){
+                            equippedArmor.addAttributeModifier(EntityAttributes.GENERIC_ARMOR_TOUGHNESS, EntityAttributeModifier("toughness", toughness.toDouble(), EntityAttributeModifier.Operation.ADDITION), armorSlots[currentSlot])
+                        }
+                        if (knockbackResist > 0){
+                            equippedArmor.addAttributeModifier(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, EntityAttributeModifier("kbResist", knockbackResist.toDouble(), EntityAttributeModifier.Operation.ADDITION), armorSlots[currentSlot])
+                        }
                     }
                 }
-            }
+            //}
         }
     }
 }

@@ -69,7 +69,8 @@ public class ConjuredArmorItem extends ArmorItem {
                 PlayerEntity player = (PlayerEntity) entity;
                 damageIncrement += (int) Math.pow(storedStatus.component2() + 1, 2);
                 if (world.getTime() % 100 == 0){
-                    player.addStatusEffect(new StatusEffectInstance(storedStatus.getFirst(), 200, storedStatus.component2()));
+                    player.addStatusEffect(new StatusEffectInstance(storedStatus.getFirst(), 200,
+                            storedStatus.component2(), false, false, true));
                 }
                 /*if (!player.hasStatusEffect(storedStatus.getFirst())) {
                     //Ephemera.LOGGER.info("Attempting to add status effect " + storedStatus.getFirst());
@@ -175,12 +176,19 @@ public class ConjuredArmorItem extends ArmorItem {
     public static boolean setStoredStatus(ItemStack stack, StatusEffect effect, int strength){
         NbtCompound topLevelNbt = stack.getOrCreateNbt();
         NbtCompound statusData = new NbtCompound();
-        Identifier statusID = MiscAPIKt.effectToIdentifier(effect);
-        if (statusID != null){
-            statusData.putString(STORED_STATUS_TYPE_TAG, statusID.toString());
-            statusData.putInt(STORED_STATUS_LEVEL_TAG, strength);
-            NBTHelper.putCompound(topLevelNbt, STORED_STATUS_TAG, statusData);
-            return true;
+        if (effect != null){
+            Identifier statusID = MiscAPIKt.effectToIdentifier(effect);
+            if (statusID != null){
+                statusData.putString(STORED_STATUS_TYPE_TAG, statusID.toString());
+                statusData.putInt(STORED_STATUS_LEVEL_TAG, strength);
+                NBTHelper.putCompound(topLevelNbt, STORED_STATUS_TAG, statusData);
+                return true;
+            }
+        } else {
+            if (topLevelNbt.contains(STORED_STATUS_TAG)){
+                topLevelNbt.remove(STORED_STATUS_TAG);
+                return true;
+            }
         }
         return false;
     }

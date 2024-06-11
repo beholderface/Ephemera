@@ -9,7 +9,10 @@ import at.petrak.hexcasting.common.casting.operators.spells.OpPotionEffect;
 import kotlin.Triple;
 import net.beholderface.ephemera.casting.patterns.OpFilteredEntityRaycast;
 import net.beholderface.ephemera.casting.patterns.OpFrameRotation;
+import net.beholderface.ephemera.casting.patterns.OpNetworkScan;
 import net.beholderface.ephemera.casting.patterns.math.OpGaussianRand;
+import net.beholderface.ephemera.casting.patterns.spells.OpLinkDamage;
+import net.beholderface.ephemera.casting.patterns.spells.OpPlasma;
 import net.beholderface.ephemera.casting.patterns.spells.great.OpMageArmor;
 import net.beholderface.ephemera.casting.patterns.status.*;
 import net.minecraft.entity.effect.StatusEffects;
@@ -27,10 +30,11 @@ public class EphemeraPatternRegistry {
     /*public static HexPattern CONGRATS = registerPerWor asdawdsawd ld(HexPattern.fromAngles("eed", HexDir.WEST), "congrats", new OpCongrats());
     public static HexPattern SIGNUM = regis dawdasdawd ter(HexPattern.fromAngles("edd", HexDir.NORTH_WEST), "signum", new OpSignum());*/
 
+    //assorted great spells
     public static HexPattern INVISIBILITY = registerPerWorld(HexPattern.fromAngles("qqqqqaewawaweqa", HexDir.SOUTH_WEST), "invisibility", new OpPotionEffect(
             StatusEffects.INVISIBILITY, (int)(MediaConstants.DUST_UNIT / 3), false, false, true));
     public static HexPattern MAGE_ARMOR = registerPerWorld(HexPattern.fromAngles("qaweqqwqqewaqeqqqqqad", HexDir.NORTH_WEST), "magearmor", new OpMageArmor());
-
+    //status stuff
     public static HexPattern REMOVE_STATUS = register(HexPattern.fromAngles("eeeeedaqdewed", HexDir.SOUTH_WEST), "removestatus", new OpRemoveStatus());
     public static HexPattern GET_STATUS = register(HexPattern.fromAngles("qqqqqedwd", HexDir.SOUTH_WEST), "getstatus", new OpGetEffects());
     public static HexPattern GET_STATUS_CATEGORY = register(HexPattern.fromAngles("eeeeeqawa", HexDir.SOUTH_EAST), "getstatuscategory", new OpGetEffectCategory());
@@ -39,13 +43,16 @@ public class EphemeraPatternRegistry {
     public static HexPattern GET_BY_STATUS = register(HexPattern.fromAngles("ewqqqqqwe", HexDir.EAST), "getbystatus", new OpGetEntitiesByStatus(false));
     public static HexPattern GET_BY_STATUS_INVERSE = register(HexPattern.fromAngles("qweeeeewq", HexDir.EAST), "getbystatusinverse", new OpGetEntitiesByStatus(true));
     public static HexPattern GET_BY_STATUS_SINGLE = register(HexPattern.fromAngles("eaeeeeeae", HexDir.EAST), "getbystatussingle", new OpGetEntityByStatus());
-
+    //misc actions
     public static HexPattern FILTERED_SCOUTS = register(HexPattern.fromAngles("wqded", HexDir.EAST), "filteredentityraycast", new OpFilteredEntityRaycast());
     public static HexPattern GAUSSIAN_RAND = register(HexPattern.fromAngles("eeeeq", HexDir.NORTH_EAST), "gaussianrand", new OpGaussianRand());
-
+    //frame stuff
     public static HexPattern READ_FRAME_ROTATION = register(HexPattern.fromAngles("wwawwqwwawwaeae", HexDir.SOUTH_WEST), "readframerotation", new OpFrameRotation(0));
     public static HexPattern SET_FRAME_ROTATION = register(HexPattern.fromAngles("wwawwqwwawwaqdq", HexDir.SOUTH_WEST), "setframerotation", new OpFrameRotation(1));
 
+    public static HexPattern PLASMA_BEAM = register(HexPattern.fromAngles("aqqqadweaqa", HexDir.NORTH_EAST), "plasmabeam", new OpPlasma());
+    //public static HexPattern LINK_DAMAGE = disabled(HexPattern.fromAngles("qqqqqwdeddwwaawaawa", HexDir.NORTH_WEST), "linkoverload", new OpLinkDamage());
+    public static HexPattern LINK_SCAN = register(HexPattern.fromAngles("eqqqqqaweqaeaq", HexDir.WEST), "networkscan", new OpNetworkScan());
 
     public static void init() {
         try {
