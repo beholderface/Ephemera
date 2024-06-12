@@ -18,12 +18,13 @@ import net.minecraft.world.RaycastContext
 import ram.talia.hexal.api.spell.casting.IMixinCastingContext
 import ram.talia.hexal.api.spell.mishaps.MishapNoWisp
 import ram.talia.hexal.common.entities.BaseCastingWisp
+import ram.talia.hexal.common.entities.TickingWisp
 import ram.talia.hexal.common.network.MsgParticleLinesAck
 
 class OpPlasma() : SpellAction {
     override val argc: Int = 0
     @Suppress("CAST_NEVER_SUCCEEDS")
-    override fun execute(args: List<Iota>, ctx: CastingContext): Triple<RenderedSpell, Int, List<ParticleSpray>>? {
+    override fun execute(args: List<Iota>, ctx: CastingContext): Triple<RenderedSpell, Int, List<ParticleSpray>> {
         val mCast = ctx as? IMixinCastingContext
         if (mCast == null || !mCast.hasWisp())
             throw MishapNoWisp()
@@ -35,8 +36,16 @@ class OpPlasma() : SpellAction {
         override fun cast(ctx: CastingContext) {
             val allegedlyNotWisp = wisp as Entity
             val origin = allegedlyNotWisp.pos
-            var dir = allegedlyNotWisp.velocity.normalize()
-            if (dir.equals(Vec3d.ZERO)){
+            var dir = if (wisp is TickingWisp){
+                if (wisp.getTargetMovePos() != null){
+                    wisp.getTargetMovePos()?.subtract(allegedlyNotWisp.pos)?.normalize()!!
+                } else {
+                    Vec3d.ZERO
+                }
+            } else {
+                wisp.rotationVector
+            }
+            if (dir.equals(Vec3d.ZERO) || dir == null){
                 val random = allegedlyNotWisp.world.random
                 dir = Vec3d(random.nextBetween(-100, 100).toDouble(), random.nextBetween(-100, 100).toDouble(), random.nextBetween(-100, 100).toDouble()).normalize()
             }
@@ -58,7 +67,7 @@ class OpPlasma() : SpellAction {
                 }
             } while (latestHit != null)
             for (target in hitEntities){
-                target.damage(DamageSource.MAGIC, 2f)
+                target.damage(DamageSource.MAGIC, 4f)
             }
             if (blockCast != null){
                 val hitBlockState = ctx.world.getBlockState(blockCast.blockPos)

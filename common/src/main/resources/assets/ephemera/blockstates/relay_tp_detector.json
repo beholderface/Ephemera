@@ -1,0 +1,29 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "ephemera:block/relay_tp_detector",
+      "x": 180
+    },
+    "facing=up": {
+      "model": "ephemera:block/relay_tp_detector"
+    },
+    "facing=east": {
+      "model": "ephemera:block/relay_tp_detector",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west": {
+      "model": "ephemera:block/relay_tp_detector",
+      "x": 90,
+      "y": 270
+    },
+    "facing=north": {
+      "model": "ephemera:block/relay_tp_detector",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "ephemera:block/relay_tp_detector",
+      "x": 270
+    }
+  }
+}

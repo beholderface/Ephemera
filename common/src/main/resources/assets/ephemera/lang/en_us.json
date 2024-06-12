@@ -3,7 +3,14 @@
   "item.ephemera.media_chestplate": "Hexformed Chestplate",
   "item.ephemera.media_leggings": "Hexformed Leggings",
   "item.ephemera.media_boots": "Hexformed Boots",
+  "block.ephemera.relay_tp_detector": "Network Gateway Probe",
   "hexcasting.spell.ephemera:magearmor": "Instant Aegis",
   "hexcasting.spell.book.ephemera:magearmor": "Instant Aegis",
-  "item.ephemeral.media_armor.tooltip.1": "Bestows %s %s upon the wearer."
+  "item.ephemeral.media_armor.tooltip.1": "Bestows %s %s upon the wearer.",
+  "hexcasting.spell.ephemera:networkscan": "Network Scan",
+  "hexcasting.spell.book.ephemera:networkscan": "Network Scan",
+  "hexcasting.spell.ephemera:networktp": "Network Gateway",
+  "hexcasting.spell.book.ephemera:networktp": "Network Gateway",
+  "hexcasting.mishap.location_ephemera:inputrelaytprange": "Target entity is too far from target node at %s.",
+  "hexcasting.mishap.location_ephemera:outputrelaytprange": "Could not find connected node within range of %s."
 }

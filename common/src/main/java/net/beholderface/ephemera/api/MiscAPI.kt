@@ -1,18 +1,22 @@
 package net.beholderface.ephemera.api
 
+import at.petrak.hexcasting.api.spell.iota.EntityIota
 import at.petrak.hexcasting.api.spell.iota.Iota
 import at.petrak.hexcasting.api.spell.mishaps.MishapInvalidIota
 import at.petrak.hexcasting.api.spell.mishaps.MishapNotEnoughArgs
 import net.beholderface.ephemera.Ephemera
 import net.beholderface.ephemera.registry.PotionIota
 import net.minecraft.block.Block
+import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.effect.StatusEffect
+import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.Item
 import net.minecraft.tag.TagKey
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
 import ram.talia.hexal.api.linkable.ILinkable
+import ram.talia.hexal.common.entities.BaseWisp
 import javax.annotation.Nullable
 
 fun List<Iota>.getStatusEffect(idx: Int, argc: Int = 0, allowShroud : Boolean) : StatusEffect {
@@ -44,7 +48,7 @@ fun effectToIdentifier(targetEffect: StatusEffect): Identifier? {
     return Registry.STATUS_EFFECT.getId(targetEffect)
 }
 
-fun ILinkable.getConnected(@Nullable previous : ILinkable?, connectionMap : HashMap<ILinkable, ILinkable>, recursion : Int, maxRecursion : Int) : HashMap<ILinkable, ILinkable>{
+fun ILinkable.getConnected(@Nullable previous : ILinkable?, connectionSet : HashSet<ILinkable>, recursion : Int, maxRecursion : Int) : HashSet<ILinkable>{
     if (recursion < 0 || recursion > maxRecursion + 1){
         throw IllegalAccessException("Recusion depth must be between 0 and max recursion.")
     }
@@ -60,11 +64,11 @@ fun ILinkable.getConnected(@Nullable previous : ILinkable?, connectionMap : Hash
             if (linkToCheck == previous){
                 //do nothing, this check is just for performance purposes
             } else if (linkToCheck != null){
-                if (!connectionMap.contains(linkToCheck)){
+                if (!connectionSet.contains(linkToCheck)){
                     //Ephemera.LOGGER.info("Found new position ${linkToCheck.getPosition()}")
                     if (recursion <= maxRecursion) {
-                        connectionMap[linkToCheck] = linkToCheck
-                        linkToCheck.getConnected(this, connectionMap, recursion + 1, maxRecursion)
+                        connectionSet.add(linkToCheck)
+                        linkToCheck.getConnected(this, connectionSet, recursion + 1, maxRecursion)
                     }
                 }/* else {
                     Ephemera.LOGGER.info("Connection map already contains position ${linkToCheck.getPosition()}")
@@ -72,11 +76,25 @@ fun ILinkable.getConnected(@Nullable previous : ILinkable?, connectionMap : Hash
             }
         }
     }
-    return connectionMap
+    if (recursion == 0){
+        Ephemera.LOGGER.info("Found ${connectionSet.size} connected nodes.")
+    }
+    return connectionSet
 }
 
-fun ILinkable.getConnected(maxRecursion: Int) : HashMap<ILinkable, ILinkable>{
-    val map = HashMap<ILinkable, ILinkable>()
-    map[this] = this
-    return this.getConnected(null, map, 0, maxRecursion)
+fun ILinkable.getConnected(maxRecursion: Int) : HashSet<ILinkable>{
+    val set = HashSet<ILinkable>()
+    set.add(this)
+    return this.getConnected(null, set, 0, maxRecursion)
+}
+
+fun List<Iota>.getWispOrPlayer(idx: Int, argc: Int = 0) : Entity {
+    val iota = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
+    if (iota is EntityIota){
+        val entity = iota.entity
+        if (entity is BaseWisp || entity is PlayerEntity){
+            return entity
+        }
+    }
+    throw MishapInvalidIota.of(iota, if (argc==0) idx else argc - (idx + 1), "wisporplayer")
 }

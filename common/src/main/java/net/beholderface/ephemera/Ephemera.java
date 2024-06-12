@@ -1,9 +1,6 @@
 package net.beholderface.ephemera;
 
-import net.beholderface.ephemera.registry.EphemeraIotaTypeRegistry;
-import net.beholderface.ephemera.registry.EphemeraItemRegistry;
-import net.beholderface.ephemera.registry.EphemeraMiscRegistry;
-import net.beholderface.ephemera.registry.EphemeraPatternRegistry;
+import net.beholderface.ephemera.registry.*;
 import net.beholderface.ephemera.networking.EphemeraNetworking;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
@@ -22,6 +19,7 @@ public class Ephemera {
         LOGGER.info("bee");
         EphemeraMiscRegistry.init();
         EphemeraAbstractions.initPlatformSpecific();
+        EphemeraBlockRegistry.init();
         EphemeraItemRegistry.init();
         EphemeraIotaTypeRegistry.init();
         EphemeraPatternRegistry.init();

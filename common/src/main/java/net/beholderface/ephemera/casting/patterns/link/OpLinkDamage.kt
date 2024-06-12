@@ -1,4 +1,4 @@
-package net.beholderface.ephemera.casting.patterns.spells
+package net.beholderface.ephemera.casting.patterns.link
 
 import at.petrak.hexcasting.api.misc.MediaConstants
 import at.petrak.hexcasting.api.spell.ParticleSpray

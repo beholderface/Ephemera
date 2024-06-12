@@ -35,6 +35,7 @@ public class EphemeraItemRegistry {
     public static final RegistrySupplier<ArmorItem> MEDIA_CHESTPLATE = ITEMS.register("media_chestplate", ()-> new ConjuredArmorItem(MEDIA_ARMOR, EquipmentSlot.CHEST, new Item.Settings()));
     public static final RegistrySupplier<ArmorItem> MEDIA_LEGGINGS = ITEMS.register("media_leggings", ()-> new ConjuredArmorItem(MEDIA_ARMOR, EquipmentSlot.LEGS, new Item.Settings()));
     public static final RegistrySupplier<ArmorItem> MEDIA_BOOTS = ITEMS.register("media_boots", ()-> new ConjuredArmorItem(MEDIA_ARMOR, EquipmentSlot.FEET, new Item.Settings()));
-
+    public static final RegistrySupplier<BlockItem> RELAY_INDEX_ITEM = ITEMS.register("relay_index", ()->new BlockItem(EphemeraBlockRegistry.RELAY_INDEX.get(), EPHEMERA_STACKABLE64));
+    public static final RegistrySupplier<BlockItem> TP_DETECTOR_ITEM = ITEMS.register("relay_tp_detector", ()->new BlockItem(EphemeraBlockRegistry.TP_DETECTOR.get(), EPHEMERA_STACKABLE64));
 
 }

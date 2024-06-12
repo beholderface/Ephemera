@@ -9,9 +9,9 @@ import at.petrak.hexcasting.common.casting.operators.spells.OpPotionEffect;
 import kotlin.Triple;
 import net.beholderface.ephemera.casting.patterns.OpFilteredEntityRaycast;
 import net.beholderface.ephemera.casting.patterns.OpFrameRotation;
-import net.beholderface.ephemera.casting.patterns.OpNetworkScan;
+import net.beholderface.ephemera.casting.patterns.link.OpNetworkScan;
 import net.beholderface.ephemera.casting.patterns.math.OpGaussianRand;
-import net.beholderface.ephemera.casting.patterns.spells.OpLinkDamage;
+import net.beholderface.ephemera.casting.patterns.link.OpNetworkTeleport;
 import net.beholderface.ephemera.casting.patterns.spells.OpPlasma;
 import net.beholderface.ephemera.casting.patterns.spells.great.OpMageArmor;
 import net.beholderface.ephemera.casting.patterns.status.*;
@@ -52,7 +52,8 @@ public class EphemeraPatternRegistry {
 
     public static HexPattern PLASMA_BEAM = register(HexPattern.fromAngles("aqqqadweaqa", HexDir.NORTH_EAST), "plasmabeam", new OpPlasma());
     //public static HexPattern LINK_DAMAGE = disabled(HexPattern.fromAngles("qqqqqwdeddwwaawaawa", HexDir.NORTH_WEST), "linkoverload", new OpLinkDamage());
-    public static HexPattern LINK_SCAN = register(HexPattern.fromAngles("eqqqqqaweqaeaq", HexDir.WEST), "networkscan", new OpNetworkScan());
+    public static HexPattern LINK_SCAN = register(HexPattern.fromAngles("eqqqqqaweqaeaq", HexDir.EAST), "networkscan", new OpNetworkScan());
+    public static HexPattern LINK_TELEPORT = register(HexPattern.fromAngles("qqqqqwdeddwdawqqqwaq", HexDir.WEST), "networktp", new OpNetworkTeleport());
 
     public static void init() {
         try {
