@@ -1,8 +1,11 @@
 package net.beholderface.ephemera;
 
+import net.beholderface.ephemera.recipe.EphemeraRecipeSerializer;
+import net.beholderface.ephemera.recipe.EphemeraRecipeTypes;
 import net.beholderface.ephemera.registry.*;
 import net.beholderface.ephemera.networking.EphemeraNetworking;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -25,7 +28,15 @@ public class Ephemera {
         EphemeraPatternRegistry.init();
 		EphemeraNetworking.init();
 
+        EphemeraRecipeSerializer.registerSerializers(EphemeraRecipeTypes.Companion.bind(Registry.RECIPE_SERIALIZER));
+        EphemeraRecipeTypes.registerTypes(EphemeraRecipeTypes.Companion.bind(Registry.RECIPE_TYPE));
+
         LOGGER.info(EphemeraAbstractions.getConfigDirectory().toAbsolutePath().normalize().toString());
+    }
+
+    //for kotlin which doesn't seem to have a getBytes method
+    public static byte[] getKTbytes(String s){
+        return s.getBytes();
     }
 
     /**

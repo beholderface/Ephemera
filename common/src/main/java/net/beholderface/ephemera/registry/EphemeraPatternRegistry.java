@@ -7,18 +7,22 @@ import at.petrak.hexcasting.api.spell.math.HexDir;
 import at.petrak.hexcasting.api.spell.math.HexPattern;
 import at.petrak.hexcasting.common.casting.operators.spells.OpPotionEffect;
 import kotlin.Triple;
+import net.beholderface.ephemera.Ephemera;
 import net.beholderface.ephemera.casting.patterns.OpFilteredEntityRaycast;
 import net.beholderface.ephemera.casting.patterns.OpFrameRotation;
 import net.beholderface.ephemera.casting.patterns.link.OpNetworkScan;
 import net.beholderface.ephemera.casting.patterns.math.OpGaussianRand;
 import net.beholderface.ephemera.casting.patterns.link.OpNetworkTeleport;
+import net.beholderface.ephemera.casting.patterns.spells.OpDatapackFunction;
 import net.beholderface.ephemera.casting.patterns.spells.OpPlasma;
 import net.beholderface.ephemera.casting.patterns.spells.great.OpMageArmor;
 import net.beholderface.ephemera.casting.patterns.status.*;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.util.Identifier;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static net.beholderface.ephemera.Ephemera.id;
@@ -26,9 +30,60 @@ import static net.beholderface.ephemera.Ephemera.id;
 public class EphemeraPatternRegistry {
     public static List<Triple<HexPattern, Identifier, Action>> PATTERNS = new ArrayList<>();
     public static List<Triple<HexPattern, Identifier, Action>> PER_WORLD_PATTERNS = new ArrayList<>();
-    // IMPORTANT: be careful to keep the registration calls looking like this, or you'll have to edit the hexdoc pattern regex.
-    /*public static HexPattern CONGRATS = registerPerWor asdawdsawd ld(HexPattern.fromAngles("eed", HexDir.WEST), "congrats", new OpCongrats());
-    public static HexPattern SIGNUM = regis dawdasdawd ter(HexPattern.fromAngles("edd", HexDir.NORTH_WEST), "signum", new OpSignum());*/
+
+    //when appended to aqaa, these suffixes produce a numerical reflection corresponding to their index in the array
+    //most suffixes obtained via HexBug
+    private static final String[] DATAPACK_SPELL_SUFFIXES = {
+            "", "w", "wa", "edwd", "waa", "q", "edw", "waq", "waqw", "waaq",
+            "e", "qaw", "qwa", "wqaw", "waaqq", "edaq", "qawq", "qwaq", "waaqa", "waaqe",
+            "ee", "eaw", "qawa", "dweede", "qwaa", "eaq", "eaqw", "wqaaede", "waaqqa", "qwaaq",
+            "eaqq", "eqaw"
+    };
+    private static int index = 0;
+    private static int getIndex(){
+        int output = index;
+        index++;
+        return output;
+    }
+
+    public static HexPattern[] DATAPACK_SPELLS;
+    static {
+        ArrayList<HexPattern> spells = new ArrayList<>();
+        ArrayList<Integer> argCounts = new ArrayList<>();
+        for (int i = 0; i < 10; i++){
+            argCounts.add(0);
+        }
+        for (int i = 0; i < 10; i++){
+            argCounts.add(1);
+        }
+        for (int i = 0; i < 5; i++){
+            argCounts.add(2);
+        }
+        for (int i = 0; i < 3; i++){
+            argCounts.add(3);
+        }
+        for (int i = 0; i < 2; i++){
+            argCounts.add(4);
+        }
+        for (int i = 0; i < 2; i++){
+            argCounts.add(5);
+        }
+        int i = 0;
+        for (String suffix : DATAPACK_SPELL_SUFFIXES) {
+            spells.add(register(HexPattern.fromAngles("qaeaqew" + suffix, HexDir.NORTH_WEST), "datapackspell-" + i,
+                    new OpDatapackFunction(argCounts.get(i), "datapackspell-" + i)));
+            i++;
+        }
+        //jank :(
+        DATAPACK_SPELLS = new HexPattern[]{spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()),
+                spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()),
+                spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()),
+                spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()),
+                spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()),
+                spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()),
+                spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex())};
+        Ephemera.LOGGER.info("Registered " + DATAPACK_SPELLS.length + " datapack spells");
+    }
 
     //assorted great spells
     public static HexPattern INVISIBILITY = registerPerWorld(HexPattern.fromAngles("qqqqqaewawaweqa", HexDir.SOUTH_WEST), "invisibility", new OpPotionEffect(

@@ -1,0 +1,7 @@
+{
+  "type": "ephemera:dataspell",
+  "function": "spelltest:say_iota",
+  "mediaCost": 10000,
+  "spellID": 1,
+  "argc": 0
+}

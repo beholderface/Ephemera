@@ -4,6 +4,7 @@ import at.petrak.hexcasting.api.misc.MediaConstants
 import at.petrak.hexcasting.api.spell.ConstMediaAction
 import at.petrak.hexcasting.api.spell.casting.CastingContext
 import at.petrak.hexcasting.api.spell.iota.Iota
+import at.petrak.hexcasting.api.spell.iota.NullIota
 import at.petrak.hexcasting.api.spell.mishaps.MishapInvalidIota
 import net.beholderface.ephemera.api.getConnected
 import net.beholderface.ephemera.blocks.RelayTPDetectorBlock
@@ -36,5 +37,6 @@ class OpNodeIndex() : ConstMediaAction {
                 }
             }
         }
+        return listOf(NullIota())
     }
 }
