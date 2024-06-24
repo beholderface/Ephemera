@@ -4,6 +4,7 @@ import dev.architectury.platform.forge.EventBuses;
 import net.beholderface.ephemera.Ephemera;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 /**
@@ -16,7 +17,11 @@ public class EphemeraForge {
         // Submit our event bus to let architectury register our content on the right time
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         EventBuses.registerModEventBus(Ephemera.MOD_ID, bus);
+
         bus.addListener(EphemeraClientForge::init);
+        bus.addListener((FMLCommonSetupEvent evt)-> evt.enqueueWork(()->{
+            ForgePacketHandler.init();
+        }));
         Ephemera.init();
     }
 }

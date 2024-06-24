@@ -46,7 +46,7 @@ public class EphemeraPatternRegistry {
         return output;
     }
 
-    public static HexPattern[] DATAPACK_SPELLS;
+    /*public static HexPattern[] DATAPACK_SPELLS;
     static {
         ArrayList<HexPattern> spells = new ArrayList<>();
         ArrayList<Integer> argCounts = new ArrayList<>();
@@ -83,7 +83,7 @@ public class EphemeraPatternRegistry {
                 spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()),
                 spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex())};
         Ephemera.LOGGER.info("Registered " + DATAPACK_SPELLS.length + " datapack spells");
-    }
+    }*/
 
     //assorted great spells
     public static HexPattern INVISIBILITY = registerPerWorld(HexPattern.fromAngles("qqqqqaewawaweqa", HexDir.SOUTH_WEST), "invisibility", new OpPotionEffect(

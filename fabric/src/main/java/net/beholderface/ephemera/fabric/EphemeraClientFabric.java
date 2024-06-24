@@ -25,6 +25,7 @@ public class EphemeraClientFabric implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         EphemeraClient.init();
+        FabricPacketHandler.INSTANCE.initClientBound();
 
         /*Block[] cutoutBlocks = {EphemeraBlockRegistry.TP_DETECTOR.get()};
         Block[] translucentBlocks = {};

@@ -12,6 +12,7 @@ import net.minecraft.entity.EquipmentSlot
 import net.minecraft.entity.attribute.EntityAttributeModifier
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.entity.effect.StatusEffect
+import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.item.ArmorItem
 import net.minecraft.item.ArmorMaterials
 import net.minecraft.item.Items
@@ -49,9 +50,13 @@ class OpMageArmor() : SpellAction {
             null
         }
         val effectStrength = if (effect != null){
-            (args.getPositiveInt(4, argc) - 1).coerceAtLeast(0) //no stay of execution armor for you
+            (args.getPositiveInt(4, argc) - 1).coerceIn(0, if (effect == StatusEffects.RESISTANCE){
+                3 //no 100% invulnerability armor for you
+            } else {
+                Integer.MAX_VALUE
+            })
         } else {
-            0
+            0 //no stay of execution armor either
         }
         val slotBools = booleanArrayOf(false, false, false, false)
         //boots, legs, chest, helmet
