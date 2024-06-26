@@ -5,6 +5,7 @@
   "item.ephemera.media_boots": "Hexformed Boots",
 
   "block.ephemera.relay_tp_detector": "Network Gateway Probe",
+  "block.ephemera.relay_index": "Network Routing Index",
 
   "hexcasting.spell.ephemera:magearmor": "Instant Aegis",
   "hexcasting.spell.book.ephemera:magearmor": "Instant Aegis",
@@ -39,6 +40,7 @@
 
   "ephemera.entry.miscpatterns": "Misc. Ephemera Patterns",
   "ephemera.entry.invisibility": "Invisibility",
+  "ephemera.entry.status_iotas": "Status Iotas",
 
   "ephemera.page.paintconjured.1": "Accepts a vector and an itemtype representing a pigment. Costs a negligible amount of media if targeting my own block, or 1 Amethyst Dust if not.",
   "ephemera.page.paintconjured.2": "Sets the colors of the conjured block corresponding to the vector to the colorset represented by the passed pigment, or mine if passed a NULL iota.$(br2)Not guaranteed to work with unconventional forms of conjured matter. ",
