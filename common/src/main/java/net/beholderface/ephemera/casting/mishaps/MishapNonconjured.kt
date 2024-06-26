@@ -18,7 +18,7 @@ class MishapNonconjured(val pos: BlockPos/*, val expected: Text*/) : Mishap() {
         ParticleSpray.burst(Vec3d.ofCenter(pos), 1.0)
 
     override fun errorMessage(ctx: CastingContext, errorCtx: Context): Text =
-        error("oneironaut:nonconjured", this.pos.toShortString(), blockAtPos(ctx, this.pos))
+        error("ephemera:nonconjured", this.pos.toShortString(), blockAtPos(ctx, this.pos))
 
     override fun execute(ctx: CastingContext, errorCtx: Context, stack: MutableList<Iota>) {
         ctx.world.createExplosion(null, pos.x + 0.5, pos.y + 0.5, pos.z + 0.5, 0.25f, Explosion.DestructionType.NONE)
@@ -27,7 +27,7 @@ class MishapNonconjured(val pos: BlockPos/*, val expected: Text*/) : Mishap() {
     companion object {
         @JvmStatic
         fun of(pos: BlockPos/*, stub: String*/): MishapNonconjured {
-            return MishapNonconjured(pos/*, Text.translatable("oneironaut.mishap.uninfusable")*/)
+            return MishapNonconjured(pos)
         }
     }
 

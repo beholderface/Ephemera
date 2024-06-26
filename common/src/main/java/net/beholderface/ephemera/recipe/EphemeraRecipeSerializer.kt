@@ -17,7 +17,7 @@ class EphemeraRecipeSerializer {
 
         private val SERIALIZERS: MutableMap<Identifier, RecipeSerializer<*>> = LinkedHashMap()
 
-        val DATA_SPELL: RecipeSerializer<*> = register("dataspell", DataSpellFakeRecipe.Serializer())
+        //val DATA_SPELL: RecipeSerializer<*> = register("dataspell", DataSpellFakeRecipe.Serializer())
 
         private fun <T : Recipe<*>?> register(name: String, rs: RecipeSerializer<T>): RecipeSerializer<T> {
             val old = SERIALIZERS.put(Ephemera.id(name), rs)

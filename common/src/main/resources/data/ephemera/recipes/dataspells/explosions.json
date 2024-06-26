@@ -1,7 +1,0 @@
-{
-  "type": "ephemera:dataspell",
-  "function": "spelltest:explosions",
-  "mediaCost": 1000000,
-  "spellID": 10,
-  "argc": 1
-}

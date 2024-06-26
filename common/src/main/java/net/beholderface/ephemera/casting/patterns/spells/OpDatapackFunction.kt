@@ -18,23 +18,24 @@ import net.minecraft.util.math.random.Random
 import net.minecraft.util.registry.Registry
 import ram.talia.hexal.api.spell.iota.*
 import ram.talia.hexal.common.lib.HexalIotaTypes
-import ram.talia.moreiotas.api.spell.iota.MatrixIota
+/*import ram.talia.moreiotas.api.spell.iota.MatrixIota
 import ram.talia.moreiotas.api.spell.iota.StringIota
-import ram.talia.moreiotas.common.lib.MoreIotasIotaTypes
+import ram.talia.moreiotas.common.lib.MoreIotasIotaTypes*/
 import java.security.MessageDigest
 
 class OpDatapackFunction(override val argc: Int, val id : String) : SpellAction {
     override fun execute(args: List<Iota>, ctx: CastingContext): Triple<RenderedSpell, Int, List<ParticleSpray>> {
+        throw IllegalAccessException("this spell isn't supposed to be usable")
         //val functionManager = ctx.world.server.commandFunctionManager
         //functionManager.execute(functionManager.getFunction(functionName).get(), ctx.world.server.commandSource)
-        val recipeManger = ctx.world.recipeManager
+        /*val recipeManger = ctx.world.recipeManager
         val spellRecipes = recipeManger.listAllOfType(EphemeraRecipeTypes.DATA_SPELL_TYPE)
         val recipe = spellRecipes.find { it.matches(this) } ?: throw MishapDisallowedSpell()
         val scoreboardMap = HashMap<String, Pair<Int, List<Entity>>>()
         for ((i, _) in args.withIndex()){
             val trip = args.getScoreboardData(i, argc)
             scoreboardMap[trip.first] = Pair(trip.second, trip.third)
-        }
+        }*/
         /*for ((i, iota) in args.withIndex()){
             if (iota.type != recipe.argTypes[i]){
                 throw MishapInvalidIota(iota, (argc - 1) - i, Text.translatable("ephemera:mismatchediota"))
@@ -47,14 +48,14 @@ class OpDatapackFunction(override val argc: Int, val id : String) : SpellAction 
             }
         }*/
 
-        return Triple<RenderedSpell, Int, List<ParticleSpray>>(
+        /*return Triple<RenderedSpell, Int, List<ParticleSpray>>(
             Spell(scoreboardMap, argc, id, ctx.caster.commandSource.withSilent().withLevel(2), recipe.functionString),
             recipe.mediaCost,
             listOf()
-        )
+        )*/
     }
 
-    private fun List<Iota>.getScoreboardData(idx: Int, argc: Int = 0) : Triple<String, Int, List<Entity>>{
+    /*private fun List<Iota>.getScoreboardData(idx: Int, argc: Int = 0) : Triple<String, Int, List<Entity>>{
         val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
         if (x is ListIota){
             val list = x.list.toList()
@@ -75,7 +76,7 @@ class OpDatapackFunction(override val argc: Int, val id : String) : SpellAction 
             }
         }
         throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "ephemera:scoreboardsyntax")
-    }
+    }*/
 
     /*
     fun List<Iota>.getStatusEffect(idx: Int, argc: Int = 0, allowShroud : Boolean) : StatusEffect {
@@ -110,7 +111,7 @@ class OpDatapackFunction(override val argc: Int, val id : String) : SpellAction 
             //ctx.caster.sendMessage(Text.of("Executed $id ($function), with $argc arguments."))
         }
 
-        private fun Iota.prepareStringArg(random : Random) : String{
+        /*private fun Iota.prepareStringArg(random : Random) : String{
             when(this.type){
                 HexIotaTypes.ENTITY -> {
                     val castIota = (this as EntityIota)
@@ -197,7 +198,7 @@ class OpDatapackFunction(override val argc: Int, val id : String) : SpellAction 
                     return " $this"
                 }
             }
-        }
+        }*/
 
     }
 

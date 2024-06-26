@@ -8,12 +8,12 @@ import at.petrak.hexcasting.api.spell.iota.Iota
 import at.petrak.hexcasting.api.spell.mishaps.MishapImmuneEntity
 import at.petrak.hexcasting.api.spell.mishaps.MishapInvalidIota
 import at.petrak.hexcasting.api.spell.mishaps.MishapLocationTooFarAway
-import com.mojang.datafixers.util.Either
 import net.beholderface.ephemera.api.getConnected
 import net.beholderface.ephemera.blocks.RelayTPDetectorBlock
 import net.beholderface.ephemera.registry.EphemeraBlockRegistry
 import net.minecraft.entity.Entity
 import net.minecraft.entity.ItemEntity
+import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Direction
 import net.minecraft.util.math.Vec3d
@@ -23,7 +23,7 @@ import ram.talia.hexal.api.linkable.LinkableTypes
 import ram.talia.hexal.api.spell.casting.IMixinCastingContext
 import ram.talia.hexal.common.entities.BaseCastingWisp
 import ram.talia.hexal.common.entities.BaseWisp
-import java.util.Optional
+import java.util.*
 
 class OpNetworkTeleport : SpellAction {
     override val argc = 3
@@ -109,10 +109,16 @@ class OpNetworkTeleport : SpellAction {
             }
         }
         if (target is BaseWisp){
-            val fightsBack = if (castingEntity is BaseCastingWisp){
-                target.fightConsume(Either.left(castingEntity)) || target.fightConsume(Either.right(ctx.caster))
+            val fightsBack = if (target is BaseCastingWisp){
+                if (castingEntity is ServerPlayerEntity){
+                    target.caster == castingEntity
+                } else if (castingEntity is BaseCastingWisp) {
+                    target.caster == castingEntity.caster
+                } else {
+                    false
+                }
             } else {
-                target.fightConsume(Either.right(ctx.caster))
+                false
             }
             return if (fightsBack){
                 MediaConstants.SHARD_UNIT * 3

@@ -1,0 +1,82 @@
+{
+  "name": "ephemera.entry.status_iotas",
+  "category": "hexcasting:patterns",
+  "icon": "minecraft:potion",
+  "sortnum": 3,
+  "advancement": "hexcasting:root",
+  "read_by_default": false,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "ephemera.page.status_iotas.1"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:getstatus",
+      "anchor": "ephemera:getstatus",
+      "input": "entity",
+      "output": "[status]",
+      "text": "ephemera.page.status_iotas.2"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:getstatuscategory",
+      "anchor": "ephemera:getstatuscategory",
+      "input": "status",
+      "output": "num",
+      "text": "ephemera.page.status_iotas.3"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:getstatusduration",
+      "anchor": "ephemera:getstatusduration",
+      "input": "entity, status",
+      "output": "num",
+      "text": "ephemera.page.status_iotas.4"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:getstatuslevel",
+      "anchor": "ephemera:getstatuslevel",
+      "input": "entity, status",
+      "output": "num",
+      "text": "ephemera.page.status_iotas.5"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:getbystatussingle",
+      "anchor": "ephemera:getbystatussingle",
+      "input": "status, vector",
+      "output": "entity | NULL",
+      "text": "ephemera.page.status_iotas.6"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:getbystatus",
+      "anchor": "ephemera:getbystatus",
+      "input": "status, vec, num",
+      "output": "[entity]",
+      "text": "ephemera.page.status_iotas.7"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:getbystatusinverse",
+      "anchor": "ephemera:getbystatusinverse",
+      "input": "status, vec, num",
+      "output": "[entity]",
+      "text": "ephemera.page.status_iotas.8"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:removestatus",
+      "anchor": "ephemera:removestatus",
+      "input": "entity, status",
+      "output": "",
+      "text": "ephemera.page.status_iotas.9"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "ephemera.page.status_iotas.10"
+    }
+  ]
+}

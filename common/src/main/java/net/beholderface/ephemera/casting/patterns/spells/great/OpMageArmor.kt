@@ -18,6 +18,7 @@ import net.minecraft.item.ArmorMaterials
 import net.minecraft.item.Items
 import net.minecraft.server.network.ServerPlayerEntity
 import javax.annotation.Nullable
+import kotlin.math.pow
 
 /*private fun genAttributeModifier(name : String, strength : Float, slot : String, operation : Int, type : Int) : NbtCompound {
     val output = NbtCompound()
@@ -43,11 +44,15 @@ class OpMageArmor() : SpellAction {
         val target = args.getPlayer(0, argc)
         val durability = args.getPositiveInt(1, argc).coerceAtMost(ConjuredArmorMaterial.staticDurability())
         //strength 10 = slightly better than non-enchanted netherite
-        val armorStrength = args.getPositiveInt(2, argc).coerceAtMost(10)
-        val effect = if (args[3].type == PotionIota.TYPE){
+        val armorStrength = args.getPositiveInt(2, argc).coerceAtMost(10).coerceAtLeast(1)
+        var effect = if (args[3].type == PotionIota.TYPE){
             args.getStatusEffect(3, argc, true)
         } else {
             null
+        }
+        //this would be so absurdly OP if you could somehow get an instant status iota
+        if (effect != null && effect.isInstant){
+            effect = null
         }
         val effectStrength = if (effect != null){
             (args.getPositiveInt(4, argc) - 1).coerceIn(0, if (effect == StatusEffects.RESISTANCE){
@@ -59,13 +64,25 @@ class OpMageArmor() : SpellAction {
             0 //no stay of execution armor either
         }
         val slotBools = booleanArrayOf(false, false, false, false)
+        val items = arrayOf(EphemeraItemRegistry.MEDIA_BOOTS.get(), EphemeraItemRegistry.MEDIA_LEGGINGS.get(),
+            EphemeraItemRegistry.MEDIA_CHESTPLATE.get(), EphemeraItemRegistry.MEDIA_HELMET.get())
         //boots, legs, chest, helmet
+        var affectedSlots = 0
         for ((currentSlot, piece) in target.armorItems.withIndex()){
             if (piece.item == Items.AIR){
                 slotBools[currentSlot] = true
+                affectedSlots++
+            }
+            if (items.contains(piece.item)){
+                affectedSlots++
             }
         }
-        return Triple(Spell(target, slotBools, durability, armorStrength, effect, effectStrength), 1, listOf(ParticleSpray.cloud(target.pos, 2.0)))
+        val baseLifetime = (durability / 60) //minutes
+        var cost = (((armorStrength.toDouble().pow(1.5) * baseLifetime) / 4) * affectedSlots).toInt()
+        if (effect != null){
+            cost *= effectStrength + 2
+        }
+        return Triple(Spell(target, slotBools, durability, armorStrength, effect, effectStrength), cost, listOf(ParticleSpray.cloud(target.pos, 2.0)))
     }
 
     private data class Spell(val player : ServerPlayerEntity, val slots : BooleanArray, val durability : Int, val armorStrength : Int,

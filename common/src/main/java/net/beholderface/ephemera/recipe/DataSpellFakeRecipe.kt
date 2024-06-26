@@ -1,5 +1,6 @@
 package net.beholderface.ephemera.recipe
 
+/*
 import at.petrak.hexcasting.api.PatternRegistry
 import at.petrak.hexcasting.api.spell.iota.IotaType
 import at.petrak.hexcasting.api.spell.math.HexPattern
@@ -23,7 +24,9 @@ import net.minecraft.util.registry.Registry
 import net.minecraft.world.World
 import java.lang.IllegalArgumentException
 
-class DataSpellFakeRecipe(val identifier: Identifier, val functionString : String, val assignedSpell : OpDatapackFunction, val mediaCost : Int, val argc : Int/*, val argTypes : List<IotaType<*>?>, val enforceVecAmbit : Boolean*/) : Recipe<Inventory> {
+class DataSpellFakeRecipe(val identifier: Identifier, val functionString : String, val assignedSpell : OpDatapackFunction, val mediaCost : Int, val argc : Int*/
+/*, val argTypes : List<IotaType<*>?>, val enforceVecAmbit : Boolean*//*
+) : Recipe<Inventory> {
     override fun matches(inventory: Inventory, world: World) = false
 
     fun matches(spell : OpDatapackFunction) = this.assignedSpell == spell
@@ -50,22 +53,7 @@ class DataSpellFakeRecipe(val identifier: Identifier, val functionString : Strin
             if (assignedSpell.argc != argc){
                 throw IllegalArgumentException("Number of arguments specified in json does not match the number of arguments accepted by datapack spell #$assignedSpellID.")
             }
-            /*val argTypes : MutableList<IotaType<*>?> = mutableListOf()
-            val argSet = JsonHelper.getArray(json, "args")
-            for (element in argSet){
-                val eString = element.asString
-                val foundType = if (eString.equals("any:any")){
-                    null
-                } else {
-                    HexIotaTypes.REGISTRY.get(Identifier.tryParse(eString))
-                }
-                argTypes.add(foundType)
-            }
-            val enforceVecAmbit = JsonHelper.getBoolean(json, "enforceVecAmbit")*/
-            /*val blockIn = StateIngredientHelper.deserialize(JsonHelper.getObject(json, "blockIn"))
-            val result = StateIngredientHelper.readBlockState(JsonHelper.getObject(json, "resultType"))
-            val advancement = JsonHelper.getString(json, "advancement", "")*/
-            return DataSpellFakeRecipe(recipeID, functionString, assignedSpell, cost, argc/*, argTypes.toList(), enforceVecAmbit*/)
+            return DataSpellFakeRecipe(recipeID, functionString, assignedSpell, cost, argc)
         }
 
         override fun write(buf: PacketByteBuf, recipe: DataSpellFakeRecipe) {
@@ -73,33 +61,14 @@ class DataSpellFakeRecipe(val identifier: Identifier, val functionString : Strin
             buf.writeIdentifier(PatternRegistry.lookupPattern(recipe.assignedSpell))
             buf.writeInt(recipe.mediaCost)
             buf.writeInt(recipe.argc)
-            /*buf.writeInt(recipe.argTypes.size)
-            for (arg in recipe.argTypes){
-                if (arg == null){
-                    buf.writeIdentifier(Identifier.tryParse("any:any"))
-                } else {
-                    buf.writeIdentifier(Identifier.tryParse(arg.typeName().toString().substring(arg.typeName().toString().lastIndexOf('.') + 1)))
-                }
-            }
-            buf.writeBoolean(recipe.enforceVecAmbit)*/
         }
 
         override fun read(recipeID: Identifier, buf: PacketByteBuf): DataSpellFakeRecipe {
-            /*val blockIn = StateIngredientHelper.read(buf)
-            val result = Block.getStateFromRawId(buf.readVarInt())*/
             val function = buf.readString()
             val assignedSpell = PatternRegistry.lookupPattern(buf.readIdentifier()).action as OpDatapackFunction
             val cost = buf.readInt()
             val argc = buf.readInt()
-            /*val argc = buf.readInt()
-            val argTypes : MutableList<IotaType<*>?> = mutableListOf()
-            for (i in 0 .. argc){
-                val foundType = HexIotaTypes.REGISTRY.get(buf.readIdentifier())
-                argTypes.add(foundType)
-            }
-            val enforceVecAmbit = buf.readBoolean()*/
-            //val advancement = buf.readString()
-            return DataSpellFakeRecipe(recipeID, function, assignedSpell, cost, argc/*, argTypes.toList(), enforceVecAmbit*/)
+            return DataSpellFakeRecipe(recipeID, function, assignedSpell, cost, argc)
         }
     }
-}
+}*/

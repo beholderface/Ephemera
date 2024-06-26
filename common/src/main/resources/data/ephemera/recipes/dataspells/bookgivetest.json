@@ -1,7 +1,0 @@
-{
-  "type": "ephemera:dataspell",
-  "function": "armor_statues:help/get_book",
-  "mediaCost": 10000,
-  "spellID": 0,
-  "argc": 0
-}

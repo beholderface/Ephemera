@@ -21,7 +21,7 @@ class EphemeraRecipeTypes {
 
         private val TYPES: MutableMap<Identifier, RecipeType<*>> = LinkedHashMap()
 
-        var DATA_SPELL_TYPE: RecipeType<DataSpellFakeRecipe> = registerType("dataspell")
+        //var DATA_SPELL_TYPE: RecipeType<DataSpellFakeRecipe> = registerType("dataspell")
 
         private fun <T : Recipe<*>> registerType(name: String): RecipeType<T> {
             val type: RecipeType<T> = object : RecipeType<T> {

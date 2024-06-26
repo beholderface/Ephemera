@@ -35,7 +35,7 @@ subprojects {
         annotationProcessor "org.ow2.asm:asm-util:${project.asmVersion}"
 
         modCompileOnly "maven.modrinth:hexal:${hexalVersion}"
-        modCompileOnly "maven.modrinth:moreiotas:${moreiotasVersion}"
+        //modCompileOnly "maven.modrinth:moreiotas:${moreiotasVersion}"
     }
 
     sourceSets.main.kotlin.srcDirs += 'src/main/java'

@@ -1,0 +1,26 @@
+{
+  "name": "hexcasting.spell.ephemera:paintconjured",
+  "category": "hexcasting:patterns/spells",
+  "icon": "hexcasting:uuid_colorizer",
+  "sortnum": 6,
+  "advancement": "hexcasting:root",
+  "read_by_default": false,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:paintconjured",
+      "anchor": "ephemera:paintconjured",
+      "input": "Vector, itemtype",
+      "output": "",
+      "text": "ephemera.page.paintconjured.1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "ephemera.page.paintconjured.2"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "ephemera.page.paintconjured.3"
+    }
+  ]
+}
