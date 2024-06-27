@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "S": {
+      "item": "hexcasting:slate_block"
+    },
+    "C": {
+      "item": "hexcasting:charged_amethyst"
+    }
+  },
+  "pattern": [
+    " E ",
+    "SSS",
+    "SCS"
+  ],
+  "result": {
+    "item": "ephemera:relay_tp_detector"
+  }
+}

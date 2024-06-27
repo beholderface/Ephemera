@@ -1,0 +1,22 @@
+{
+  "name": "hexcasting.spell.ephemera:particleburst",
+  "category": "hexcasting:patterns/spells",
+  "icon": "minecraft:blaze_powder",
+  "sortnum": 6,
+  "advancement": "hexcasting:root",
+  "read_by_default": false,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:particleburst",
+      "anchor": "ephemera:particleburst",
+      "input": "vec, vec, num, num",
+      "output": "",
+      "text": "ephemera.page.particleburst.1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "ephemera.page.particleburst.2"
+    }
+  ]
+}
