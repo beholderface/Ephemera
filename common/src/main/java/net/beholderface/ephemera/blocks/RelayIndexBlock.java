@@ -3,8 +3,10 @@ package net.beholderface.ephemera.blocks;
 import at.petrak.hexcasting.common.items.ItemFocus;
 import at.petrak.hexcasting.common.lib.HexSounds;
 import net.beholderface.ephemera.blocks.blockentity.RelayIndexBlockEntity;
+import net.beholderface.ephemera.registry.EphemeraBlockRegistry;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
@@ -45,6 +47,9 @@ public class RelayIndexBlock extends BlockWithEntity {
         if (heldStack.getItem() instanceof ItemFocus focus){
             RelayIndexBlockEntity be = (RelayIndexBlockEntity) world.getBlockEntity(pos);
             if (be != null){
+                //if (!world.isClient){
+                    be.setWorld(world);
+                //}
                 if (hand == Hand.OFF_HAND){
                     focus.writeDatum(heldStack, be.getStoredIota());
                 } else {
@@ -57,6 +62,15 @@ public class RelayIndexBlock extends BlockWithEntity {
             }
         }
         return ActionResult.PASS;
+    }
+
+    @Override
+    public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
+        BlockEntity rawBE = world.getBlockEntity(pos);
+        if (rawBE != null && rawBE.getType() == EphemeraBlockRegistry.RELAY_INDEX_ENTITY.get()){
+            RelayIndexBlockEntity be = (RelayIndexBlockEntity) rawBE;
+            rawBE.setWorld(world);
+        }
     }
 
     @Override

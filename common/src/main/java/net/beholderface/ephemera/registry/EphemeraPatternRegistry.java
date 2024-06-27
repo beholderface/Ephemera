@@ -11,6 +11,7 @@ import net.beholderface.ephemera.Ephemera;
 import net.beholderface.ephemera.casting.patterns.OpFilteredEntityRaycast;
 import net.beholderface.ephemera.casting.patterns.OpFrameRotation;
 import net.beholderface.ephemera.casting.patterns.link.OpNetworkScan;
+import net.beholderface.ephemera.casting.patterns.link.OpNodeIndex;
 import net.beholderface.ephemera.casting.patterns.math.OpGaussianRand;
 import net.beholderface.ephemera.casting.patterns.link.OpNetworkTeleport;
 import net.beholderface.ephemera.casting.patterns.spells.OpDatapackFunction;
@@ -110,7 +111,8 @@ public class EphemeraPatternRegistry {
     public static HexPattern PLASMA_BEAM = register(HexPattern.fromAngles("aqqqadweaqa", HexDir.NORTH_EAST), "plasmabeam", new OpPlasma());
     //public static HexPattern LINK_DAMAGE = disabled(HexPattern.fromAngles("qqqqqwdeddwwaawaawa", HexDir.NORTH_WEST), "linkoverload", new OpLinkDamage());
     public static HexPattern LINK_SCAN = register(HexPattern.fromAngles("eqqqqqaweqaeaq", HexDir.EAST), "networkscan", new OpNetworkScan());
-    public static HexPattern LINK_TELEPORT = register(HexPattern.fromAngles("qqqqqwdeddwdawqqqwaq", HexDir.WEST), "networktp", new OpNetworkTeleport());
+    public static HexPattern LINK_INDEX = register(HexPattern.fromAngles("eqqqqqaweqaeaqa", HexDir.EAST), "networkindex", new OpNodeIndex());
+    public static HexPattern LINK_TELEPORT = register(HexPattern.fromAngles("qqqqqwdeddwdawqqqwaq", HexDir.NORTH_WEST), "networktp", new OpNetworkTeleport());
     public static HexPattern PARTICLE_BURST = register(HexPattern.fromAngles("deeeewaaddwqqqqa", HexDir.EAST), "particleburst", new OpParticleBurst());
     public static HexPattern PAINT_CONJURED = register(HexPattern.fromAngles("eqdweeqdwweeqddqdwwwdeww", HexDir.WEST), "paintconjured", new OpSplatoon());
     public static void init() {

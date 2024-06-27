@@ -13,6 +13,7 @@ import ram.talia.hexal.api.linkable.ILinkable
 import ram.talia.hexal.api.linkable.LinkableRegistry
 import javax.annotation.Nullable
 
+//unimplemented because it's too easy
 class OpLinkDamage : SpellAction {
     override val argc = 2
 

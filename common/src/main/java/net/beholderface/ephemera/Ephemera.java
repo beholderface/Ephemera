@@ -1,9 +1,11 @@
 package net.beholderface.ephemera;
 
+import dev.architectury.event.events.common.LifecycleEvent;
 import net.beholderface.ephemera.recipe.EphemeraRecipeSerializer;
 import net.beholderface.ephemera.recipe.EphemeraRecipeTypes;
 import net.beholderface.ephemera.registry.*;
 import net.beholderface.ephemera.networking.EphemeraNetworking;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
@@ -16,6 +18,7 @@ import org.apache.logging.log4j.Logger;
 public class Ephemera {
     public static final String MOD_ID = "ephemera";
     public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
+    private static MinecraftServer CACHED_SERVER = null;
 
 
     public static void init() {
@@ -32,6 +35,14 @@ public class Ephemera {
         EphemeraRecipeTypes.registerTypes(EphemeraRecipeTypes.Companion.bind(Registry.RECIPE_TYPE));
 
         LOGGER.info(EphemeraAbstractions.getConfigDirectory().toAbsolutePath().normalize().toString());
+
+        LifecycleEvent.SERVER_BEFORE_START.register((startedserver) ->{
+            CACHED_SERVER = startedserver;
+        });
+    }
+
+    public static MinecraftServer getCachedServer(){
+        return CACHED_SERVER;
     }
 
     //for kotlin which doesn't seem to have a getBytes method

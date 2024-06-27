@@ -35,7 +35,7 @@ class OpNetworkTeleport : SpellAction {
         val inputNode = LinkableRegistry.linkableFromIota(args[1], ctx.world)
             ?: throw MishapInvalidIota.ofType(args[0], 0, "linkable")
         ctx.assertVecInRange(inputNode.getPosition())
-        if (target.pos.distanceTo(inputNode.getPosition()) >= 4){
+        if (target.pos.distanceTo(inputNode.getPosition()) >= 8){
             throw MishapLocationTooFarAway(target.pos, "ephemera:inputrelaytprange")
         }
         if (!target.canUsePortals() || target.type.isIn(HexTags.Entities.CANNOT_TELEPORT))

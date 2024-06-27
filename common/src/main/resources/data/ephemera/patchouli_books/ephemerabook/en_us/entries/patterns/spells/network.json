@@ -1,0 +1,45 @@
+{
+  "name": "ephemera.entry.network",
+  "category": "hexcasting:patterns/spells",
+  "icon": "minecraft:chain",
+  "sortnum": 19,
+  "advancement": "hexcasting:root",
+  "read_by_default": false,
+  "pages": [
+    "ephemera.page.network.1",
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:networkscan",
+      "anchor": "ephemera:networkscan",
+      "input": "linkable, num",
+      "output": "[linkable]",
+      "text": "ephemera.page.network.2"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:networktp",
+      "anchor": "ephemera:networktp",
+      "input": "entity, linkable, vec",
+      "output": "",
+      "text": "ephemera.page.network.3"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "ephemera:relay_tp_detector",
+      "text": "ephemera.page.network.4"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "ephemera:relay_index",
+      "text": "ephemera.page.network.5"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:networkindex",
+      "anchor": "ephemera:networkindex",
+      "input": "linkable, iota",
+      "output": "vec",
+      "text": "ephemera.page.network.6"
+    }
+  ]
+}

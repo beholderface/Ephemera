@@ -1,5 +1,6 @@
 package net.beholderface.ephemera.fabric;
 
+import dev.architectury.event.events.common.LifecycleEvent;
 import net.fabricmc.api.ModInitializer;
 import net.beholderface.ephemera.Ephemera;
 

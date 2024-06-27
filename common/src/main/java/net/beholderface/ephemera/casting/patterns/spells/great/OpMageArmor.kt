@@ -3,7 +3,9 @@ package net.beholderface.ephemera.casting.patterns.spells.great
 import at.petrak.hexcasting.api.spell.*
 import at.petrak.hexcasting.api.spell.casting.CastingContext
 import at.petrak.hexcasting.api.spell.iota.Iota
+import at.petrak.hexcasting.api.spell.mishaps.MishapDisallowedSpell
 import net.beholderface.ephemera.api.getStatusEffect
+import net.beholderface.ephemera.api.getStatusTagKey
 import net.beholderface.ephemera.items.ConjuredArmorItem
 import net.beholderface.ephemera.items.ConjuredArmorMaterial
 import net.beholderface.ephemera.registry.EphemeraItemRegistry
@@ -13,10 +15,11 @@ import net.minecraft.entity.attribute.EntityAttributeModifier
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.effect.StatusEffects
-import net.minecraft.item.ArmorItem
 import net.minecraft.item.ArmorMaterials
 import net.minecraft.item.Items
 import net.minecraft.server.network.ServerPlayerEntity
+import net.minecraft.util.Identifier
+import net.minecraft.util.registry.Registry
 import javax.annotation.Nullable
 import kotlin.math.pow
 
@@ -50,9 +53,18 @@ class OpMageArmor() : SpellAction {
         } else {
             null
         }
-        //this would be so absurdly OP if you could somehow get an instant status iota
-        if (effect != null && effect.isInstant){
-            effect = null
+        if (effect != null){
+            val effectKeyMaybe = Registry.STATUS_EFFECT.getKey(effect)
+            if (effectKeyMaybe.isPresent){
+                val effectEntry = Registry.STATUS_EFFECT.entryOf(effectKeyMaybe.get())
+                if (effectEntry.isIn(getStatusTagKey(Identifier("ephemera:armor_blacklist")))){
+                    throw MishapDisallowedSpell("ephemera:blacklist")
+                }
+            }
+            //this would be so absurdly OP if you could somehow get an instant status iota
+            if (effect.isInstant){
+                throw MishapDisallowedSpell("ephemera:instant")
+            }
         }
         val effectStrength = if (effect != null){
             (args.getPositiveInt(4, argc) - 1).coerceIn(0, if (effect == StatusEffects.RESISTANCE){

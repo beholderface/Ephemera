@@ -2,6 +2,7 @@ package net.beholderface.ephemera.api.xplat;
 
 import at.petrak.hexcasting.api.spell.iota.Iota;
 import net.beholderface.ephemera.Ephemera;
+import net.minecraft.server.MinecraftServer;
 
 import java.util.Optional;
 import java.util.ServiceLoader;
@@ -11,6 +12,7 @@ public interface EphemeraXPlat {
     EphemeraXPlat INSTANCE = find();
     //I did this at first because I wanted to make routing numbers for link relays, and forgot that I had already theorized a block that you just slap them
     Optional<Iota> getAttachedIota(String key);
+    MinecraftServer getCachedServer();
 
     private static EphemeraXPlat find() {
         var providers = ServiceLoader.load(EphemeraXPlat.class).stream().toList();

@@ -29,11 +29,12 @@ class OpPlasma() : SpellAction {
         if (mCast == null || !mCast.hasWisp())
             throw MishapNoWisp()
         val wisp = mCast.wisp
-        return Triple(Spell(wisp!!), MediaConstants.DUST_UNIT, listOf())
+        return Triple(Spell(wisp!!), MediaConstants.DUST_UNIT * 2, listOf())
     }
 
     private data class Spell(val wisp : BaseCastingWisp) : RenderedSpell{
         override fun cast(ctx: CastingContext) {
+            val maxrange = 8.0
             val allegedlyNotWisp = wisp as Entity
             val origin = allegedlyNotWisp.pos
             var dir = if (wisp is TickingWisp){
@@ -49,7 +50,7 @@ class OpPlasma() : SpellAction {
                 val random = allegedlyNotWisp.world.random
                 dir = Vec3d(random.nextBetween(-100, 100).toDouble(), random.nextBetween(-100, 100).toDouble(), random.nextBetween(-100, 100).toDouble()).normalize()
             }
-            val endpoint1 = origin.add(dir.multiply(8.0))
+            val endpoint1 = origin.add(dir.multiply(maxrange))
             val blockCast = ctx.world.raycast(RaycastContext(origin, endpoint1, RaycastContext.ShapeType.COLLIDER, RaycastContext.FluidHandling.ANY, ctx.caster))
             //if the block raycast hit anything, limit the entity raycasts to only as far as the block raycast got
             val endpoint2 = if (blockCast != null){
@@ -61,7 +62,7 @@ class OpPlasma() : SpellAction {
             var latestHit: EntityHitResult? = null
             do {
                 latestHit = ProjectileUtil.raycast(allegedlyNotWisp, origin, endpoint2, Box(origin, endpoint2),
-                    {it.pos.isInRange(origin, 8.0) && it.isLiving && !hitEntities.contains(it)}, 1000000.0)
+                    {it.pos.isInRange(origin, maxrange) && it.isLiving && !hitEntities.contains(it)}, 1000000.0)
                 if (latestHit != null){
                     hitEntities.add(latestHit.entity as LivingEntity)
                 }

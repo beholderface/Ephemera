@@ -12,6 +12,8 @@ import net.minecraft.entity.EntityType
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.Item
+import net.minecraft.server.network.ServerPlayerEntity
+import net.minecraft.server.world.ServerWorld
 import net.minecraft.tag.TagKey
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
@@ -44,8 +46,8 @@ fun getStatusTagKey(id : Identifier) : TagKey<StatusEffect> {
     return TagKey.of(Registry.MOB_EFFECT_KEY, id)
 }
 
-fun effectToIdentifier(targetEffect: StatusEffect): Identifier? {
-    return Registry.STATUS_EFFECT.getId(targetEffect)
+fun StatusEffect.effectToIdentifier(): Identifier? {
+    return Registry.STATUS_EFFECT.getId(this)
 }
 
 fun ILinkable.getConnected(@Nullable previous : ILinkable?, connectionSet : HashSet<ILinkable>, recursion : Int, maxRecursion : Int) : HashSet<ILinkable>{
@@ -76,9 +78,9 @@ fun ILinkable.getConnected(@Nullable previous : ILinkable?, connectionSet : Hash
             }
         }
     }
-    if (recursion == 0){
+    /*if (recursion == 0){
         Ephemera.LOGGER.info("Found ${connectionSet.size} connected nodes.")
-    }
+    }*/
     return connectionSet
 }
 
@@ -97,4 +99,15 @@ fun List<Iota>.getWispOrPlayer(idx: Int, argc: Int = 0) : Entity {
         }
     }
     throw MishapInvalidIota.of(iota, if (argc==0) idx else argc - (idx + 1), "wisporplayer")
+}
+
+fun stringToWorld(key : Identifier) : ServerWorld? {
+    val server = Ephemera.getCachedServer();
+    var output : ServerWorld? = null
+    server.worlds?.forEach {
+        if (it.registryKey.value.equals(key)){
+            output = it
+        }
+    }
+    return output
 }

@@ -1,0 +1,27 @@
+# Changes here will be overwritten by Copier. NEVER EDIT MANUALLY
+# See: https://copier.readthedocs.io/en/stable/configuring/#the-copier-answersyml-file
+_commit: v0.1.11
+_src_path: gh:hexdoc-dev/hexdoc-hexcasting-template
+author: beholderface
+book_id: ephemera:ephemerabook
+default_branch: main
+github_repo: ephemera
+gradle_mod_version_key: modVersion
+hexdoc_mod_plugin_classname: EphemeraModPlugin
+hexdoc_plugin_classname: EphemeraPlugin
+java_lang:
+    ext: java
+    src: java
+java_package: net/beholderface/ephemera
+mod_display_name: Ephemera
+modid: ephemera
+multiloader: true
+package_export_root: doc/src/hexdoc_ephemera/_export
+package_name: hexdoc-ephemera
+package_slug: hexdoc_ephemera
+package_src: doc/src/hexdoc_ephemera
+pages_url: https://beholderface.github.io/ephemera
+pattern_regex:
+    per_world_value: registerPerWorld
+    regex: (?P<is_per_world>register|registerPerWorld)\(HexPattern\.fromAngles\("(?P<signature>[qweasd]+)",\s*HexDir\.(?P<startdir>\w+)\),\s*"(?P<name>[^"]+)"?
+pattern_registry: registry/EphemeraPatternRegistry.java
