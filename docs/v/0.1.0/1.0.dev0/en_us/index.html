@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Ephemera Book</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description" content="The Ephemera Book, all in one place." />
+      <meta name="author" content="beholderface" />
+        <link rel="None" type="image/ico" href="favicon.ico" />
+        <link rel="icon" type="image/png" href="favicon-16x16.png" />
+        <link rel="icon" type="image/png" href="favicon-32x32.png" />
+        <link rel="icon" type="image/png" href="favicon-64x64.png" />
+        <link rel="icon" type="image/png" href="favicon-96x96.png" />
+        <link rel="icon" type="image/png" href="favicon-180x180.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-60x60.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-152x152.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-167x167.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-180x180.png" />
+        <link rel="None" type="image/png" href="mstile-70x70.png" />
+        <link rel="None" type="image/png" href="mstile-270x270.png" />
+        <link rel="None" type="image/png" href="mstile-310x310.png" />
+        <link rel="None" type="image/png" href="mstile-310x150.png" />
+        <link rel="shortcut icon" type="image/png" href="favicon-196x196.png" />
+      <link rel="mask-icon" href="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/main/media/safari-pinned-tab.svg" color="#332233">
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Ephemera Book" />
+<meta property="og:image" content="https://ephemera.hexxy.media/v/0.1.0/1.0.dev0/en_us/icon.png" />
+<meta property="og:url" content="https://ephemera.hexxy.media/v/0.1.0/1.0.dev0/en_us" />
+<meta property="og:description" content="The Ephemera Book, all in one place." />
+<meta property="og:site_name" content="Ephemera (0.1.0)" />
+      <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="index.css">
+      <link rel="stylesheet" href="textures.css">
+      <noscript>
+        <style>
+          /* for accessibility */
+          .spoilered {
+            filter: none !important;
+          }
+        </style>
+      </noscript>
+        <script type="module" src="index.js"></script>
+  <script type="module" src="hexcasting.js"></script>
+  <script type="module" src="hexcasting_render.js"></script>
+  </head>
+  <body>
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button
+        type="button"
+        class="navbar-toggle collapsed"
+        data-toggle="collapse"
+        data-target="#navbar-collapse"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../..">Ephemera Book</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >0.1.0 <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="version-dropdown"></ul>
+        </li>
+        <li class="dropdown">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >English (United States) <span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-menu-left" id="lang-dropdown"></ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container" style="margin-top: 3em;">
+  <blockquote>
+      <h1><p>This is the online version of the Ephemera documentation.</p></h1>
+      <p><strong>Entries which are blurred are spoilers</strong>. Click to reveal them, but be aware that they may spoil endgame progression. Alternatively, click <a href="?nospoiler">here</a> to get a version with all spoilers showing.</p>
+      <span id="old-version-notice" class="hidden">
+        <br />
+        <p><i>The past is a foreign country; they do things differently there.</i></p>
+      </span>
+  </blockquote>
+</div>
+<div class="container">
+<div id="table-of-contents"></div>
+<nav class="toc-container">
+  <h2 class="page-header">
+    Table of <span class="nobr">Contents<a
+      href="javascript:void(0)"
+      class="permalink toggle-link small"
+      data-target="toc-category"
+      title="Toggle all"
+    ><i class="bi bi-list-nested"></i></a><a
+    href="#table-of-contents"
+    class="permalink small toc-permalink"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></span>
+  </h2>
+    <details class="toc-category">
+      <summary><a href="#patterns" class="toc-elem "><img
+      title="Bookshelf"
+      alt="Bookshelf"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.19.2/1.0.dev1/assets/minecraft/textures/block/bookshelf.png"
+      loading="lazy"
+      class="item-texture  texture "
+    > Patterns</a></summary>
+      <ul>
+          <li><a href="#patterns/misc_patterns" class="toc-elem "><img
+      title="Item Frame"
+      alt="Item Frame"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/item_frame.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Misc. Ephemera Patterns</a></li>
+          <li><a href="#patterns/spells/status_iotas" class="toc-elem "><img
+      title="Potion"
+      alt="Potion"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/potion_overlay.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Status Iotas</a></li>
+      </ul>
+    </details>
+    <details class="toc-category">
+      <summary><a href="#patterns/spells" class="toc-elem "><img
+      title="Enchanted Book"
+      alt="Enchanted Book"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/enchanted_book.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Spells</a></summary>
+      <ul>
+          <li><a href="#patterns/spells/plasma" class="toc-elem "><img
+      title="Dragon's Breath"
+      alt="Dragon&#39;s Breath"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/dragon_breath.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Plasma Beam</a></li>
+          <li><a href="#patterns/spells/paint_conjured" class="toc-elem "><div
+      role="img"
+      title="Soulglimmer Pigment"
+      aria-label="Soulglimmer Pigment (animated)"
+      class="item-texture  texture animated-sync texture-hexcasting-textures-item-colorizer-uuid-png pixelated"
+    ></div> Externalize Pigment</a></li>
+          <li><a href="#patterns/spells/particle_burst" class="toc-elem "><img
+      title="Blaze Powder"
+      alt="Blaze Powder"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/blaze_powder.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Particle Burst</a></li>
+          <li><a href="#patterns/spells/network" class="toc-elem "><img
+      title="Chain"
+      alt="Chain"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/chain.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Link Amenities</a></li>
+      </ul>
+    </details>
+    <details class="toc-category">
+      <summary><a href="#patterns/great_spells" class="toc-elem "><img
+      title="Conduit Power"
+      alt="Conduit Power"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/mob_effect/conduit_power.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Great Spells</a></summary>
+      <ul>
+          <li><a href="#patterns/spells/great/magearmor" class="toc-elem "><img
+      title="Hexformed Chestplate"
+      alt="Hexformed Chestplate"
+      src="https://raw.githubusercontent.com/beholderface/Ephemera/ca51a3e2d85342df5667e94efe0b8fbc96a7b6e5/common/src/main/resources/assets/ephemera/textures/item/media_chestplate.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Instant Aegis</a></li>
+          <li><a href="#patterns/spells/great/invisibility" class="toc-elem "><img
+      title="Glass"
+      alt="Glass"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.19.2/1.0.dev1/assets/minecraft/textures/block/glass.png"
+      loading="lazy"
+      class="item-texture  texture "
+    > Invisibility</a></li>
+      </ul>
+    </details>
+</nav>
+  <main class="book-body">
+<section id="patterns">
+    <h2 class="category-title page-header">
+    <img
+      title="Bookshelf"
+      alt="Bookshelf"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.19.2/1.0.dev1/assets/minecraft/textures/block/bookshelf.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >Patterns<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>A list of all the patterns I&#39;ve discovered, as well as what they do.</p>
+<div id="patterns/misc_patterns" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="Item Frame"
+      alt="Item Frame"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/item_frame.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Misc. Ephemera Patterns<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/misc_patterns"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+    <p>I&#39;ve found a couple patterns designed to interact with item frames. Nothing fancy, but they&#39;re nice utility for things like controlling my spell circles.</p><p>Additionally, it seems Sorter&#39;s Purification works on them just fine, so my attempts to find a dedicated frame-item pattern were pointless.</p>
+<br />
+  <div id="patterns/misc_patterns@ephemera:readframerotation" class="">
+<h4 class="pattern-title">Decorator&#39;s Prfn. (item frame → number)<a
+    href="#patterns/misc_patterns@ephemera:readframerotation"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wwawwqwwawwaeae"
+        data-start="south_west"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: wwawwqwwawwaeae</canvas>
+  </details>
+      <p>Accepts an item frame entity, and returns its rotation, from 0 to 7.</p>
+  </div>
+<br />
+  <div id="patterns/misc_patterns@ephemera:setframerotation" class="">
+<h4 class="pattern-title">Decorator&#39;s Gambit (item frame, number →)<a
+    href="#patterns/misc_patterns@ephemera:setframerotation"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wwawwqwwawwaqdq"
+        data-start="south_west"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: wwawwqwwawwaqdq</canvas>
+  </details>
+      <p>Accepts an item frame entity and an integer from 0 to 7, and sets its rotation to the number. Costs a negligible amount of media.</p>
+  </div>
+<br />
+  <div id="patterns/misc_patterns@ephemera:filteredentityraycast" class="">
+<h4 class="pattern-title">Scout&#39;s Exaltation ([type], vec, vec → entity | NULL)<a
+    href="#patterns/misc_patterns@ephemera:filteredentityraycast"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wqded"
+        data-start="east"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: wqded</canvas>
+  </details>
+      <p>As <a href="https://hexcasting.hexxy.media/v/0.10.3/1.0/en_us#patterns/basics@hexcasting:raycast/entity">Scout&#39;s Distillation</a>, but also accepts a list of entity type iotas. Any entity whose type is not present in the list will be ignored. Costs an amount of media slightly less negligible than that of the aforementioned pattern.</p>
+  </div>
+<br />
+  <div id="patterns/misc_patterns@ephemera:gaussianrand" class="">
+<h4 class="pattern-title">Entropy Reflection II (→ num)<a
+    href="#patterns/misc_patterns@ephemera:gaussianrand"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eeeeq"
+        data-start="north_east"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: eeeeq</canvas>
+  </details>
+      <p>Returns a random number between 0 and 1, with a gaussian distribution.</p>
+  </div>
+<br />
+</div>
+<div id="patterns/spells/status_iotas" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="Potion"
+      alt="Potion"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/potion_overlay.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Status Iotas<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/status_iotas"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+    <p>These patterns work with a type of iota that represents lingering effects on a creature, which can allow me to asses the state of a creature more thoroughly than with only Nurse&#39;s Purification.<br />While my research suggests that status iotas representing instantaneous effects are possible, they would be very difficult to obtain, and I cannot think of any use case for them at the moment.</p>
+<br />
+  <div id="patterns/spells/status_iotas@ephemera:getstatus" class="">
+<h4 class="pattern-title">Apothecary&#39;s Prfn. (entity → [status])<a
+    href="#patterns/spells/status_iotas@ephemera:getstatus"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqqqqedwd"
+        data-start="south_west"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: qqqqqedwd</canvas>
+  </details>
+      <p>Accepts a living entity, and returns a list of status iotas representing all effects on the target.</p>
+  </div>
+<br />
+  <div id="patterns/spells/status_iotas@ephemera:getstatuscategory" class="">
+<h4 class="pattern-title">Apothecary&#39;s Prfn. II (status → num)<a
+    href="#patterns/spells/status_iotas@ephemera:getstatuscategory"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eeeeeqawa"
+        data-start="south_east"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: eeeeeqawa</canvas>
+  </details>
+      <p>Accepts a status effect type, and returns a number based on whether the effect is likely to be helpful, harmful, or neutral to a creature.</p>
+  </div>
+<br />
+  <div id="patterns/spells/status_iotas@ephemera:getstatusduration" class="">
+<h4 class="pattern-title">Pharmacist&#39;s Dstln. (entity, status → num)<a
+    href="#patterns/spells/status_iotas@ephemera:getstatusduration"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqqqqedwdwd"
+        data-start="south_west"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: qqqqqedwdwd</canvas>
+  </details>
+      <p>Accepts an entity and a status effect type, and returns the effect on the target&#39;s duration in seconds.</p>
+  </div>
+<br />
+  <div id="patterns/spells/status_iotas@ephemera:getstatuslevel" class="">
+<h4 class="pattern-title">Pharmacist&#39;s Distillation II (entity, status → num)<a
+    href="#patterns/spells/status_iotas@ephemera:getstatuslevel"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eeeeeqawawa"
+        data-start="south_east"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: eeeeeqawawa</canvas>
+  </details>
+      <p>Accepts an entity and a status effect type, and returns the effect on the target&#39;s potency.</p>
+  </div>
+<br />
+  <div id="patterns/spells/status_iotas@ephemera:getbystatussingle" class="">
+<h4 class="pattern-title">Entity Distillation: Status (status, vector → entity | NULL)<a
+    href="#patterns/spells/status_iotas@ephemera:getbystatussingle"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eaeeeeeae"
+        data-start="east"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: eaeeeeeae</canvas>
+  </details>
+      <p>Accepts a status effect type and a vector, and returns an entity at that position which has that effect.</p>
+  </div>
+<br />
+  <div id="patterns/spells/status_iotas@ephemera:getbystatus" class="">
+<h4 class="pattern-title">Zone Exltn.: Status (status, vec, num → [entity])<a
+    href="#patterns/spells/status_iotas@ephemera:getbystatus"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="ewqqqqqwe"
+        data-start="east"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: ewqqqqqwe</canvas>
+  </details>
+      <p>Accepts a status effect type, a vector, and a number (<i>n</i>), and returns a list of entities within radius <i>n</i> of the vector which have that effect.</p>
+  </div>
+<br />
+  <div id="patterns/spells/status_iotas@ephemera:getbystatusinverse" class="">
+<h4 class="pattern-title">Zone Exltn.: Not-Status (status, vec, num → [entity])<a
+    href="#patterns/spells/status_iotas@ephemera:getbystatusinverse"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qweeeeewq"
+        data-start="east"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: qweeeeewq</canvas>
+  </details>
+      <p>Accepts a status effect type, a vector, and a number (<i>n</i>), and returns a list of entities within radius <i>n</i> of the vector which do not have that effect.</p>
+  </div>
+<br />
+  <div id="patterns/spells/status_iotas@ephemera:removestatus" class="">
+<h4 class="pattern-title">Cleanse Status (entity, status →)<a
+    href="#patterns/spells/status_iotas@ephemera:removestatus"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eeeeedaqdewed"
+        data-start="south_west"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: eeeeedaqdewed</canvas>
+  </details>
+      <p>Accepts an entity and a status effect type, and removes that status effect from the entity. Cost is based on the effect&#39;s innate harmfulness, its potency, and its remaining duration.</p>
+  </div>
+<br />
+    <p>Costs more if attempting to remove a positive effect from an entity other than myself.</p><p>All of the patterns which deal with a specific status effect on an entity have the side effect that if the entity does not currently have the specified effect, the pattern will fail and inflict nausea upon me.</p>
+<br />
+</div>
+</section>
+<section id="patterns/spells">
+    <h2 class="category-title page-header">
+    <img
+      title="Enchanted Book"
+      alt="Enchanted Book"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/enchanted_book.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Spells<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>Patterns and actions that perform a magical effect on the world.</p>
+<div id="patterns/spells/plasma" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="Dragon's Breath"
+      alt="Dragon&#39;s Breath"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/dragon_breath.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Plasma Beam<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/plasma"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+    <p>One of the more destructive spells I&#39;ve encountered, this spell converts some of the media making up a wisp into a plasma-like blast of energy that pierces through and damages any creatures (including myself) in the way, and potentially destroys blocks not noted for their durability.</p>
+<br />
+  <div id="patterns/spells/plasma@ephemera:plasmabeam" class="">
+<h4 class="pattern-title">Plasma Beam<a
+    href="#patterns/spells/plasma@ephemera:plasmabeam"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aqqqadweaqa"
+        data-start="north_east"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: aqqqadweaqa</canvas>
+  </details>
+      <p>Fires the blast along the motion vector of the wisp casting the spell, or a random vector if it is not moving. Costs two amethyst dust.</p>
+  </div>
+<br />
+    <p>Mod author&#39;s note for Forge users: This spell does not produce particles on Forge. I do not know why. The entity damage and block breaking still work fine, at least. Sorry.</p><p>I&#39;ll try to get it working eventually.</p>
+<br />
+</div>
+<div id="patterns/spells/paint_conjured" class="entry">
+    <h3 class="entry-title page-header">
+    <div
+      role="img"
+      title="Soulglimmer Pigment"
+      aria-label="Soulglimmer Pigment (animated)"
+      class="item-texture  texture animated-sync texture-hexcasting-textures-item-colorizer-uuid-png pixelated"
+    ></div>Externalize Pigment<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/paint_conjured"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <div id="patterns/spells/paint_conjured@ephemera:paintconjured" class="">
+<h4 class="pattern-title">Externalize Pigment (Vector, itemtype →)<a
+    href="#patterns/spells/paint_conjured@ephemera:paintconjured"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eqdweeqdwweeqddqdwwwdeww"
+        data-start="west"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: eqdweeqdwweeqddqdwwwdeww</canvas>
+  </details>
+      <p>Accepts a vector and an itemtype representing a pigment. Costs a negligible amount of media if targeting my own block, or 1 Amethyst Dust if not.</p>
+  </div>
+<br />
+    <p>Sets the colors of the conjured block corresponding to the vector to the colorset represented by the passed pigment, or mine if passed a NULL iota.</p><p>Not guaranteed to work with unconventional forms of conjured matter. </p>
+<br />
+    <p>Feels strangely celebratory, as if something similar was once used in grand festivals where teams would splatter their colors all over their opponents&#39; territory in a bid for ideological dominance.</p>
+<br />
+</div>
+<div id="patterns/spells/particle_burst" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="Blaze Powder"
+      alt="Blaze Powder"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/blaze_powder.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Particle Burst<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/particle_burst"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <div id="patterns/spells/particle_burst@ephemera:particleburst" class="">
+<h4 class="pattern-title">Particle Burst (vec, vec, num, num →)<a
+    href="#patterns/spells/particle_burst@ephemera:particleburst"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="deeeewaaddwqqqqa"
+        data-start="east"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: deeeewaaddwqqqqa</canvas>
+  </details>
+      <p>Accepts two vectors and two numbers, and uses them to define a burst of particles. Costs a negligible amount of media.</p>
+  </div>
+<br />
+    <p>The first vector determines the burst&#39;s origin position, and the second vector determines its direction and speed. The first number determines the scale of random numbers added to each position component, and the second does the same for the direction vector.</p>
+<br />
+    <p>Mod author&#39;s note for Forge users: This spell does not work on Forge. I do not know why. I&#39;ve set the cost on Forge to zero so at least it won&#39;t waste media. Sorry.</p><p>I&#39;ll try to get it working eventually.</p>
+<br />
+</div>
+<div id="patterns/spells/network" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="Chain"
+      alt="Chain"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/chain.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Link Amenities<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/network"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+    <p>I&#39;ve devised a suite of patterns (plus a couple of blocks) to make links a bit more useful for things other than data transmission and media sharing.</p><p>Note that the patterns which fetch information about the network make no promises regarding whether returned linkables are within ambit.</p>
+<br />
+  <div id="patterns/spells/network@ephemera:networkscan" class="">
+<h4 class="pattern-title">Network Dstln. (linkable, num → [linkable])<a
+    href="#patterns/spells/network@ephemera:networkscan"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eqqqqqaweqaeaq"
+        data-start="east"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: eqqqqqaweqaeaq</canvas>
+  </details>
+      <p>Scans the link network connected to the input linkable up to a recursion depth equal to the input number (max 32), and returns a list of all connected linkables. Costs a negligible amount of media.</p>
+  </div>
+<br />
+  <div id="patterns/spells/network@ephemera:networktp" class="">
+<h4 class="pattern-title">Network Gateway (entity, linkable, vec →)<a
+    href="#patterns/spells/network@ephemera:networktp"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqqqqwdeddwdawqqqwaq"
+        data-start="north_west"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: qqqqqwdeddwdawqqqwaq</canvas>
+  </details>
+      <p>Accepts an entity to teleport, a linkable to use for access to its network, and a destination. If the entity is within 8 blocks of the linkable, and there is a network node within 4 blocks of the destination, the entity will be teleported. Cost varies based on what entity is teleported.</p>
+  </div>
+<br />
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Click to show recipes</span>
+    <span class="collapse-recipe-hide">Click to hide recipes</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Network Gateway Probe</h5>
+    <div class="crafting-table">
+        <img
+      title="Crafting Table"
+      alt="Crafting Table"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/306aa9ca0ee9ac9b6cbcf592e4ce3ef3a922b65b/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Ender Pearl"
+      alt="Ender Pearl"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/ender_pearl.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Block of Slate"
+      alt="Block of Slate"
+      src="https://hexcasting.hexxy.media/v/0.10.3/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Block of Slate"
+      alt="Block of Slate"
+      src="https://hexcasting.hexxy.media/v/0.10.3/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Block of Slate"
+      alt="Block of Slate"
+      src="https://hexcasting.hexxy.media/v/0.10.3/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Block of Slate"
+      alt="Block of Slate"
+      src="https://hexcasting.hexxy.media/v/0.10.3/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Charged Amethyst"
+      alt="Charged Amethyst"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/f569ba1530666f43e84584e446e6fd060395b5f4/Common/src/main/resources/assets/hexcasting/textures/item/charged_amethyst.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Block of Slate"
+      alt="Block of Slate"
+      src="https://hexcasting.hexxy.media/v/0.10.3/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Network Gateway Probe"
+      alt="Network Gateway Probe"
+      src="https://ephemera.hexxy.media/v/0.1.0/1.0.dev0/assets/ephemera/textures/block/relay_tp_detector.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>Outputs a brief redstone signal when an adjacent relay is used as the output for a casting of Network Gateway.</p>
+<br />
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">Click to show recipes</span>
+    <span class="collapse-recipe-hide">Click to hide recipes</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>Network Routing Index</h5>
+    <div class="crafting-table">
+        <img
+      title="Crafting Table"
+      alt="Crafting Table"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/306aa9ca0ee9ac9b6cbcf592e4ce3ef3a922b65b/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Focus"
+      alt="Focus"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/f569ba1530666f43e84584e446e6fd060395b5f4/Common/src/main/resources/assets/hexcasting/textures/item/focus_empty.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Block of Slate"
+      alt="Block of Slate"
+      src="https://hexcasting.hexxy.media/v/0.10.3/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Block of Slate"
+      alt="Block of Slate"
+      src="https://hexcasting.hexxy.media/v/0.10.3/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Block of Slate"
+      alt="Block of Slate"
+      src="https://hexcasting.hexxy.media/v/0.10.3/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Block of Slate"
+      alt="Block of Slate"
+      src="https://hexcasting.hexxy.media/v/0.10.3/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Charged Amethyst"
+      alt="Charged Amethyst"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/f569ba1530666f43e84584e446e6fd060395b5f4/Common/src/main/resources/assets/hexcasting/textures/item/charged_amethyst.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="Block of Slate"
+      alt="Block of Slate"
+      src="https://hexcasting.hexxy.media/v/0.10.3/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="Network Routing Index"
+      alt="Network Routing Index"
+      src="https://ephemera.hexxy.media/v/0.1.0/1.0.dev0/assets/ephemera/textures/block/relay_index.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>When rclicked with a focus in the main hand, attempts to store its iota in the block. When the focus is in the offhand, writes the stored iota to the focus.</p>
+<br />
+  <div id="patterns/spells/network@ephemera:networkindex" class="">
+<h4 class="pattern-title">Routing Dstln. (linkable, iota → vec)<a
+    href="#patterns/spells/network@ephemera:networkindex"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eqqqqqaweqaeaqa"
+        data-start="east"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: eqqqqqaweqaeaqa</canvas>
+  </details>
+      <p>Accepts a linkable to use for network access, and any iota. If a relay connected to the network has an adjacent Network Routing Index with the same iota, returns that relay&#39;s position. Costs half an amethyst dust.</p>
+  </div>
+<br />
+</div>
+</section>
+<section id="patterns/great_spells">
+    <h2 class="category-title page-header">
+    <img
+      title="Conduit Power"
+      alt="Conduit Power"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/mob_effect/conduit_power.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Great Spells<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/great_spells"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>The spells catalogued here are purported to be of legendary difficulty and power. They seem to have been recorded only sparsely (for good reason, the texts claim). It&#39;s probably just the hogwash of extinct traditionalists, though-- a pattern&#39;s a pattern. What could possibly go wrong?</p>
+<div id="patterns/spells/great/magearmor" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="Hexformed Chestplate"
+      alt="Hexformed Chestplate"
+      src="https://raw.githubusercontent.com/beholderface/Ephemera/ca51a3e2d85342df5667e94efe0b8fbc96a7b6e5/common/src/main/resources/assets/ephemera/textures/item/media_chestplate.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Instant Aegis<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/great/magearmor"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+    <p>I&#39;ve discovered a rather interesting spell, capable of producing a defensive media barrier that can match and even exceed the protective abilities of many kinds of conventional armor. It can even apply a wide array of <a href="#patterns/spells/status_iotas">persistent effects</a> to the wearer, allowing for incredible versatility.</p>
+<br />
+  <div id="patterns/spells/great/magearmor@ephemera:magearmor" class="">
+<h4 class="pattern-title">Instant Aegis (entity, num, num, status, num →)<a
+    href="#patterns/spells/great/magearmor@ephemera:magearmor"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qaweqqwqqewaqeqqqqqad"
+        data-start="north_west"
+        data-per-world="True"
+      >Your browser does not support visualizing patterns. Pattern code: qaweqqwqqewaqeqqqqqad</canvas>
+  </details>
+      <p>Accepts a player to grant the armor to, the durability of the armor, the protection value of the armor (max 10), a status effect to apply, and that effect&#39;s level. The latter two can be replaced with any non-status iota to ignore them.</p>
+  </div>
+<br />
+    <p>Of course, this barrier is by no means indestructible, and its durability decays steadily in addition to any damage it takes from hits. The base rate of this decay can be described as one &#34;point&#34; per second, plus additional points equal to the squared strength of any effect imbued into it. Additionally, it will disappear instantly if removed from the wearer, so there is no way to repair it, short of recasting the spell to overwrite its current state.</p>
+<br />
+    <p>The media cost for this spell is a bit complicated: A base of one amethyst dust per 60 durability, multiplied by the armor&#39;s protection value raised to the power of 1.5, times the level+1 of any status effect. Thus, producing no-status strength 10 armor with one minute&#39;s worth of durability costs ~31.5 dust. Adding Regeneration 2 increases that media cost to ~94.5 dust, and causes it to only last 36 seconds.</p>
+<br />
+    <p>This explanation assumes I am wearing no other armor, in practice the cost can be reduced to as little as 25% of that formula&#39;s output if all but one of my armor slots is already occupied by more conventional armor.</p>
+<br />
+</div>
+<div id="patterns/spells/great/invisibility" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="Glass"
+      alt="Glass"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.19.2/1.0.dev1/assets/minecraft/textures/block/glass.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >Invisibility<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/great/invisibility"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <div id="patterns/spells/great/invisibility@ephemera:invisibility" class="">
+<h4 class="pattern-title">Hidden Sun&#39;s Zenith (entity, num →)<a
+    href="#patterns/spells/great/invisibility@ephemera:invisibility"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqqqqaewawaweqa"
+        data-start="south_west"
+        data-per-world="True"
+      >Your browser does not support visualizing patterns. Pattern code: qqqqqaewawaweqa</canvas>
+  </details>
+      <p>Functions just like the normal <a href="https://hexcasting.hexxy.media/v/0.10.3/1.0/en_us#patterns/great_spells/zeniths">Zeniths</a>, applying Invisibility. Costs one amethyst dust per three seconds.</p>
+  </div>
+<br />
+</div>
+</section>
+  </main>
+</div>
+      <footer class="footer">
+        <div class="container text-muted">
+          <p>Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.</p><p>Minecraft content and materials are the intellectual property of their respective owners.</p><p>Made with ❤️ using <a href="https://pypi.org/project/hexdoc/" target="_blank">hexdoc</a>.</p>
+        </div>
+      </footer>
+  </body>
+</html>
