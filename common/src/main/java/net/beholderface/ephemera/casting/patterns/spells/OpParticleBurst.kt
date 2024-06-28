@@ -12,7 +12,11 @@ import net.beholderface.ephemera.casting.ParticleBurstPacket
 
 class OpParticleBurst : ConstMediaAction {
     override val argc = 4
-    override val mediaCost = MediaConstants.DUST_UNIT / 100
+    override val mediaCost = if (Platform.isForge()){
+        0
+    } else {
+        MediaConstants.DUST_UNIT / 100
+    }
     override fun execute(args: List<Iota>, ctx: CastingContext): List<Iota> {
         val target = args.getVec3(0, argc)
         ctx.assertVecInRange(target)
@@ -23,12 +27,14 @@ class OpParticleBurst : ConstMediaAction {
         val posRandom = args.getPositiveDoubleUnderInclusive(2, 4.0, argc)  /*args.getDoubleBetween(2, 0.0, 4.0, argc)*/
         val speedRandom = args.getPositiveDoubleUnderInclusive(3, 4.0, argc)
         val color = IXplatAbstractions.INSTANCE.getColorizer(ctx.caster)
-        IXplatAbstractions.INSTANCE.sendPacketNear(
-            target,
-            128.0,
-            ctx.world,
-            ParticleBurstPacket(target, direction, posRandom, speedRandom, color, 16, false)
-        )
+        if (!Platform.isForge()){
+            IXplatAbstractions.INSTANCE.sendPacketNear(
+                target,
+                128.0,
+                ctx.world,
+                ParticleBurstPacket(target, direction, posRandom, speedRandom, color, 16, false)
+            )
+        }
         return listOf()
 
     }

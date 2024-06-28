@@ -7,6 +7,8 @@ import at.petrak.hexcasting.api.spell.SpellAction
 import at.petrak.hexcasting.api.spell.casting.CastingContext
 import at.petrak.hexcasting.api.spell.iota.Iota
 import at.petrak.hexcasting.xplat.IXplatAbstractions
+import dev.architectury.platform.Platform
+import net.beholderface.ephemera.Ephemera
 import net.minecraft.entity.Entity
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.damage.DamageSource
@@ -20,14 +22,16 @@ import ram.talia.hexal.api.spell.mishaps.MishapNoWisp
 import ram.talia.hexal.common.entities.BaseCastingWisp
 import ram.talia.hexal.common.entities.TickingWisp
 import ram.talia.hexal.common.network.MsgParticleLinesAck
+import java.lang.IllegalArgumentException
 
 class OpPlasma() : SpellAction {
     override val argc: Int = 0
     @Suppress("CAST_NEVER_SUCCEEDS")
     override fun execute(args: List<Iota>, ctx: CastingContext): Triple<RenderedSpell, Int, List<ParticleSpray>> {
         val mCast = ctx as? IMixinCastingContext
-        if (mCast == null || !mCast.hasWisp())
+        if (mCast == null || !mCast.hasWisp()){
             throw MishapNoWisp()
+        }
         val wisp = mCast.wisp
         return Triple(Spell(wisp!!), MediaConstants.DUST_UNIT * 2, listOf())
     }
@@ -44,7 +48,7 @@ class OpPlasma() : SpellAction {
                     Vec3d.ZERO
                 }
             } else {
-                wisp.rotationVector
+                allegedlyNotWisp.rotationVector
             }
             if (dir.equals(Vec3d.ZERO) || dir == null){
                 val random = allegedlyNotWisp.world.random
@@ -80,8 +84,13 @@ class OpPlasma() : SpellAction {
                     }
                 }
             }
-            IXplatAbstractions.INSTANCE.sendPacketNear(origin, 128.0, ctx.world, MsgParticleLinesAck(listOf(origin, endpoint2),
-                IXplatAbstractions.INSTANCE.getColorizer(ctx.caster)))
+            //WHY FORGE WHY
+            try {
+                IXplatAbstractions.INSTANCE.sendPacketNear(origin, 128.0, ctx.world, MsgParticleLinesAck(listOf(origin, endpoint2),
+                    IXplatAbstractions.INSTANCE.getColorizer(ctx.caster)))
+            } catch (ex : IllegalArgumentException){
+                //Ephemera.LOGGER.info(ex.message)
+            }
         }
 
     }

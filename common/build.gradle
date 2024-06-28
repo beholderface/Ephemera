@@ -24,6 +24,8 @@ dependencies {
     modCompileOnly "at.petra-k.hexcasting:hexcasting-fabric-$minecraftVersion:$hexcastingVersion"
     modCompileOnly "vazkii.patchouli:Patchouli-xplat:$minecraftVersion-$patchouliVersion"
     modImplementation(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-common:${mixinExtrasVersion}"))
+    modCompileOnly("maven.modrinth:hexal:${hexalVersion}")
+    modRuntimeOnly("maven.modrinth:hexal:${hexalVersion}")
 }
 
 publishing {

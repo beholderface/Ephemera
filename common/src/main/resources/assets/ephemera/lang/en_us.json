@@ -90,5 +90,8 @@
   "ephemera.page.network.3": "Accepts an entity to teleport, a linkable to use for access to its network, and a destination. If the entity is within 8 blocks of the linkable, and there is a network node within 4 blocks of the destination, the entity will be teleported. Cost varies based on what entity is teleported.",
   "ephemera.page.network.4": "Outputs a brief redstone signal when an adjacent relay is used as the output for a casting of Network Gateway.",
   "ephemera.page.network.5": "When rclicked with a focus in the main hand, attempts to store its iota in the block. When the focus is in the offhand, writes the stored iota to the focus.",
-  "ephemera.page.network.6": "Accepts a linkable to use for network access, and any iota. If a relay connected to the network has an adjacent Network Routing Index with the same iota, returns that relay's position. Costs half an amethyst dust."
+  "ephemera.page.network.6": "Accepts a linkable to use for network access, and any iota. If a relay connected to the network has an adjacent Network Routing Index with the same iota, returns that relay's position. Costs half an amethyst dust.",
+
+  "ephemera.page.forgewarning.1": "Mod author's note for Forge users: This spell does not work on Forge. I do not know why. I've set the cost on Forge to zero so at least it won't waste media. Sorry.$(br2)I'll try to get it working eventually.",
+  "ephemera.page.forgewarning.2": "Mod author's note for Forge users: This spell does not produce particles on Forge. I do not know why. The entity damage and block breaking still work fine, at least. Sorry.$(br2)I'll try to get it working eventually."
 }

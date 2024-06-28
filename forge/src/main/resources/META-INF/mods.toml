@@ -16,26 +16,33 @@ Assorted hexcasting things.
 modId = "forge"
 mandatory = true
 versionRange = "[${forgeDependencyVersion},)"
-ordering = "NONE"
+ordering = "BEFORE"
 side = "BOTH"
 
 [[dependencies.ephemera]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[${minecraftVersion},)"
-ordering = "NONE"
+versionRange = "[${minecraftVersion},]"
+ordering = "BEFORE"
 side = "BOTH"
 
 [[dependencies.ephemera]]
 modId = "architectury"
 mandatory = true
 versionRange = "[${architecturyVersion},)"
-ordering = "NONE"
+ordering = "BEFORE"
 side = "BOTH"
 
 [[dependencies.ephemera]]
 modId = "hexcasting"
 mandatory = true
 versionRange = "[${hexcastingVersion},)"
-ordering = "NONE"
+ordering = "BEFORE"
+side = "BOTH"
+
+[[dependencies.ephemera]]
+modId = "hexal"
+mandatory = true
+versionRange = "[${hexalVersion},)"
+ordering = "BEFORE"
 side = "BOTH"

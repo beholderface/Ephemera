@@ -27,11 +27,12 @@
     "ephemera.mixins.json"
   ],
   "depends": {
-    "minecraft": ">=${minecraftVersion}",
+    "minecraft": "=${minecraftVersion}",
     "fabricloader": ">=${fabricLoaderVersion}",
     "fabric-api": "*",
     "fabric-language-kotlin": ">=${fabricKotlinVersion}",
     "architectury": ">=${architecturyVersion}",
-    "hexcasting": ">=${hexcastingVersion}"
+    "hexcasting": ">=${hexcastingVersion}",
+    "hexal": ">=${hexalVersion}"
   }
 }

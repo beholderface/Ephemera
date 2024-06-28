@@ -34,7 +34,7 @@ subprojects {
         annotationProcessor "org.ow2.asm:asm-tree:${project.asmVersion}"
         annotationProcessor "org.ow2.asm:asm-util:${project.asmVersion}"
 
-        modCompileOnly "maven.modrinth:hexal:${hexalVersion}"
+        modCompileOnly("maven.modrinth:hexal:${hexalVersion}")
         //modCompileOnly "maven.modrinth:moreiotas:${moreiotasVersion}"
     }
 
@@ -137,6 +137,7 @@ allprojects {
             "forgeDependencyVersion": project.forgeDependencyVersion,
             "forgeKotlinVersion": project.forgeKotlinVersion,
             "hexcastingVersion": project.hexcastingVersion,
+            "hexalVersion": project.hexalVersion,
             "minecraftVersion": project.minecraftVersion,
         ]
 
