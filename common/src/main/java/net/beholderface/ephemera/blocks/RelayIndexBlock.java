@@ -50,10 +50,10 @@ public class RelayIndexBlock extends BlockWithEntity {
                 //if (!world.isClient){
                     be.setWorld(world);
                 //}
-                if (hand == Hand.OFF_HAND){
-                    focus.writeDatum(heldStack, be.getStoredIota());
-                } else {
-                    if (!world.isClient){
+                if (!world.isClient){
+                    if (hand == Hand.OFF_HAND){
+                        focus.writeDatum(heldStack, be.getStoredIota());
+                    } else {
                         be.setStoredIota(focus.readIota(heldStack, (ServerWorld) world), player);
                     }
                 }

@@ -56,4 +56,10 @@ public class Ephemera {
     public static Identifier id(String string) {
         return new Identifier(MOD_ID, string);
     }
+
+    public static void boolLogger(String str, boolean enabled){
+        if (enabled){
+            LOGGER.info(str);
+        }
+    }
 }
