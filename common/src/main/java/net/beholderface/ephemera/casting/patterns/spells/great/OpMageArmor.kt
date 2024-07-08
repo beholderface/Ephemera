@@ -43,6 +43,7 @@ import kotlin.math.pow
 
 class OpMageArmor() : SpellAction {
     override val argc = 5
+    override val isGreat = true
     override fun execute(args: List<Iota>, ctx: CastingContext): Triple<RenderedSpell, Int, List<ParticleSpray>>? {
         val target = args.getPlayer(0, argc)
         val durability = args.getPositiveInt(1, argc).coerceAtMost(ConjuredArmorMaterial.staticDurability())
