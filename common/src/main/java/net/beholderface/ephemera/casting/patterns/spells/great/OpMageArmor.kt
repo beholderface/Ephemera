@@ -49,7 +49,7 @@ class OpMageArmor() : SpellAction {
         val durability = args.getPositiveInt(1, argc).coerceAtMost(ConjuredArmorMaterial.staticDurability())
         //strength 10 = slightly better than non-enchanted netherite
         val armorStrength = args.getPositiveInt(2, argc).coerceAtMost(10).coerceAtLeast(1)
-        var effect = if (args[3].type == PotionIota.TYPE){
+        val effect = if (args[3].type == PotionIota.TYPE){
             args.getStatusEffect(3, argc, true)
         } else {
             null

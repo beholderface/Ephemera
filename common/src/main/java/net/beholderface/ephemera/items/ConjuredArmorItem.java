@@ -3,7 +3,6 @@ package net.beholderface.ephemera.items;
 import at.petrak.hexcasting.api.utils.NBTHelper;
 import at.petrak.hexcasting.common.lib.HexItems;
 import kotlin.Pair;
-import net.beholderface.ephemera.Ephemera;
 import net.beholderface.ephemera.api.MiscAPIKt;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
@@ -18,7 +17,6 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
-import net.minecraft.text.TextColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.math.MathHelper;
@@ -80,21 +78,7 @@ public class ConjuredArmorItem extends ArmorItem {
         if (!debugOverride){
             if (validSlot == null || (stack.getDamage() < stack.getMaxDamage() - getAdjustedDurability(stack) && stack.isDamageable()) /*in case someone uses something that sets its damage to 0 or something*/
             ){
-                //breakIgnoreCreative(stack, world, entity);
-                if (entity instanceof PlayerEntity livingEntity){
-                    if (!livingEntity.getAbilities().creativeMode){
-                        EquipmentSlot finalValidSlot = validSlot;
-                        stack.damage(Integer.MAX_VALUE, livingEntity, (theentity) -> {
-                            theentity.sendEquipmentBreakStatus(finalValidSlot);
-                        });
-                    } else {
-                        //Ephemera.LOGGER.info("calling break at first instance");
-                        breakIgnoreCreative(stack, world, entity, false);
-                    }
-                } else {
-                    //Ephemera.LOGGER.info("calling break at second instance");
-                    breakIgnoreCreative(stack, world, entity, false);
-                }
+                knockoffBreak(stack, world, entity, entity instanceof PlayerEntity);
             } else if (world.getTime() % 20 == 0){
                 PlayerEntity livingEntity = (PlayerEntity) entity;
                 if (!livingEntity.getAbilities().creativeMode) {
@@ -106,7 +90,7 @@ public class ConjuredArmorItem extends ArmorItem {
                     stack.setDamage(stack.getDamage() + damageIncrement);
                     if (stack.getDamage() >= stack.getMaxDamage() && !world.isClient){
                         //Ephemera.LOGGER.info("calling break at third instance " + world.isClient);
-                        breakIgnoreCreative(stack, world, entity, true);
+                        knockoffBreak(stack, world, entity, true);
                     }
                 }
             }
@@ -143,7 +127,7 @@ public class ConjuredArmorItem extends ArmorItem {
     public static int getAdjustedDamage(@NotNull ItemStack stack){
         return stack.getOrCreateNbt().contains("DurabilityOverride") ? stack.getDamage() - Math.abs(stack.getNbt().getInt("DurabilityOverride") - stack.getMaxDamage()) : stack.getDamage();
     }
-    public void breakIgnoreCreative(ItemStack stack, @NotNull World world, Entity entity, boolean sound){
+    public void knockoffBreak(ItemStack stack, @NotNull World world, Entity entity, boolean sound){
         if (!world.isClient){
             stack.setCount(0);
             if (sound){
