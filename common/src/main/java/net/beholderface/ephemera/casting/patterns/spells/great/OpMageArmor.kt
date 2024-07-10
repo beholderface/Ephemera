@@ -1,5 +1,6 @@
 package net.beholderface.ephemera.casting.patterns.spells.great
 
+import at.petrak.hexcasting.api.misc.MediaConstants
 import at.petrak.hexcasting.api.spell.*
 import at.petrak.hexcasting.api.spell.casting.CastingContext
 import at.petrak.hexcasting.api.spell.iota.Iota
@@ -95,6 +96,7 @@ class OpMageArmor() : SpellAction {
         if (effect != null){
             cost *= effectStrength + 2
         }
+        cost *= MediaConstants.DUST_UNIT
         return Triple(Spell(target, slotBools, durability, armorStrength, effect, effectStrength), cost, listOf(ParticleSpray.cloud(target.pos, 2.0)))
     }
 
