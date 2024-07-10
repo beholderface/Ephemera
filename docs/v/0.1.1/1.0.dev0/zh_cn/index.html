@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Ephemera Book</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description" content="The Ephemera Book, all in one place." />
+      <meta name="author" content="beholderface" />
+        <link rel="None" type="image/ico" href="favicon.ico" />
+        <link rel="icon" type="image/png" href="favicon-16x16.png" />
+        <link rel="icon" type="image/png" href="favicon-32x32.png" />
+        <link rel="icon" type="image/png" href="favicon-64x64.png" />
+        <link rel="icon" type="image/png" href="favicon-96x96.png" />
+        <link rel="icon" type="image/png" href="favicon-180x180.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-60x60.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-152x152.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-167x167.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-180x180.png" />
+        <link rel="None" type="image/png" href="mstile-70x70.png" />
+        <link rel="None" type="image/png" href="mstile-270x270.png" />
+        <link rel="None" type="image/png" href="mstile-310x310.png" />
+        <link rel="None" type="image/png" href="mstile-310x150.png" />
+        <link rel="shortcut icon" type="image/png" href="favicon-196x196.png" />
+      <link rel="mask-icon" href="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/main/media/safari-pinned-tab.svg" color="#332233">
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Ephemera Book" />
+<meta property="og:image" content="https://ephemera.hexxy.media/v/0.1.1/1.0.dev0/zh_cn/icon.png" />
+<meta property="og:url" content="https://ephemera.hexxy.media/v/0.1.1/1.0.dev0/zh_cn" />
+<meta property="og:description" content="The Ephemera Book, all in one place." />
+<meta property="og:site_name" content="Ephemera (0.1.1)" />
+      <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="index.css">
+      <link rel="stylesheet" href="textures.css">
+      <noscript>
+        <style>
+          /* for accessibility */
+          .spoilered {
+            filter: none !important;
+          }
+        </style>
+      </noscript>
+        <script type="module" src="index.js"></script>
+  <script type="module" src="hexcasting.js"></script>
+  <script type="module" src="hexcasting_render.js"></script>
+  </head>
+  <body>
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button
+        type="button"
+        class="navbar-toggle collapsed"
+        data-toggle="collapse"
+        data-target="#navbar-collapse"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../..">Ephemera Book</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >0.1.1 <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="version-dropdown"></ul>
+        </li>
+        <li class="dropdown">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >简体中文 (中国大陆) <span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-menu-left" id="lang-dropdown"></ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container" style="margin-top: 3em;">
+  <blockquote>
+      <h1><p>这是Ephemera文档的在线版本。</p></h1>
+      <p><strong>条目的模糊处理相当于剧透警告</strong>。点击条目即可取消模糊，不过这么做有可能破坏游戏后期的进程与体验。也可点击<a href="?nospoiler">此处</a>以取消所有模糊。</p>
+      <span id="old-version-notice" class="hidden">
+        <br />
+        <p><i>往事犹若异乡；他们在那里做的事情都不一样。</i></p>
+      </span>
+  </blockquote>
+</div>
+<div class="container">
+<div id="table-of-contents"></div>
+<nav class="toc-container">
+  <h2 class="page-header">
+    <span class="nobr">目录<a
+      href="javascript:void(0)"
+      class="permalink toggle-link small"
+      data-target="toc-category"
+      title="显示或收起全部"
+    ><i class="bi bi-list-nested"></i></a><a
+    href="#table-of-contents"
+    class="permalink small toc-permalink"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></span>
+  </h2>
+    <details class="toc-category">
+      <summary><a href="#patterns" class="toc-elem "><img
+      title="书架"
+      alt="书架"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.19.2/1.0.dev1/assets/minecraft/textures/block/bookshelf.png"
+      loading="lazy"
+      class="item-texture  texture "
+    > 图案</a></summary>
+      <ul>
+          <li><a href="#patterns/misc_patterns" class="toc-elem "><img
+      title="物品展示框"
+      alt="物品展示框"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/item_frame.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Ephemera：杂项图案</a></li>
+          <li><a href="#patterns/spells/status_iotas" class="toc-elem "><img
+      title="药水"
+      alt="药水"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/potion_overlay.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 状态 Iota</a></li>
+      </ul>
+    </details>
+    <details class="toc-category">
+      <summary><a href="#patterns/spells" class="toc-elem "><img
+      title="附魔书"
+      alt="附魔书"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/enchanted_book.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 法术</a></summary>
+      <ul>
+          <li><a href="#patterns/spells/plasma" class="toc-elem "><img
+      title="龙息"
+      alt="龙息"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/dragon_breath.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 等离子冲击</a></li>
+          <li><a href="#patterns/spells/paint_conjured" class="toc-elem "><div
+      role="img"
+      title="灵魂闪光染色剂"
+      aria-label="灵魂闪光染色剂 (animated)"
+      class="item-texture  texture animated-sync texture-hexcasting-textures-item-colorizer-uuid-png pixelated"
+    ></div> 外化染色剂</a></li>
+          <li><a href="#patterns/spells/particle_burst" class="toc-elem "><img
+      title="烈焰粉"
+      alt="烈焰粉"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/blaze_powder.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 粒子迸发</a></li>
+          <li><a href="#patterns/spells/network" class="toc-elem "><img
+      title="锁链"
+      alt="锁链"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/chain.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 链接实用图案</a></li>
+      </ul>
+    </details>
+    <details class="toc-category">
+      <summary><a href="#patterns/great_spells" class="toc-elem "><img
+      title="潮涌能量"
+      alt="潮涌能量"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/mob_effect/conduit_power.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 卓越法术</a></summary>
+      <ul>
+          <li><a href="#patterns/spells/great/magearmor" class="toc-elem "><img
+      title="咒塑胸甲"
+      alt="咒塑胸甲"
+      src="https://raw.githubusercontent.com/beholderface/Ephemera/906f58995b92ab2f150b131c898f7fcf26e51910/common/src/main/resources/assets/ephemera/textures/item/media_chestplate.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 瞬时庇护</a></li>
+          <li><a href="#patterns/spells/great/invisibility" class="toc-elem "><img
+      title="玻璃"
+      alt="玻璃"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.19.2/1.0.dev1/assets/minecraft/textures/block/glass.png"
+      loading="lazy"
+      class="item-texture  texture "
+    > 隐形</a></li>
+      </ul>
+    </details>
+</nav>
+  <main class="book-body">
+<section id="patterns">
+    <h2 class="category-title page-header">
+    <img
+      title="书架"
+      alt="书架"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.19.2/1.0.dev1/assets/minecraft/textures/block/bookshelf.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >图案<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>我所发现的各式图案，和它们的功用。</p>
+<div id="patterns/misc_patterns" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="物品展示框"
+      alt="物品展示框"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/item_frame.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Ephemera：杂项图案<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/misc_patterns"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+    <p>我发现了一些专为物品展示框交互设计的图案。它们不是什么高端法术，但确实是控制法术环之类事物的实用手段。</p><p>此外，分拣员之纯化对它们同样有效，因此试图寻找物品展示框专用的物品图案没有意义。</p>
+<br />
+  <div id="patterns/misc_patterns@ephemera:readframerotation" class="">
+<h4 class="pattern-title">装潢师之纯化 (item frame → number)<a
+    href="#patterns/misc_patterns@ephemera:readframerotation"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wwawwqwwawwaeae"
+        data-start="south_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：wwawwqwwawwaeae</canvas>
+  </details>
+      <p>接受一个物品展示框实体，并返回其中物品的朝向，值必然在 0 到 7 之间。</p>
+  </div>
+<br />
+  <div id="patterns/misc_patterns@ephemera:setframerotation" class="">
+<h4 class="pattern-title">装潢师之策略 (item frame, number →)<a
+    href="#patterns/misc_patterns@ephemera:setframerotation"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wwawwqwwawwaqdq"
+        data-start="south_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：wwawwqwwawwaqdq</canvas>
+  </details>
+      <p>接受一个物品展示框实体与一个 0 到 7 的整数，并将物品朝向设置为该数。消耗极少量媒质。</p>
+  </div>
+<br />
+  <div id="patterns/misc_patterns@ephemera:filteredentityraycast" class="">
+<h4 class="pattern-title">侦查员之提整 ([type], vec, vec → entity | NULL)<a
+    href="#patterns/misc_patterns@ephemera:filteredentityraycast"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wqded"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：wqded</canvas>
+  </details>
+      <p>与<a href="https://hexcasting.hexxy.media/v/0.10.3/1.0/en_us#patterns/basics@hexcasting:raycast/entity">侦查员之馏化</a>类似，但能够接受一个实体类型 iota 列表。类型不在该列表内的实体会被忽略。消耗的媒质量略多于上文所提图案的“极少量”。</p>
+  </div>
+<br />
+  <div id="patterns/misc_patterns@ephemera:gaussianrand" class="">
+<h4 class="pattern-title">熵之精思，第二型 (→ num)<a
+    href="#patterns/misc_patterns@ephemera:gaussianrand"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eeeeq"
+        data-start="north_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eeeeq</canvas>
+  </details>
+      <p>返回 0 与 1 之间的随机数，服从正态分布。</p>
+  </div>
+<br />
+</div>
+<div id="patterns/spells/status_iotas" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="药水"
+      alt="药水"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/potion_overlay.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >状态 Iota<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/status_iotas"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+    <p>这些图案主要操作代表生物身上长时效果的 iota，我可以用这些图案评估生物的状态，比只用护士之纯化更加深入彻底。<br />虽然我的研究表明，代表瞬时效果的状态 iota 有存在的可能，但它们非常难以获取，而且我目前没想到它们有什么用途。</p>
+<br />
+  <div id="patterns/spells/status_iotas@ephemera:getstatus" class="">
+<h4 class="pattern-title">药师之纯化 (entity → [status])<a
+    href="#patterns/spells/status_iotas@ephemera:getstatus"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqqqqedwd"
+        data-start="south_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qqqqqedwd</canvas>
+  </details>
+      <p>接受一个生物，并返回目标当前所有效果组成的列表 iota。</p>
+  </div>
+<br />
+  <div id="patterns/spells/status_iotas@ephemera:getstatuscategory" class="">
+<h4 class="pattern-title">药师之纯化，第二型 (status → num)<a
+    href="#patterns/spells/status_iotas@ephemera:getstatuscategory"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eeeeeqawa"
+        data-start="south_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eeeeeqawa</canvas>
+  </details>
+      <p>接受一个状态效果，并根据该效果对生物产生正面、负面，或中性影响返回一个数。</p>
+  </div>
+<br />
+  <div id="patterns/spells/status_iotas@ephemera:getstatusduration" class="">
+<h4 class="pattern-title">药剂师之馏化 (entity, status → num)<a
+    href="#patterns/spells/status_iotas@ephemera:getstatusduration"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqqqqedwdwd"
+        data-start="south_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qqqqqedwdwd</canvas>
+  </details>
+      <p>接受一个实体和一个状态效果，并返回目标身上所给状态效果的持续时间，以秒计。</p>
+  </div>
+<br />
+  <div id="patterns/spells/status_iotas@ephemera:getstatuslevel" class="">
+<h4 class="pattern-title">药剂师之馏化，第二型 (entity, status → num)<a
+    href="#patterns/spells/status_iotas@ephemera:getstatuslevel"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eeeeeqawawa"
+        data-start="south_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eeeeeqawawa</canvas>
+  </details>
+      <p>接受一个实体和一个状态效果，并返回目标身上所给状态效果的强度。</p>
+  </div>
+<br />
+  <div id="patterns/spells/status_iotas@ephemera:getbystatussingle" class="">
+<h4 class="pattern-title">实体之馏化：状态 (status, vector → entity | NULL)<a
+    href="#patterns/spells/status_iotas@ephemera:getbystatussingle"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eaeeeeeae"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eaeeeeeae</canvas>
+  </details>
+      <p>接受一个状态效果和一个向量，并返回该处带有该状态效果的实体。</p>
+  </div>
+<br />
+  <div id="patterns/spells/status_iotas@ephemera:getbystatus" class="">
+<h4 class="pattern-title">区域之提整：状态 (status, vec, num → [entity])<a
+    href="#patterns/spells/status_iotas@ephemera:getbystatus"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="ewqqqqqwe"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：ewqqqqqwe</canvas>
+  </details>
+      <p>接受一个状态效果，一个向量和一个数（<i>n</i>），返回该位置给定距离范围（<i>n</i>）内所有带有给定状态效果生物的列表。</p>
+  </div>
+<br />
+  <div id="patterns/spells/status_iotas@ephemera:getbystatusinverse" class="">
+<h4 class="pattern-title">区域之提整：非状态 (status, vec, num → [entity])<a
+    href="#patterns/spells/status_iotas@ephemera:getbystatusinverse"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qweeeeewq"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qweeeeewq</canvas>
+  </details>
+      <p>接受一个状态效果，一个向量和一个数（<i>n</i>），返回该位置给定距离范围（<i>n</i>）内所有无给定状态效果生物的列表。</p>
+  </div>
+<br />
+  <div id="patterns/spells/status_iotas@ephemera:removestatus" class="">
+<h4 class="pattern-title">清除状态 (entity, status →)<a
+    href="#patterns/spells/status_iotas@ephemera:removestatus"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eeeeedaqdewed"
+        data-start="south_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eeeeedaqdewed</canvas>
+  </details>
+      <p>接受一个实体和一个状态效果，并移除该实体身上的所给状态效果。消耗由效果自身的伤害性、强度、剩余持续时间决定。</p>
+  </div>
+<br />
+    <p>若是要移除非自身实体身上的正面效果，则消耗会增加。</p><p>所有需要检测实体身上有无所给状态效果的图案都有副作用。如果该实体当前没有这种效果，则图案会失效，并给予我反胃。</p>
+<br />
+</div>
+</section>
+<section id="patterns/spells">
+    <h2 class="category-title page-header">
+    <img
+      title="附魔书"
+      alt="附魔书"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/enchanted_book.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >法术<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>能以魔法影响到世界的图案和操作。</p>
+<div id="patterns/spells/plasma" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="龙息"
+      alt="龙息"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/dragon_breath.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >等离子冲击<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/plasma"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+    <p>我所遇到的极具破坏性的法术之一，此法术会将构成咒灵的一部分媒质转换成一束类似等离子体的能量，它能够穿透并伤害途径的所有生物（包括我自己），也有可能破坏耐久度不算高的方块。</p>
+<br />
+  <div id="patterns/spells/plasma@ephemera:plasmabeam" class="">
+<h4 class="pattern-title">等离子冲击<a
+    href="#patterns/spells/plasma@ephemera:plasmabeam"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aqqqadweaqa"
+        data-start="north_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：aqqqadweaqa</canvas>
+  </details>
+      <p>沿施法咒灵的运动向量发射冲击，未在移动则选取随机向量。消耗 2 个紫水晶粉。</p>
+  </div>
+<br />
+    <p>模组作者给 Forge 用户的留言：此法术在 Forge 上无法产生粒子。我不知道是因为什么。至少伤害实体和破坏方块的功能依然可用。抱歉。</p><p>我会尽力让它正常运作。</p>
+<br />
+</div>
+<div id="patterns/spells/paint_conjured" class="entry">
+    <h3 class="entry-title page-header">
+    <div
+      role="img"
+      title="灵魂闪光染色剂"
+      aria-label="灵魂闪光染色剂 (animated)"
+      class="item-texture  texture animated-sync texture-hexcasting-textures-item-colorizer-uuid-png pixelated"
+    ></div>外化染色剂<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/paint_conjured"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <div id="patterns/spells/paint_conjured@ephemera:paintconjured" class="">
+<h4 class="pattern-title">外化染色剂 (Vector, itemtype →)<a
+    href="#patterns/spells/paint_conjured@ephemera:paintconjured"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eqdweeqdwweeqddqdwwwdeww"
+        data-start="west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eqdweeqdwweeqddqdwwwdeww</canvas>
+  </details>
+      <p>接受一个向量与代表染色剂的物品类型。如果目标为我自己的方块，消耗极少量媒质；否则消耗 1 个紫水晶粉。</p>
+  </div>
+<br />
+    <p>将所给位置处构筑方块的颜色设置为所给染色剂的颜色；如果传入的是 Null，则将其设置为我意识的颜色。</p><p>不保证对非传统的构筑物质有效。</p>
+<br />
+    <p>这种效果有着奇怪的庆典感，就好像它曾用于某个盛大的节庆活动，与会队伍会把自己队的颜色泼洒到对手的领地上，类似于意识层面上的占领。</p>
+<br />
+</div>
+<div id="patterns/spells/particle_burst" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="烈焰粉"
+      alt="烈焰粉"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/blaze_powder.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >粒子迸发<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/particle_burst"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <div id="patterns/spells/particle_burst@ephemera:particleburst" class="">
+<h4 class="pattern-title">粒子迸发 (vec, vec, num, num →)<a
+    href="#patterns/spells/particle_burst@ephemera:particleburst"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="deeeewaaddwqqqqa"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：deeeewaaddwqqqqa</canvas>
+  </details>
+      <p>接受两个向量和两个数，并由其触发一束粒子。消耗极少量媒质。</p>
+  </div>
+<br />
+    <p>第一个向量决定了粒子束的起始位置，第二个向量则决定其方向和速度。第一个数决定各位置向量分量附加多大的随机数，第二个数则以同种方式决定方向向量的随机性。</p>
+<br />
+    <p>模组作者给 Forge 用户的留言：此法术在 Forge 上无法运行。我不知道是因为什么。我已将 Forge 端中此法术的消耗设置为 0，避免浪费媒质。抱歉。</p><p>我会尽力让它正常运作。</p>
+<br />
+</div>
+<div id="patterns/spells/network" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="锁链"
+      alt="锁链"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/chain.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >链接实用图案<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/network"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+    <p>我设计了一系列图案和若干方块，旨在赋予链接更多用途，除去已有数据传输和媒质共享之外。</p><p>需要注意，对于从网络中获取信息的图案，其返回的可链接事物不一定处在施法范围之内。</p>
+<br />
+  <div id="patterns/spells/network@ephemera:networkscan" class="">
+<h4 class="pattern-title">网络之馏化 (linkable, num → [linkable])<a
+    href="#patterns/spells/network@ephemera:networkscan"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eqqqqqaweqaeaq"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eqqqqqaweqaeaq</canvas>
+  </details>
+      <p>递归扫描与输入端可链接事物相连的链接网络，最大深度为所给数（最高为 32），并返回所有可链接事物组成的列表。消耗极少量媒质。</p>
+  </div>
+<br />
+  <div id="patterns/spells/network@ephemera:networktp" class="">
+<h4 class="pattern-title">网络门径 (entity, linkable, vec →)<a
+    href="#patterns/spells/network@ephemera:networktp"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqqqqwdeddwdawqqqwaq"
+        data-start="north_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qqqqqwdeddwdawqqqwaq</canvas>
+  </details>
+      <p>接受需传送的实体，用于访问网络的可链接事物，以及目的地。如果实体位于所给可链接事物 8 格之内，且距目的地 4 格之内存在网络节点，则实体会被传送。消耗量由被传送实体的类型决定。</p>
+  </div>
+<br />
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">点击以显示配方</span>
+    <span class="collapse-recipe-hide">点击以隐藏配方</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>网络门径探测器</h5>
+    <div class="crafting-table">
+        <img
+      title="工作台"
+      alt="工作台"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/306aa9ca0ee9ac9b6cbcf592e4ce3ef3a922b65b/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="末影珍珠"
+      alt="末影珍珠"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/ender_pearl.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="板岩块"
+      alt="板岩块"
+      src="https://hexcasting.hexxy.media/v/0.10.3/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="板岩块"
+      alt="板岩块"
+      src="https://hexcasting.hexxy.media/v/0.10.3/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="板岩块"
+      alt="板岩块"
+      src="https://hexcasting.hexxy.media/v/0.10.3/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="板岩块"
+      alt="板岩块"
+      src="https://hexcasting.hexxy.media/v/0.10.3/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="充能紫水晶"
+      alt="充能紫水晶"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/f569ba1530666f43e84584e446e6fd060395b5f4/Common/src/main/resources/assets/hexcasting/textures/item/charged_amethyst.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="板岩块"
+      alt="板岩块"
+      src="https://hexcasting.hexxy.media/v/0.10.3/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="网络门径探测器"
+      alt="网络门径探测器"
+      src="https://ephemera.hexxy.media/v/0.1.1/1.0.dev0/assets/ephemera/textures/block/relay_tp_detector.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>如果毗邻的继链器被用作网络门径的输出端，则产生一次短时红石信号。</p>
+<br />
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">点击以显示配方</span>
+    <span class="collapse-recipe-hide">点击以隐藏配方</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>网络路由索引</h5>
+    <div class="crafting-table">
+        <img
+      title="工作台"
+      alt="工作台"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/306aa9ca0ee9ac9b6cbcf592e4ce3ef3a922b65b/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="核心"
+      alt="核心"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/f569ba1530666f43e84584e446e6fd060395b5f4/Common/src/main/resources/assets/hexcasting/textures/item/focus_empty.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="板岩块"
+      alt="板岩块"
+      src="https://hexcasting.hexxy.media/v/0.10.3/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="板岩块"
+      alt="板岩块"
+      src="https://hexcasting.hexxy.media/v/0.10.3/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="板岩块"
+      alt="板岩块"
+      src="https://hexcasting.hexxy.media/v/0.10.3/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="板岩块"
+      alt="板岩块"
+      src="https://hexcasting.hexxy.media/v/0.10.3/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="充能紫水晶"
+      alt="充能紫水晶"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/f569ba1530666f43e84584e446e6fd060395b5f4/Common/src/main/resources/assets/hexcasting/textures/item/charged_amethyst.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="板岩块"
+      alt="板岩块"
+      src="https://hexcasting.hexxy.media/v/0.10.3/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="网络路由索引"
+      alt="网络路由索引"
+      src="https://ephemera.hexxy.media/v/0.1.1/1.0.dev0/assets/ephemera/textures/block/relay_index.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>主手持有核心右击时，会尝试将核心中的 iota 存入自身。副手持有核心时，则会将存储的 iota 写入核心。</p>
+<br />
+  <div id="patterns/spells/network@ephemera:networkindex" class="">
+<h4 class="pattern-title">路由之馏化 (linkable, iota → vec)<a
+    href="#patterns/spells/network@ephemera:networkindex"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eqqqqqaweqaeaqa"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eqqqqqaweqaeaqa</canvas>
+  </details>
+      <p>接受用于访问网络的可链接事物，以及任意 iota。如果网络中有继链器毗邻网络路由索引，且索引中存有同一 iota，则返回该继链器的位置。消耗 1/2 个紫水晶粉。</p>
+  </div>
+<br />
+</div>
+</section>
+<section id="patterns/great_spells">
+    <h2 class="category-title page-header">
+    <img
+      title="潮涌能量"
+      alt="潮涌能量"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/mob_effect/conduit_power.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >卓越法术<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/great_spells"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>这类法术据信极难施放，但也极为强力。记载它们的文献极为少见（据称理由充分）。这也许只是某些消亡的老古董口中的胡言乱语，不过——它们只是简单的图案罢了。试试看又能出什么错呢？</p>
+<div id="patterns/spells/great/magearmor" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="咒塑胸甲"
+      alt="咒塑胸甲"
+      src="https://raw.githubusercontent.com/beholderface/Ephemera/906f58995b92ab2f150b131c898f7fcf26e51910/common/src/main/resources/assets/ephemera/textures/item/media_chestplate.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >瞬时庇护<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/great/magearmor"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+    <p>我发现了一种比较有趣的法术，它能够产生防御性的媒质屏障，防护力媲美甚至超过许多种传统盔甲。此类屏障甚至还能给予穿戴者许多<a href="#patterns/spells/status_iotas">持久效果</a>，堪称泛用。</p>
+<br />
+  <div id="patterns/spells/great/magearmor@ephemera:magearmor" class="">
+<h4 class="pattern-title">瞬时庇护 (entity, num, num, status, num →)<a
+    href="#patterns/spells/great/magearmor@ephemera:magearmor"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qaweqqwqqewaqeqqqqqad"
+        data-start="north_west"
+        data-per-world="True"
+      >浏览器不支持图案的可视化。图案代码见此：qaweqqwqqewaqeqqqqqad</canvas>
+  </details>
+      <p>接受作为盔甲接收方的玩家，盔甲的耐久度，盔甲的护甲值（最多为 10），施加的状态效果，状态效果的等级。最后两个参数可用其他类型的 iota 代替，此时这两个参数会被忽略。</p>
+  </div>
+<br />
+    <p>当然，这种屏障并非无法破坏。除去受击致损外，其耐久度还会持续减少。这种减少效应的基础速率看作每秒 1 “点”，则还需附加上其中效果等级平方个“点”。此外，穿戴者脱下后它们会立刻消失。换言之，除非重新施法覆写其状态，否则没有方法修复它们。</p>
+<br />
+    <p>此法术的媒质消耗比较复杂：每 60 点耐久度基础消耗 1 个紫水晶粉，乘以护甲值的 1.5 次幂，再乘以任意状态效果的等级 + 1。因此，不提供状态效果、护甲值为 10、耐久度够支持 1 分钟的盔甲需消耗大约 31.5 个紫水晶粉。再令其给予生命恢复 II，消耗就来到了大约 94.5 个紫水晶粉，并且在消失前也只能坚持 36 秒。</p>
+<br />
+    <p>这一计算结果的前提是我没有穿戴其他盔甲，实际操作中消耗可以缩减到最低 25%，出现在所有盔甲槽位中只有 1 格空出的情况中。</p>
+<br />
+</div>
+<div id="patterns/spells/great/invisibility" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="玻璃"
+      alt="玻璃"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.19.2/1.0.dev1/assets/minecraft/textures/block/glass.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >隐形<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/great/invisibility"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <div id="patterns/spells/great/invisibility@ephemera:invisibility" class="">
+<h4 class="pattern-title">隐阳当空 (entity, num →)<a
+    href="#patterns/spells/great/invisibility@ephemera:invisibility"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqqqqaewawaweqa"
+        data-start="south_west"
+        data-per-world="True"
+      >浏览器不支持图案的可视化。图案代码见此：qqqqqaewawaweqa</canvas>
+  </details>
+      <p>和其他<a href="https://hexcasting.hexxy.media/v/0.10.3/1.0/en_us#patterns/great_spells/zeniths">天顶法术</a>功能一致，给予隐形，每 3 秒持续时间消耗 1 个紫水晶粉。</p>
+  </div>
+<br />
+</div>
+</section>
+  </main>
+</div>
+      <footer class="footer">
+        <div class="container text-muted">
+          <p>该页面不是Minecraft的官方产品，不隶属于Mojang和Microsoft，且不代表Mojang和Microsoft的意见。</p><p>Minecraft的游戏内容和资源均为各自所有者的知识财产。</p><p>使用<a href="https://pypi.org/project/hexdoc/" target="_blank">hexdoc</a>精心制作。❤️</p>
+        </div>
+      </footer>
+  </body>
+</html>
