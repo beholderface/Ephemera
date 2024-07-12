@@ -72,7 +72,7 @@ class OpMageArmor() : SpellAction {
             (args.getPositiveInt(4, argc) - 1).coerceIn(0, if (effect == StatusEffects.RESISTANCE){
                 3 //no 100% invulnerability armor for you
             } else {
-                Integer.MAX_VALUE
+                7
             })
         } else {
             0 //no stay of execution armor either
