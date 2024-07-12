@@ -16,7 +16,6 @@ import net.minecraft.entity.attribute.EntityAttributeModifier
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.effect.StatusEffects
-import net.minecraft.item.ArmorMaterials
 import net.minecraft.item.Items
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.util.Identifier
@@ -24,23 +23,6 @@ import net.minecraft.util.registry.Registry
 import javax.annotation.Nullable
 import kotlin.math.pow
 
-/*private fun genAttributeModifier(name : String, strength : Float, slot : String, operation : Int, type : Int) : NbtCompound {
-    val output = NbtCompound()
-    output.putString("AttributeName", name)
-    output.putString("Name", name)
-    //output.putInt("Amount", strength)
-    output.putInt("Operation", operation)
-    output.putString("Slot", slot)
-    //I have no idea what the UUID on the attribute is actually used for
-    output.putUuid("UUID", UUID.randomUUID())
-    if (type == 0){
-        output.putInt("Amount", strength.toInt())
-    }
-    if (type == 1){
-        output.putFloat("Amount", strength)
-    }
-    return output
-}*/
 
 class OpMageArmor() : SpellAction {
     override val argc = 5
@@ -115,7 +97,6 @@ class OpMageArmor() : SpellAction {
             } else {
                 0f
             }
-            ArmorMaterials.NETHERITE
             val knockbackResist = if (armorStrength >= 8){
                 (armorStrength * 0.015).toFloat()
             } else {
