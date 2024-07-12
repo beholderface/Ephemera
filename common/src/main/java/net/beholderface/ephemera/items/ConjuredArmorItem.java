@@ -66,7 +66,7 @@ public class ConjuredArmorItem extends ArmorItem {
             if (storedStatus != null) {
                 PlayerEntity player = (PlayerEntity) entity;
                 damageIncrement += (int) /*Math.pow(*/storedStatus.component2() + 1/*, 2)*/;
-                if (world.getTime() % 100 == 0){
+                if (world.getTime() % 100 == 0 && stack.getDamage() - stack.getMaxDamage() > (stack.getMaxDamage() * -1) + 20){
                     player.addStatusEffect(new StatusEffectInstance(storedStatus.getFirst(), 200,
                             storedStatus.component2(), false, false, true));
                 }
