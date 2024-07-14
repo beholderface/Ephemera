@@ -2,23 +2,27 @@ package net.beholderface.ephemera.api
 
 import at.petrak.hexcasting.api.spell.iota.EntityIota
 import at.petrak.hexcasting.api.spell.iota.Iota
+import at.petrak.hexcasting.api.spell.iota.IotaType
 import at.petrak.hexcasting.api.spell.mishaps.MishapInvalidIota
 import at.petrak.hexcasting.api.spell.mishaps.MishapNotEnoughArgs
+import at.petrak.hexcasting.common.lib.hex.HexIotaTypes
 import net.beholderface.ephemera.Ephemera
-import net.beholderface.ephemera.registry.PotionIota
+import net.beholderface.ephemera.casting.iotatypes.PotionIota
 import net.minecraft.block.Block
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.Item
-import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.server.world.ServerWorld
 import net.minecraft.tag.TagKey
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
 import ram.talia.hexal.api.linkable.ILinkable
 import ram.talia.hexal.common.entities.BaseWisp
+import java.nio.charset.StandardCharsets
+import java.security.MessageDigest
+import java.security.NoSuchAlgorithmException
 import javax.annotation.Nullable
 
 fun List<Iota>.getStatusEffect(idx: Int, argc: Int = 0, allowShroud : Boolean) : StatusEffect {
@@ -110,4 +114,15 @@ fun stringToWorld(key : Identifier) : ServerWorld? {
         }
     }
     return output
+}
+
+fun String.hash() : String{
+    return try {
+        val digest = MessageDigest.getInstance("SHA-256")
+        digest.update(this.toByteArray(StandardCharsets.UTF_8))
+        String(digest.digest())
+    } catch (exception: NoSuchAlgorithmException) {
+        "???"
+        //do nothing? idk
+    }
 }

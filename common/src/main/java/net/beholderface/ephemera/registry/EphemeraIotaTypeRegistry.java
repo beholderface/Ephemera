@@ -4,6 +4,8 @@ import at.petrak.hexcasting.api.spell.iota.Iota;
 import at.petrak.hexcasting.api.spell.iota.IotaType;
 import at.petrak.hexcasting.common.lib.hex.HexIotaTypes;
 import net.beholderface.ephemera.Ephemera;
+import net.beholderface.ephemera.casting.iotatypes.HashIota;
+import net.beholderface.ephemera.casting.iotatypes.PotionIota;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -14,6 +16,7 @@ public class EphemeraIotaTypeRegistry {
     public static Map<Identifier, IotaType<?>> TYPES = new HashMap<>();
 
     public static final IotaType<PotionIota> POTION = type("potion", PotionIota.TYPE);
+    public static final IotaType<HashIota> HASH = type("hash", HashIota.TYPE);
 
     public static void init() {
         //Ephemera.LOGGER.info("Attempting to register iota types.");

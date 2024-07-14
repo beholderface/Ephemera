@@ -93,5 +93,9 @@
   "ephemera.page.network.6": "Accepts a linkable to use for network access, and any iota. If a relay connected to the network has an adjacent Network Routing Index with the same iota, returns that relay's position. Costs half an amethyst dust.",
 
   "ephemera.page.forgewarning.1": "Mod author's note for Forge users: This spell does not work on Forge. I do not know why. I've set the cost on Forge to zero so at least it won't waste media. Sorry.$(br2)I'll try to get it working eventually.",
-  "ephemera.page.forgewarning.2": "Mod author's note for Forge users: This spell does not produce particles on Forge. I do not know why. The entity damage and block breaking still work fine, at least. Sorry.$(br2)I'll try to get it working eventually."
+  "ephemera.page.forgewarning.2": "Mod author's note for Forge users: This spell does not produce particles on Forge. I do not know why. The entity damage and block breaking still work fine, at least. Sorry.$(br2)I'll try to get it working eventually.",
+
+  "hexcasting.iota.ephemera:potion": "Status Effect",
+  "hexcasting.iota.ephemera:hash": "Hash",
+  "ephemera.iota.hashlabel": "Hashed data: %s"
 }

@@ -10,6 +10,7 @@ import kotlin.Triple;
 import net.beholderface.ephemera.Ephemera;
 import net.beholderface.ephemera.casting.patterns.OpFilteredEntityRaycast;
 import net.beholderface.ephemera.casting.patterns.OpFrameRotation;
+import net.beholderface.ephemera.casting.patterns.OpHash;
 import net.beholderface.ephemera.casting.patterns.link.OpNetworkScan;
 import net.beholderface.ephemera.casting.patterns.link.OpNodeIndex;
 import net.beholderface.ephemera.casting.patterns.math.OpGaussianRand;
@@ -115,6 +116,7 @@ public class EphemeraPatternRegistry {
     public static HexPattern LINK_TELEPORT = register(HexPattern.fromAngles("qqqqqwdeddwdawqqqwaq", HexDir.NORTH_WEST), "networktp", new OpNetworkTeleport());
     public static HexPattern PARTICLE_BURST = register(HexPattern.fromAngles("deeeewaaddwqqqqa", HexDir.EAST), "particleburst", new OpParticleBurst());
     public static HexPattern PAINT_CONJURED = register(HexPattern.fromAngles("eqdweeqdwweeqddqdwwwdeww", HexDir.WEST), "paintconjured", new OpSplatoon());
+    public static HexPattern HASH = register(HexPattern.fromAngles("qqawqaqw", HexDir.SOUTH_EAST), "hash", new OpHash());
     public static void init() {
         try {
             for (Triple<HexPattern, Identifier, Action> patternTriple : PATTERNS) {

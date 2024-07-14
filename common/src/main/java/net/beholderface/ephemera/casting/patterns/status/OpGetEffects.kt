@@ -5,7 +5,7 @@ import at.petrak.hexcasting.api.spell.casting.CastingContext
 import at.petrak.hexcasting.api.spell.getLivingEntityButNotArmorStand
 import at.petrak.hexcasting.api.spell.iota.Iota
 import at.petrak.hexcasting.api.spell.iota.ListIota
-import net.beholderface.ephemera.registry.PotionIota
+import net.beholderface.ephemera.casting.iotatypes.PotionIota
 
 class OpGetEffects : ConstMediaAction {
     override val argc = 1

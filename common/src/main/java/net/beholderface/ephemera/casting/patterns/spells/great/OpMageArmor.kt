@@ -10,7 +10,7 @@ import net.beholderface.ephemera.api.getStatusTagKey
 import net.beholderface.ephemera.items.ConjuredArmorItem
 import net.beholderface.ephemera.items.ConjuredArmorMaterial
 import net.beholderface.ephemera.registry.EphemeraItemRegistry
-import net.beholderface.ephemera.registry.PotionIota
+import net.beholderface.ephemera.casting.iotatypes.PotionIota
 import net.minecraft.entity.EquipmentSlot
 import net.minecraft.entity.attribute.EntityAttributeModifier
 import net.minecraft.entity.attribute.EntityAttributes

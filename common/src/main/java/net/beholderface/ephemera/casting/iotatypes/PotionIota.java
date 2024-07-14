@@ -1,9 +1,10 @@
-package net.beholderface.ephemera.registry;
+package net.beholderface.ephemera.casting.iotatypes;
 
 import at.petrak.hexcasting.api.spell.iota.Iota;
 import at.petrak.hexcasting.api.spell.iota.IotaType;
 import at.petrak.hexcasting.api.utils.HexUtils;
-import net.beholderface.ephemera.Ephemera;
+import net.beholderface.ephemera.registry.EphemeraIotaTypeRegistry;
+import net.beholderface.ephemera.registry.EphemeraMiscRegistry;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
