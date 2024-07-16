@@ -40,6 +40,7 @@
   "hexcasting.spell.ephemera:filteredentityraycast": "侦查员之提整",
   "hexcasting.spell.ephemera:gaussianrand": "熵之精思，第二型",
   "hexcasting.spell.ephemera:plasmabeam": "等离子冲击",
+  "hexcasting.spell.ephemera:hash": "哈希之纯化",
 
   "hexcasting.mishap.location_ephemera:inputrelaytprange": "目标实体距%s处的目标节点过远。",
   "hexcasting.mishap.location_ephemera:outputrelaytprange": "无法在范围%s内找到已连接的节点。",
@@ -93,5 +94,9 @@
   "ephemera.page.network.6": "接受用于访问网络的可链接事物，以及任意 iota。如果网络中有继链器毗邻网络路由索引，且索引中存有同一 iota，则返回该继链器的位置。消耗 1/2 个紫水晶粉。",
 
   "ephemera.page.forgewarning.1": "模组作者给 Forge 用户的留言：此法术在 Forge 上无法运行。我不知道是因为什么。我已将 Forge 端中此法术的消耗设置为 0，避免浪费媒质。抱歉。$(br2)我会尽力让它正常运作。",
-  "ephemera.page.forgewarning.2": "模组作者给 Forge 用户的留言：此法术在 Forge 上无法产生粒子。我不知道是因为什么。至少伤害实体和破坏方块的功能依然可用。抱歉。$(br2)我会尽力让它正常运作。"
+  "ephemera.page.forgewarning.2": "模组作者给 Forge 用户的留言：此法术在 Forge 上无法产生粒子。我不知道是因为什么。至少伤害实体和破坏方块的功能依然可用。抱歉。$(br2)我会尽力让它正常运作。",
+
+  "hexcasting.iota.ephemera:potion": "状态效果",
+  "hexcasting.iota.ephemera:hash": "哈希",
+  "ephemera.iota.hashlabel": "哈希数据：%s"
 }
