@@ -40,6 +40,7 @@
   "hexcasting.spell.ephemera:filteredentityraycast": "Scout's Exaltation",
   "hexcasting.spell.ephemera:gaussianrand": "Entropy Reflection II",
   "hexcasting.spell.ephemera:plasmabeam": "Plasma Beam",
+  "hexcasting.spell.ephemera:hash": "Hashing Purification",
 
   "hexcasting.mishap.location_ephemera:inputrelaytprange": "Target entity is too far from target node at %s.",
   "hexcasting.mishap.location_ephemera:outputrelaytprange": "Could not find connected node within range of %s.",

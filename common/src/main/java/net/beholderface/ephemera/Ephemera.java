@@ -1,10 +1,13 @@
 package net.beholderface.ephemera;
 
+import com.mojang.datafixers.util.Either;
 import dev.architectury.event.events.common.LifecycleEvent;
+import dev.architectury.event.events.common.TickEvent;
 import net.beholderface.ephemera.recipe.EphemeraRecipeSerializer;
 import net.beholderface.ephemera.recipe.EphemeraRecipeTypes;
 import net.beholderface.ephemera.registry.*;
 import net.beholderface.ephemera.networking.EphemeraNetworking;
+import net.beholderface.ephemera.status.MemeticDiseaseEffect;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -38,6 +41,10 @@ public class Ephemera {
 
         LifecycleEvent.SERVER_BEFORE_START.register((startedserver) ->{
             CACHED_SERVER = startedserver;
+        });
+
+        TickEvent.SERVER_POST.register((server)->{
+            MemeticDiseaseEffect.processDiseaseRetention(Either.left(server));
         });
     }
 

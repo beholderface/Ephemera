@@ -1,4 +1,4 @@
-package net.beholderface.ephemera.casting;
+package net.beholderface.ephemera.status;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
