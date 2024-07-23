@@ -7,6 +7,7 @@ import at.petrak.hexcasting.api.spell.mishaps.MishapInvalidIota
 import at.petrak.hexcasting.api.spell.mishaps.MishapNotEnoughArgs
 import at.petrak.hexcasting.common.lib.hex.HexIotaTypes
 import net.beholderface.ephemera.Ephemera
+import net.beholderface.ephemera.casting.iotatypes.HashIota
 import net.beholderface.ephemera.casting.iotatypes.PotionIota
 import net.minecraft.block.Block
 import net.minecraft.entity.Entity
@@ -35,6 +36,14 @@ fun List<Iota>.getStatusEffect(idx: Int, argc: Int = 0, allowShroud : Boolean) :
     }
 
     throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "ephemera:status")
+}
+
+fun List<Iota>.getHash(idx: Int, argc: Int = 0) : String {
+    val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
+    if (x is HashIota) {
+        return (x as HashIota).hashString
+    }
+    throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "ephemera:hash")
 }
 
 fun getBlockTagKey(id : Identifier) : TagKey<Block> {
