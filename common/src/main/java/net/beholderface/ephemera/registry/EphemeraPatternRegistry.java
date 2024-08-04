@@ -11,6 +11,7 @@ import net.beholderface.ephemera.Ephemera;
 import net.beholderface.ephemera.casting.patterns.OpFilteredEntityRaycast;
 import net.beholderface.ephemera.casting.patterns.OpFrameRotation;
 import net.beholderface.ephemera.casting.patterns.OpHash;
+import net.beholderface.ephemera.casting.patterns.OpHashBits;
 import net.beholderface.ephemera.casting.patterns.link.OpNetworkScan;
 import net.beholderface.ephemera.casting.patterns.link.OpNodeIndex;
 import net.beholderface.ephemera.casting.patterns.math.OpGaussianRand;
@@ -20,6 +21,7 @@ import net.beholderface.ephemera.casting.patterns.spells.OpParticleBurst;
 import net.beholderface.ephemera.casting.patterns.spells.OpPlasma;
 import net.beholderface.ephemera.casting.patterns.spells.OpSplatoon;
 import net.beholderface.ephemera.casting.patterns.spells.great.OpMageArmor;
+import net.beholderface.ephemera.casting.patterns.spells.great.OpRepair;
 import net.beholderface.ephemera.casting.patterns.status.*;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.util.Identifier;
@@ -93,6 +95,7 @@ public class EphemeraPatternRegistry {
     public static HexPattern INVISIBILITY = registerPerWorld(HexPattern.fromAngles("qqqqqaewawaweqa", HexDir.SOUTH_WEST), "invisibility", new OpPotionEffect(
             StatusEffects.INVISIBILITY, (int)(MediaConstants.DUST_UNIT / 3), false, false, true));
     public static HexPattern MAGE_ARMOR = registerPerWorld(HexPattern.fromAngles("qaweqqwqqewaqeqqqqqad", HexDir.NORTH_WEST), "magearmor", new OpMageArmor());
+    public static HexPattern REPAIR = registerPerWorld(HexPattern.fromAngles("waqdqqwqqdqawwqqqqqaqedeq", HexDir.WEST), "repair", new OpRepair());
     //status stuff
     public static HexPattern REMOVE_STATUS = register(HexPattern.fromAngles("eeeeedaqdewed", HexDir.SOUTH_WEST), "removestatus", new OpRemoveStatus());
     public static HexPattern GET_STATUS = register(HexPattern.fromAngles("qqqqqedwd", HexDir.SOUTH_WEST), "getstatus", new OpGetEffects());
@@ -117,6 +120,7 @@ public class EphemeraPatternRegistry {
     public static HexPattern PARTICLE_BURST = register(HexPattern.fromAngles("deeeewaaddwqqqqa", HexDir.EAST), "particleburst", new OpParticleBurst());
     public static HexPattern PAINT_CONJURED = register(HexPattern.fromAngles("eqdweeqdwweeqddqdwwwdeww", HexDir.WEST), "paintconjured", new OpSplatoon());
     public static HexPattern HASH = register(HexPattern.fromAngles("qqawqaqw", HexDir.SOUTH_EAST), "hash", new OpHash());
+    public static HexPattern HASH_BITS = register(HexPattern.fromAngles("eedwedew", HexDir.SOUTH_WEST), "hashbits", new OpHashBits());
     public static void init() {
         try {
             for (Triple<HexPattern, Identifier, Action> patternTriple : PATTERNS) {
