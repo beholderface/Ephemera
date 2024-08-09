@@ -111,5 +111,7 @@
   "ephemera.iota.hashlabel": "Hashed data: %s",
 
   "text.ephemera.clearHistoryResponse": "Cleared reveal history map.",
-  "text.ephemera.revealIntroduction": "Transmission from %s: "
+  "text.ephemera.revealIntroduction": "Transmission from %s: ",
+
+  "enchantment.ephemera.shame": "Curse of Shame"
 }
