@@ -41,6 +41,10 @@
   "hexcasting.spell.ephemera:gaussianrand": "熵之精思，第二型",
   "hexcasting.spell.ephemera:plasmabeam": "等离子冲击",
   "hexcasting.spell.ephemera:hash": "哈希之纯化",
+  "hexcasting.spell.ephemera:revealtoother": "邮递员之策略",
+  "hexcasting.spell.ephemera:getrevealcost": "邮递员之纯化",
+  "hexcasting.spell.ephemera:clearrevealcost": "邮递员之策略，第二型",
+  "hexcasting.spell.ephemera:repair": "咒感修补",
 
   "hexcasting.mishap.location_ephemera:inputrelaytprange": "目标实体距%s处的目标节点过远。",
   "hexcasting.mishap.location_ephemera:outputrelaytprange": "无法在范围%s内找到已连接的节点。",
@@ -48,6 +52,7 @@
   "hexcasting.mishap.ephemera:missingeffect": "%s本应拥有%s，而实际没有。",
   "ephemera.mishap.noitemframe": "一个物品展示框",
   "ephemera.mishap.entitytypelistplease": "一个实体类型列表",
+  "ephemera.mishap.toolongiota": "一个可用少于256个字符显示的iota",
   "hexcasting.mishap.ephemera:blacklist": "此效果已被标签禁用。",
   "hexcasting.mishap.ephemera:instant": "你是怎么拿到这个iota的？",
 
@@ -57,6 +62,7 @@
   "ephemera.entry.invisibility": "隐形",
   "ephemera.entry.status_iotas": "状态 Iota",
   "ephemera.entry.network": "链接实用图案",
+  "ephemera.entry.revealtoother": "信息传递",
 
   "ephemera.page.paintconjured.1": "接受一个向量与代表染色剂的物品类型。如果目标为我自己的方块，消耗极少量媒质；否则消耗 1 个紫水晶粉。",
   "ephemera.page.paintconjured.2": "将所给位置处构筑方块的颜色设置为所给染色剂的颜色；如果传入的是 Null，则将其设置为我意识的颜色。$(br2)不保证对非传统的构筑物质有效。",
@@ -93,10 +99,19 @@
   "ephemera.page.network.5": "主手持有核心右击时，会尝试将核心中的 iota 存入自身。副手持有核心时，则会将存储的 iota 写入核心。",
   "ephemera.page.network.6": "接受用于访问网络的可链接事物，以及任意 iota。如果网络中有继链器毗邻网络路由索引，且索引中存有同一 iota，则返回该继链器的位置。消耗 1/2 个紫水晶粉。",
 
-  "ephemera.page.forgewarning.1": "模组作者给 Forge 用户的留言：此法术在 Forge 上无法运行。我不知道是因为什么。我已将 Forge 端中此法术的消耗设置为 0，避免浪费媒质。抱歉。$(br2)我会尽力让它正常运作。",
-  "ephemera.page.forgewarning.2": "模组作者给 Forge 用户的留言：此法术在 Forge 上无法产生粒子。我不知道是因为什么。至少伤害实体和破坏方块的功能依然可用。抱歉。$(br2)我会尽力让它正常运作。",
+  "ephemera.page.revealtoother.1": "接受一个玩家和一个长度少于 256 个字符的 iota，并向所给玩家展示该 iota，如同他们来施放揭示一般；同时也告诉他们信息的发送者。消耗与给定玩家上一次作为此法术目标后经过的时间成反比例。",
+  "ephemera.page.revealtoother.2": "接受一个玩家，返回紫水晶粉的数量，对应通过邮递员之策略向其发送信息的消耗，范围在 1/10 个到 10 个之间。",
+  "ephemera.page.revealtoother.3": "重置通过邮递员之策略向我发送信息的消耗，也即 1/10 个紫水晶粉。消耗 1/10 个紫水晶粉。",
+
+  "ephemera.page.forgewarning.1": "模组作者给 Forge 用户的留言：此法术在 Forge 上无法运行。我不知道具体的原因。我已将 Forge 端中此法术的消耗设置为 0，避免浪费媒质。抱歉。$(br2)我会尽力让它正常运作。",
+  "ephemera.page.forgewarning.2": "模组作者给 Forge 用户的留言：此法术在 Forge 上无法产生粒子。我不知道具体的原因。至少伤害实体和破坏方块的功能依然可用。抱歉。$(br2)我会尽力让它正常运作。",
 
   "hexcasting.iota.ephemera:potion": "状态效果",
   "hexcasting.iota.ephemera:hash": "哈希",
-  "ephemera.iota.hashlabel": "哈希数据：%s"
+  "ephemera.iota.hashlabel": "哈希数据：%s",
+
+  "text.ephemera.clearHistoryResponse": "已清除揭示历史。",
+  "text.ephemera.revealIntroduction": "来自%s的信息：",
+
+  "enchantment.ephemera.shame": "无耻诅咒"
 }
