@@ -28,7 +28,7 @@ public class EphemeraBlockRegistry {
     public static final RegistrySupplier<RelayTPDetectorBlock> TP_DETECTOR = BLOCKS.register("relay_tp_detector", ()-> new RelayTPDetectorBlock(AbstractBlock.Settings.copy(HexBlocks.SLATE_BLOCK)));
     public static final RegistrySupplier<RelayIndexBlock> RELAY_INDEX = BLOCKS.register("relay_index", ()-> new RelayIndexBlock(AbstractBlock.Settings.copy(HexBlocks.SLATE_BLOCK)));
     public static final RegistrySupplier<BlockEntityType<RelayIndexBlockEntity>> RELAY_INDEX_ENTITY = BLOCK_ENTITIES.register("relay_index_entity", () -> BlockEntityType.Builder.create(RelayIndexBlockEntity::new, RELAY_INDEX.get()).build(null));
-    @Nullable
-    public static final RegistrySupplier<SlimeBlock> GUMMY_BLOCK = Platform.isModLoaded("hexgloop") ? BLOCKS.register("thought_gummy_block", ()->new SlimeBlock(AbstractBlock.Settings.copy(Blocks.SLIME_BLOCK))) : null;
+    /*@Nullable
+    public static final RegistrySupplier<SlimeBlock> GUMMY_BLOCK = Platform.isModLoaded("hexgloop") ? BLOCKS.register("thought_gummy_block", ()->new SlimeBlock(AbstractBlock.Settings.copy(Blocks.SLIME_BLOCK))) : null;*/
 
 }

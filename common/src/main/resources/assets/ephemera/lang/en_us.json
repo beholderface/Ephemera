@@ -41,6 +41,10 @@
   "hexcasting.spell.ephemera:gaussianrand": "Entropy Reflection II",
   "hexcasting.spell.ephemera:plasmabeam": "Plasma Beam",
   "hexcasting.spell.ephemera:hash": "Hashing Purification",
+  "hexcasting.spell.ephemera:revealtoother": "Postman's Gambit",
+  "hexcasting.spell.ephemera:getrevealcost": "Postage Purification",
+  "hexcasting.spell.ephemera:clearrevealcost": "Postman's Gambit II",
+  "hexcasting.spell.ephemera:repair": "Induce Mending",
 
   "hexcasting.mishap.location_ephemera:inputrelaytprange": "Target entity is too far from target node at %s.",
   "hexcasting.mishap.location_ephemera:outputrelaytprange": "Could not find connected node within range of %s.",
@@ -48,6 +52,7 @@
   "hexcasting.mishap.ephemera:missingeffect": "Expected %s to be affected by %s, but they are not.",
   "ephemera.mishap.noitemframe": "an item frame",
   "ephemera.mishap.entitytypelistplease": "a list of entity types",
+  "ephemera.mishap.toolongiota": "an iota that displays as less than 256 characters",
   "hexcasting.mishap.ephemera:blacklist": "This effect has been blacklisted via tag.",
   "hexcasting.mishap.ephemera:instant": "How did you even get that iota?",
 
@@ -57,6 +62,7 @@
   "ephemera.entry.invisibility": "Invisibility",
   "ephemera.entry.status_iotas": "Status Iotas",
   "ephemera.entry.network": "Link Amenities",
+  "ephemera.entry.revealtoother": "Messaging",
 
   "ephemera.page.paintconjured.1": "Accepts a vector and an itemtype representing a pigment. Costs a negligible amount of media if targeting my own block, or 1 Amethyst Dust if not.",
   "ephemera.page.paintconjured.2": "Sets the colors of the conjured block corresponding to the vector to the colorset represented by the passed pigment, or mine if passed a NULL iota.$(br2)Not guaranteed to work with unconventional forms of conjured matter. ",
@@ -93,10 +99,19 @@
   "ephemera.page.network.5": "When rclicked with a focus in the main hand, attempts to store its iota in the block. When the focus is in the offhand, writes the stored iota to the focus.",
   "ephemera.page.network.6": "Accepts a linkable to use for network access, and any iota. If a relay connected to the network has an adjacent Network Routing Index with the same iota, returns that relay's position. Costs half an amethyst dust.",
 
+  "ephemera.page.revealtoother.1": "Accepts a player and any iota less than 256 characters long, and shows that iota to them as if they had cast Reveal, also telling them who sent the message. Cost is inversely proportional to the length of time since they were last targeted by this spell.",
+  "ephemera.page.revealtoother.2": "Accepts a player and returns how much amethyst dust it would cost to send them a message via Postman's Gambit, between 1/10 of a dust and 10 dust.",
+  "ephemera.page.revealtoother.3": "Resets the cost of sending me a message via Postman's Gambit back to 1/10 of a dust. Costs 1/10 of a dust.",
+
   "ephemera.page.forgewarning.1": "Mod author's note for Forge users: This spell does not work on Forge. I do not know why. I've set the cost on Forge to zero so at least it won't waste media. Sorry.$(br2)I'll try to get it working eventually.",
   "ephemera.page.forgewarning.2": "Mod author's note for Forge users: This spell does not produce particles on Forge. I do not know why. The entity damage and block breaking still work fine, at least. Sorry.$(br2)I'll try to get it working eventually.",
 
   "hexcasting.iota.ephemera:potion": "Status Effect",
   "hexcasting.iota.ephemera:hash": "Hash",
-  "ephemera.iota.hashlabel": "Hashed data: %s"
+  "ephemera.iota.hashlabel": "Hashed data: %s",
+
+  "text.ephemera.clearHistoryResponse": "Cleared reveal history map.",
+  "text.ephemera.revealIntroduction": "Transmission from %s: ",
+
+  "enchantment.ephemera.shame": "Curse of Shame"
 }

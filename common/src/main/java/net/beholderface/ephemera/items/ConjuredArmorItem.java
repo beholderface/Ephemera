@@ -4,7 +4,10 @@ import at.petrak.hexcasting.api.utils.NBTHelper;
 import at.petrak.hexcasting.common.lib.HexItems;
 import kotlin.Pair;
 import net.beholderface.ephemera.api.MiscAPIKt;
+import net.beholderface.ephemera.registry.EphemeraMiscRegistry;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffect;
@@ -25,16 +28,22 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ConjuredArmorItem extends ArmorItem {
 
     public static final String STORED_STATUS_TAG = "storedstatus";
     public static final String STORED_STATUS_LEVEL_TAG = "level";
     public static final String STORED_STATUS_TYPE_TAG = "type";
+    private static final Map<Enchantment, Integer> SHAME_MAP = new HashMap<>();
 
     public ConjuredArmorItem(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
         super(material, slot, settings);
+        if (SHAME_MAP.isEmpty()){
+            SHAME_MAP.put(EphemeraMiscRegistry.SHAME_CURSE.get(), 1);
+        }
     }
 
     @Override
@@ -80,6 +89,12 @@ public class ConjuredArmorItem extends ArmorItem {
             ){
                 knockoffBreak(stack, world, entity, entity instanceof PlayerEntity);
             } else if (world.getTime() % 20 == 0){
+                if (stack.hasEnchantments()){
+                    Map<Enchantment, Integer> enchantMap = EnchantmentHelper.get(stack);
+                    if (enchantMap.size() != 1 || !enchantMap.containsKey(EphemeraMiscRegistry.SHAME_CURSE.get())){
+                        EnchantmentHelper.set(SHAME_MAP, stack);
+                    }
+                }
                 PlayerEntity livingEntity = (PlayerEntity) entity;
                 if (!livingEntity.getAbilities().creativeMode) {
                     EquipmentSlot finalValidSlot = validSlot;
@@ -104,7 +119,7 @@ public class ConjuredArmorItem extends ArmorItem {
     }
     @Override
     public boolean hasGlint(ItemStack stack){
-        return true;
+        return !EnchantmentHelper.fromNbt(stack.getEnchantments()).containsKey(EphemeraMiscRegistry.SHAME_CURSE.get());
     }
 
     @Override

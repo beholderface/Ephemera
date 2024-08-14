@@ -2,10 +2,8 @@ package net.beholderface.ephemera.api
 
 import at.petrak.hexcasting.api.spell.iota.EntityIota
 import at.petrak.hexcasting.api.spell.iota.Iota
-import at.petrak.hexcasting.api.spell.iota.IotaType
 import at.petrak.hexcasting.api.spell.mishaps.MishapInvalidIota
 import at.petrak.hexcasting.api.spell.mishaps.MishapNotEnoughArgs
-import at.petrak.hexcasting.common.lib.hex.HexIotaTypes
 import net.beholderface.ephemera.Ephemera
 import net.beholderface.ephemera.casting.iotatypes.HashIota
 import net.beholderface.ephemera.casting.iotatypes.PotionIota
@@ -25,6 +23,7 @@ import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 import javax.annotation.Nullable
+import kotlin.math.ln
 
 fun List<Iota>.getStatusEffect(idx: Int, argc: Int = 0, allowShroud : Boolean) : StatusEffect {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
@@ -134,4 +133,8 @@ fun String.hash() : String{
         "???"
         //do nothing? idk
     }
+}
+
+fun arbitraryLog(base: Double, num: Double): Double {
+    return ln(num) / ln(base)
 }
