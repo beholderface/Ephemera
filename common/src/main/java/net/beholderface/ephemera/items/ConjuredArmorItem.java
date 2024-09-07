@@ -37,13 +37,10 @@ public class ConjuredArmorItem extends ArmorItem {
     public static final String STORED_STATUS_TAG = "storedstatus";
     public static final String STORED_STATUS_LEVEL_TAG = "level";
     public static final String STORED_STATUS_TYPE_TAG = "type";
-    private static final Map<Enchantment, Integer> SHAME_MAP = new HashMap<>();
+    public static final Map<Enchantment, Integer> SHAME_MAP = new HashMap<>();
 
     public ConjuredArmorItem(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
         super(material, slot, settings);
-        if (SHAME_MAP.isEmpty()){
-            SHAME_MAP.put(EphemeraMiscRegistry.SHAME_CURSE.get(), 1);
-        }
     }
 
     @Override

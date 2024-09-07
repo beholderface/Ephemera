@@ -6,9 +6,7 @@ import at.petrak.hexcasting.api.spell.casting.CastingContext
 import at.petrak.hexcasting.api.spell.iota.Iota
 import at.petrak.hexcasting.xplat.IXplatAbstractions
 import dev.architectury.platform.Platform
-import net.minecraft.entity.EntityType
-import net.minecraft.text.Text
-import net.beholderface.ephemera.casting.ParticleBurstPacket
+import net.beholderface.ephemera.networking.ParticleBurstPacket
 
 class OpParticleBurst : ConstMediaAction {
     override val argc = 4

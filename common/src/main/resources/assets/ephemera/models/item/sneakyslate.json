@@ -1,0 +1,16 @@
+{
+  "overrides": [
+    {
+      "model": "ephemera:item/sneakyslate_blank",
+      "predicate": {
+        "hexcasting:written": 0.0
+      }
+    },
+    {
+      "model": "ephemera:item/sneakyslate_written",
+      "predicate": {
+        "hexcasting:written": 1.0
+      }
+    }
+  ]
+}

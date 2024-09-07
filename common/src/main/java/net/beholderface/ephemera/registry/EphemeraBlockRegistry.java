@@ -5,8 +5,10 @@ import dev.architectury.platform.Platform;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.beholderface.ephemera.Ephemera;
+import net.beholderface.ephemera.blocks.ExtraConnectedSlateBlock;
 import net.beholderface.ephemera.blocks.RelayIndexBlock;
 import net.beholderface.ephemera.blocks.RelayTPDetectorBlock;
+import net.beholderface.ephemera.blocks.blockentity.ExtraConnectedSlateBlockEntity;
 import net.beholderface.ephemera.blocks.blockentity.RelayIndexBlockEntity;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -31,4 +33,6 @@ public class EphemeraBlockRegistry {
     /*@Nullable
     public static final RegistrySupplier<SlimeBlock> GUMMY_BLOCK = Platform.isModLoaded("hexgloop") ? BLOCKS.register("thought_gummy_block", ()->new SlimeBlock(AbstractBlock.Settings.copy(Blocks.SLIME_BLOCK))) : null;*/
 
+    public static final RegistrySupplier<ExtraConnectedSlateBlock> SNEAKY_SLATE = BLOCKS.register("sneakyslate", ()-> new ExtraConnectedSlateBlock(AbstractBlock.Settings.copy(HexBlocks.SLATE)));
+    public static final RegistrySupplier<BlockEntityType<ExtraConnectedSlateBlockEntity>> SNEAKY_SLATE_ENTITY = BLOCK_ENTITIES.register("sneakyslate_entity", ()->BlockEntityType.Builder.create(ExtraConnectedSlateBlockEntity::new, SNEAKY_SLATE.get()).build(null));
 }

@@ -1,11 +1,13 @@
 package net.beholderface.ephemera.registry;
 
+import at.petrak.hexcasting.common.lib.HexBlocks;
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.beholderface.ephemera.Ephemera;
 import net.beholderface.ephemera.items.ConjuredArmorItem;
 import net.beholderface.ephemera.items.ConjuredArmorMaterial;
+import net.beholderface.ephemera.items.ExtraConnectedSlateItem;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.util.registry.Registry;
@@ -36,4 +38,5 @@ public class EphemeraItemRegistry {
     public static final RegistrySupplier<BlockItem> RELAY_INDEX_ITEM = ITEMS.register("relay_index", ()->new BlockItem(EphemeraBlockRegistry.RELAY_INDEX.get(), EPHEMERA_STACKABLE64));
     public static final RegistrySupplier<BlockItem> TP_DETECTOR_ITEM = ITEMS.register("relay_tp_detector", ()->new BlockItem(EphemeraBlockRegistry.TP_DETECTOR.get(), EPHEMERA_STACKABLE64));
 
+    public static final RegistrySupplier<ExtraConnectedSlateItem> SNEAKY_SLATE = ITEMS.register("sneakyslate", ()->new ExtraConnectedSlateItem(EphemeraBlockRegistry.SNEAKY_SLATE.get(), EPHEMERA_STACKABLE64));
 }

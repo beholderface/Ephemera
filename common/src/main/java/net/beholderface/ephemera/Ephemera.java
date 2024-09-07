@@ -3,6 +3,7 @@ package net.beholderface.ephemera;
 import com.mojang.datafixers.util.Either;
 import dev.architectury.event.events.common.LifecycleEvent;
 import dev.architectury.event.events.common.TickEvent;
+import net.beholderface.ephemera.items.ConjuredArmorItem;
 import net.beholderface.ephemera.recipe.EphemeraRecipeSerializer;
 import net.beholderface.ephemera.recipe.EphemeraRecipeTypes;
 import net.beholderface.ephemera.registry.*;
@@ -13,6 +14,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import static net.beholderface.ephemera.items.ConjuredArmorItem.SHAME_MAP;
 
 /**
  * This is effectively the loading entrypoint for most of your code, at least
@@ -26,9 +29,9 @@ public class Ephemera {
 
     public static void init() {
         LOGGER.info("bee");
-        EphemeraMiscRegistry.init();
         EphemeraAbstractions.initPlatformSpecific();
         EphemeraBlockRegistry.init();
+        EphemeraMiscRegistry.init();
         EphemeraItemRegistry.init();
         EphemeraIotaTypeRegistry.init();
         EphemeraPatternRegistry.init();
@@ -39,6 +42,11 @@ public class Ephemera {
 
         LOGGER.info(EphemeraAbstractions.getConfigDirectory().toAbsolutePath().normalize().toString());
 
+        LifecycleEvent.SERVER_STARTED.register((startedserver)->{
+            if (SHAME_MAP.isEmpty()){
+                SHAME_MAP.put(EphemeraMiscRegistry.SHAME_CURSE.get(), 1);
+            }
+        });
         LifecycleEvent.SERVER_BEFORE_START.register((startedserver) ->{
             CACHED_SERVER = startedserver;
         });

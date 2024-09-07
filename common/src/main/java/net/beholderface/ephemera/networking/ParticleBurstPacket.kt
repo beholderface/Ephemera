@@ -1,6 +1,5 @@
-package net.beholderface.ephemera.casting
+package net.beholderface.ephemera.networking
 
-import at.petrak.hexcasting.api.HexAPI.modLoc
 import at.petrak.hexcasting.api.misc.FrozenColorizer
 import at.petrak.hexcasting.common.network.IMessage
 import at.petrak.hexcasting.common.lib.HexSounds

@@ -9,7 +9,7 @@ public class EphemeraNetworking {
     private static final NetworkChannel CHANNEL = NetworkChannel.create(id("networking_channel"));
 
     public static void init() {
-        CHANNEL.register(SetLookPitchS2CMsg.class, SetLookPitchS2CMsg::encode, SetLookPitchS2CMsg::new, SetLookPitchS2CMsg::apply);
+        //CHANNEL.register(SetLookPitchS2CMsg.class, SetLookPitchS2CMsg::encode, SetLookPitchS2CMsg::new, SetLookPitchS2CMsg::apply);
     }
 
     public static <T> void sendToServer(T message) {

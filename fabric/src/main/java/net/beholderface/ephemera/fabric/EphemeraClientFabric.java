@@ -1,5 +1,6 @@
 package net.beholderface.ephemera.fabric;
 
+import net.beholderface.ephemera.CopiedSlateRenderer;
 import net.beholderface.ephemera.Ephemera;
 import net.beholderface.ephemera.registry.EphemeraBlockRegistry;
 import net.fabricmc.api.ClientModInitializer;
@@ -7,6 +8,7 @@ import net.beholderface.ephemera.EphemeraClient;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.block.Block;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 
 /**
  * Fabric client loading entrypoint.
@@ -26,6 +28,8 @@ public class EphemeraClientFabric implements ClientModInitializer {
     public void onInitializeClient() {
         EphemeraClient.init();
         FabricPacketHandler.INSTANCE.initClientBound();
+        Ephemera.LOGGER.info("Registering ephemera renderers.");
+        BlockEntityRendererFactories.register(EphemeraBlockRegistry.SNEAKY_SLATE_ENTITY.get(), CopiedSlateRenderer::new);
 
         /*Block[] cutoutBlocks = {EphemeraBlockRegistry.TP_DETECTOR.get()};
         Block[] translucentBlocks = {};

@@ -1,7 +1,7 @@
 package net.beholderface.ephemera.forge;
 
 import net.beholderface.ephemera.Ephemera;
-import net.beholderface.ephemera.casting.ParticleBurstPacket;
+import net.beholderface.ephemera.networking.ParticleBurstPacket;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
