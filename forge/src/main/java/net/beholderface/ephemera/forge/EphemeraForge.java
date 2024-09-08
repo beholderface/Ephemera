@@ -23,6 +23,7 @@ public class EphemeraForge {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         EventBuses.registerModEventBus(Ephemera.MOD_ID, bus);
         bus.addListener(EphemeraClientForge::init);
+        bus.addListener(EphemeraClientForge::registerRenderers);
         Ephemera.init();
         bus.addListener((FMLCommonSetupEvent evt)-> evt.enqueueWork(ForgePacketHandler::init));
     }

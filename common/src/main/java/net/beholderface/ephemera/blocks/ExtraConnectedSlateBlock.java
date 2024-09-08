@@ -2,6 +2,7 @@ package net.beholderface.ephemera.blocks;
 
 import at.petrak.hexcasting.annotations.SoftImplement;
 import at.petrak.hexcasting.api.spell.iota.PatternIota;
+import at.petrak.hexcasting.api.spell.math.HexPattern;
 import at.petrak.hexcasting.common.blocks.circles.BlockEntitySlate;
 import at.petrak.hexcasting.common.blocks.circles.BlockSlate;
 import at.petrak.hexcasting.common.lib.HexItems;
@@ -26,18 +27,6 @@ public class ExtraConnectedSlateBlock extends BlockSlate {
         super(settings);
     }
 
-    /*@Override
-    public boolean canEnterFromDirection(Direction enterDir, Direction normalDir, BlockPos pos, BlockState bs, World world) {
-        var face = bs.get(ATTACH_FACE);
-        if (face == WallMountLocation.WALL){
-            return enterDir != bs.get(FACING);
-        } else if (face == WallMountLocation.CEILING){
-            return enterDir != Direction.DOWN;
-        } else {
-            return enterDir != Direction.UP;
-        }
-    }*/
-
     @Override
     public EnumSet<Direction> exitDirections(BlockPos pos, BlockState bs, World world) {
         var allDirs = EnumSet.allOf(Direction.class);
@@ -51,7 +40,7 @@ public class ExtraConnectedSlateBlock extends BlockSlate {
     public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockView level, BlockPos pos,
                                        PlayerEntity player) {
         BlockEntity be = level.getBlockEntity(pos);
-        if (be instanceof BlockEntitySlate slate) {
+        if (be instanceof ExtraConnectedSlateBlockEntity slate) {
             ItemStack stack = new ItemStack(EphemeraItemRegistry.SNEAKY_SLATE.get());
             if (slate.pattern != null) {
                 EphemeraItemRegistry.SNEAKY_SLATE.get().writeDatum(stack, new PatternIota(slate.pattern));
@@ -66,5 +55,15 @@ public class ExtraConnectedSlateBlock extends BlockSlate {
     @Override
     public BlockEntity createBlockEntity(BlockPos pPos, BlockState pState) {
         return new ExtraConnectedSlateBlockEntity(pPos, pState);
+    }
+
+    @Override
+    public @Nullable
+    HexPattern getPattern(BlockPos pos, BlockState bs, World world) {
+        if (world.getBlockEntity(pos) instanceof ExtraConnectedSlateBlockEntity tile) {
+            return tile.pattern;
+        } else {
+            return null;
+        }
     }
 }

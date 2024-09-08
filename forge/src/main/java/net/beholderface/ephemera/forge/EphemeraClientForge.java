@@ -21,10 +21,11 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 /**
  * Forge client loading entrypoint.
  */
-@Mod.EventBusSubscriber
+//@Mod.EventBusSubscriber
 public class EphemeraClientForge {
     public static void init(FMLClientSetupEvent event) {
         EphemeraClient.init();
+        //FMLJavaModLoadingContext.get().getModEventBus().register(EphemeraClientForge.class);
     }
 
     @SubscribeEvent
