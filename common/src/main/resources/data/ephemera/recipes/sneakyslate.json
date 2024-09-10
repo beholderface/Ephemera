@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "hexcasting:empty_impetus"
+    },
+    "S": {
+      "item": "hexcasting:slate"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SIS",
+    "SSS"
+  ],
+  "result": {
+    "item": "ephemera:sneakyslate",
+    "count": 8
+  }
+}
