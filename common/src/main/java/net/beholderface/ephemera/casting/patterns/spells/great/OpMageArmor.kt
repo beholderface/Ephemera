@@ -75,12 +75,12 @@ class OpMageArmor() : SpellAction {
             }
         }
         val baseLifetime = (durability / 60) //minutes
-        var cost = (((armorStrength.toDouble().pow(1.5) * baseLifetime) / 4) * affectedSlots).coerceAtLeast(effectStrength * 5.0).coerceAtMost((Integer.MAX_VALUE - 1).toDouble()).toInt()
+        var cost : Long = (((armorStrength.toDouble().pow(1.5) * baseLifetime) / 4) * affectedSlots).coerceAtLeast(effectStrength * 5.0).coerceAtMost((Integer.MAX_VALUE - 1).toDouble()).toLong()
         if (effect != null){
             cost *= (effectStrength + 2).coerceAtMost(Integer.MAX_VALUE - 1)
         }
-        cost = (cost * MediaConstants.DUST_UNIT).coerceAtMost(Integer.MAX_VALUE - 1)
-        return Triple(Spell(target, slotBools, durability, armorStrength, effect, effectStrength), cost, listOf(ParticleSpray.cloud(target.pos, 2.0)))
+        cost = (cost * MediaConstants.DUST_UNIT).coerceAtMost(Long.MAX_VALUE - 1)
+        return Triple(Spell(target, slotBools, durability, armorStrength, effect, effectStrength), cost.coerceIn(0, Int.MAX_VALUE.toLong() - 1).toInt(), listOf(ParticleSpray.cloud(target.pos, 2.0)))
     }
 
     private data class Spell(val player : ServerPlayerEntity, val slots : BooleanArray, val durability : Int, val armorStrength : Int,
