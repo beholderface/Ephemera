@@ -9,6 +9,7 @@ import net.beholderface.ephemera.casting.mishaps.MishapMissingEffect
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.effect.StatusEffectCategory
+import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.entity.effect.StatusEffects
 import kotlin.math.pow
 
@@ -18,9 +19,12 @@ class OpRemoveStatus : SpellAction {
     override fun execute(args: List<Iota>, ctx: CastingContext): Triple<RenderedSpell, Int, List<ParticleSpray>> {
         val target = args.getLivingEntityButNotArmorStand(0, argc)
         val effect = args.getStatusEffect(1, argc, true)
-        val existingEffect =  target.getStatusEffect(effect)
+        var existingEffect = target.getStatusEffect(effect)
         if (existingEffect == null){
-            throw MishapMissingEffect(target, effect)
+            existingEffect = StatusEffectInstance(StatusEffects.ABSORPTION, 60, 3)
+            if (effect != StatusEffects.ABSORPTION){
+                throw MishapMissingEffect(target, effect)
+            }
         }
         val effectDuration = existingEffect.duration.toDouble() / 20
         val effectStrenth = (existingEffect.amplifier + 1).toDouble()
@@ -46,7 +50,9 @@ class OpRemoveStatus : SpellAction {
     }
     private data class Spell(val target : LivingEntity, val effect : StatusEffect) : RenderedSpell {
         override fun cast(ctx: CastingContext){
-            target.removeStatusEffect(effect)
+            if (target.hasStatusEffect(effect)){
+                target.removeStatusEffect(effect)
+            }
             if (effect == StatusEffects.ABSORPTION){
                 target.absorptionAmount = 0f
             }
