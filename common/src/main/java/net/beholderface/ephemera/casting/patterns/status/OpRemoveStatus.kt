@@ -9,6 +9,7 @@ import net.beholderface.ephemera.casting.mishaps.MishapMissingEffect
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.effect.StatusEffectCategory
+import net.minecraft.entity.effect.StatusEffects
 import kotlin.math.pow
 
 class OpRemoveStatus : SpellAction {
@@ -46,6 +47,9 @@ class OpRemoveStatus : SpellAction {
     private data class Spell(val target : LivingEntity, val effect : StatusEffect) : RenderedSpell {
         override fun cast(ctx: CastingContext){
             target.removeStatusEffect(effect)
+            if (effect == StatusEffects.ABSORPTION){
+                target.absorptionAmount = 0f
+            }
         }
     }
 }
