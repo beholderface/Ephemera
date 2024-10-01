@@ -12,16 +12,21 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.stat.Stats;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
+import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
@@ -73,8 +78,15 @@ public class ConjuredArmorItem extends ArmorItem {
                 PlayerEntity player = (PlayerEntity) entity;
                 damageIncrement += (int) /*Math.pow(*/storedStatus.component2() + 1/*, 2)*/;
                 if (world.getTime() % 100 == 0 && damageIncrement <= stack.getMaxDamage() - stack.getDamage()){
-                    player.addStatusEffect(new StatusEffectInstance(storedStatus.getFirst(), 200,
-                            storedStatus.component2(), false, false, true));
+                    StatusEffect stored = storedStatus.getFirst();
+                    int level = storedStatus.getSecond();
+                    boolean preexistingcondition = player.hasStatusEffect(stored);
+                    int prelevel = preexistingcondition ? player.getStatusEffect(stored).getAmplifier() : -1;
+                    if (preexistingcondition && prelevel < level){
+                        player.removeStatusEffect(stored);
+                    }
+                    player.addStatusEffect(new StatusEffectInstance(stored, 200,
+                            level, false, false, true));
                 }
                 /*if (!player.hasStatusEffect(storedStatus.getFirst())) {
                     //Ephemera.LOGGER.info("Attempting to add status effect " + storedStatus.getFirst());
@@ -211,5 +223,12 @@ public class ConjuredArmorItem extends ArmorItem {
             Style style = text2.getStyle().withColor(48831);
             tooltip.add(text2.getWithStyle(style).get(0));
         }
+    }
+
+    @Override
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        ItemStack itemStack = user.getStackInHand(hand);
+        this.knockoffBreak(itemStack, world, user, true);
+        return TypedActionResult.success(itemStack, world.isClient());
     }
 }
