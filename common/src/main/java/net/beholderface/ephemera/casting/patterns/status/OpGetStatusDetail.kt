@@ -8,6 +8,7 @@ import at.petrak.hexcasting.api.spell.iota.Iota
 import net.beholderface.ephemera.api.getStatusEffect
 import net.beholderface.ephemera.casting.mishaps.MishapMissingEffect
 import net.minecraft.entity.effect.StatusEffects
+import kotlin.math.floor
 
 class OpGetStatusDetail(val type : Boolean) : ConstMediaAction {
     override val argc = 2
@@ -22,7 +23,7 @@ class OpGetStatusDetail(val type : Boolean) : ConstMediaAction {
                     throw MishapMissingEffect(target, effect)
                 } else {
                     val effectDuration = -1.0
-                    val effectStrenth = target.absorptionAmount
+                    val effectStrenth = floor(target.absorptionAmount / 4)
                     return if (!type) {
                         listOf(DoubleIota(effectDuration))
                     } else {

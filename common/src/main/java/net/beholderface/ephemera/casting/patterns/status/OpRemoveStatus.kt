@@ -11,6 +11,8 @@ import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.effect.StatusEffectCategory
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.entity.effect.StatusEffects
+import kotlin.math.ceil
+import kotlin.math.floor
 import kotlin.math.pow
 
 class OpRemoveStatus : SpellAction {
@@ -21,7 +23,7 @@ class OpRemoveStatus : SpellAction {
         val effect = args.getStatusEffect(1, argc, true)
         var existingEffect = target.getStatusEffect(effect)
         if (existingEffect == null){
-            existingEffect = StatusEffectInstance(StatusEffects.ABSORPTION, 60, 3)
+            existingEffect = StatusEffectInstance(StatusEffects.ABSORPTION, 60, floor(target.absorptionAmount / 4).toInt())
             if (!(effect == StatusEffects.ABSORPTION && target.absorptionAmount > 0)){
                 throw MishapMissingEffect(target, effect)
             }
@@ -37,7 +39,7 @@ class OpRemoveStatus : SpellAction {
         if (costExponent.equals(1.0) && !(target.equals(ctx.caster))){
             costExponent = 2.0
         }
-        var cost = ((effectStrenth.pow(costExponent.coerceAtMost(5.0)) * effectDuration.coerceAtMost((20 * 60 * 10 /*ten minutes*/).toDouble())) * MediaConstants.DUST_UNIT).toInt()
+        var cost = ((effectStrenth.coerceAtMost(5.0).pow(costExponent) * effectDuration.coerceAtMost((20 * 60 * 10 /*ten minutes*/).toDouble())) * MediaConstants.DUST_UNIT).toInt()
         if (costExponent == 1.1){
             cost /= 10
         }
