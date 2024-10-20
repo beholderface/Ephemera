@@ -6,6 +6,7 @@ import at.petrak.hexcasting.api.spell.getLivingEntityButNotArmorStand
 import at.petrak.hexcasting.api.spell.iota.Iota
 import at.petrak.hexcasting.api.spell.iota.ListIota
 import net.beholderface.ephemera.casting.iotatypes.PotionIota
+import net.minecraft.entity.effect.StatusEffects
 
 class OpGetEffects : ConstMediaAction {
     override val argc = 1
@@ -21,6 +22,9 @@ class OpGetEffects : ConstMediaAction {
             currentList = PotionIota(effect.effectType)
             effectDetails.add(currentList)
             //effectIotas.add(PotionIota(effect.effectType))
+        }
+        if (!target.hasStatusEffect(StatusEffects.ABSORPTION) && target.absorptionAmount > 0){
+            effectDetails.add(PotionIota(StatusEffects.ABSORPTION))
         }
         return listOf(ListIota(effectDetails.toList()))
     }

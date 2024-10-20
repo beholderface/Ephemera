@@ -11,6 +11,7 @@ import net.beholderface.ephemera.api.getStatusEffect
 import net.minecraft.entity.Entity
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.effect.StatusEffect
+import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.util.math.Box
 import net.minecraft.util.math.Vec3d
 import net.minecraft.util.Identifier
@@ -38,6 +39,9 @@ class OpGetEntitiesByStatus(val invert : Boolean) : ConstMediaAction {
                     return false
                 }
                 var result = le.hasStatusEffect(s)
+                if (!result && s == StatusEffects.ABSORPTION){
+                    result = le.absorptionAmount > 0
+                }
                 if (invert){
                     result = !result
                 }

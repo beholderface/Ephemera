@@ -12,21 +12,18 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.stat.Stats;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
@@ -43,6 +40,7 @@ public class ConjuredArmorItem extends ArmorItem {
     public static final String STORED_STATUS_LEVEL_TAG = "level";
     public static final String STORED_STATUS_TYPE_TAG = "type";
     public static final Map<Enchantment, Integer> SHAME_MAP = new HashMap<>();
+    public static final Map<PlayerEntity, Long> STATUS_REFRESH_MAP = new HashMap<>();
 
     public ConjuredArmorItem(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
         super(material, slot, settings);
@@ -53,6 +51,7 @@ public class ConjuredArmorItem extends ArmorItem {
         //disappear if unequipped
         EquipmentSlot validSlot = null;
         boolean debugOverride = false;
+        long time = world.getTime();
         if (entity instanceof PlayerEntity player){
             //for test purposes only
             if (player.getOffHandStack().getItem().equals(HexItems.CREATIVE_UNLOCKER)){
@@ -72,12 +71,13 @@ public class ConjuredArmorItem extends ArmorItem {
         }
         int damageIncrement = 1;
         //apply stored effect if present
-        if (world.getTime() % 20 == 0 && validSlot != null && !world.isClient){
+        if (time % 20 == 0 && validSlot != null && !world.isClient){
             Pair<StatusEffect, Integer> storedStatus = getStoredStatus(stack);
             if (storedStatus != null) {
                 PlayerEntity player = (PlayerEntity) entity;
                 damageIncrement += (int) /*Math.pow(*/storedStatus.component2() + 1/*, 2)*/;
-                if (world.getTime() % 100 == 0 && damageIncrement <= stack.getMaxDamage() - stack.getDamage()){
+                if (time % 100 == 0 && damageIncrement <= stack.getMaxDamage() - stack.getDamage() && STATUS_REFRESH_MAP.getOrDefault(player, -1L) < time){
+                    STATUS_REFRESH_MAP.put(player, time);
                     StatusEffect stored = storedStatus.getFirst();
                     int level = storedStatus.getSecond();
                     boolean preexistingcondition = player.hasStatusEffect(stored);

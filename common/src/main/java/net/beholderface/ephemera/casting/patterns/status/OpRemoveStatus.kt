@@ -22,7 +22,7 @@ class OpRemoveStatus : SpellAction {
         var existingEffect = target.getStatusEffect(effect)
         if (existingEffect == null){
             existingEffect = StatusEffectInstance(StatusEffects.ABSORPTION, 60, 3)
-            if (effect != StatusEffects.ABSORPTION){
+            if (!(effect == StatusEffects.ABSORPTION && target.absorptionAmount > 0)){
                 throw MishapMissingEffect(target, effect)
             }
         }
