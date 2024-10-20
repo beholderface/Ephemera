@@ -35,27 +35,24 @@ public class EphemeraConfigForge {
     }
 
     public static class Server implements EphemeraConfig.ServerConfigAccess {
-        // costs of actions
+        /*// costs of actions
         private static ForgeConfigSpec.DoubleValue congratsCost;
-        private static ForgeConfigSpec.DoubleValue signumCost;
+        private static ForgeConfigSpec.DoubleValue signumCost;*/
+        private static ForgeConfigSpec.BooleanValue lessthanequalSentinel;
 
         public Server(ForgeConfigSpec.Builder builder) {
-            builder.translation("text.autoconfig.ephemera.option.server.costs").push("costs");
+            builder.translation("text.autoconfig.ephemera.option.server.costs").push("misc");
+            lessthanequalSentinel = builder.translation("text.autoconfig.ephemera.option.server.misc.lessthanequalSentinel").define("lessthanequalSentinel", DEFAULT_LESSTHANEQUAL_SENTINEL);
 
-            congratsCost = builder.translation("text.autoconfig.ephemera.option.server.costs.congratsCost").defineInRange("congratsCost", DEFAULT_CONGRATS_COST, DEF_MIN_COST, DEF_MAX_COST);
-            signumCost = builder.translation("text.autoconfig.ephemera.option.server.costs.signumCost").defineInRange("signumCost", DEFAULT_SIGNUM_COST, DEF_MIN_COST, DEF_MAX_COST);
+            //congratsCost = builder.translation("text.autoconfig.ephemera.option.server.costs.congratsCost").defineInRange("congratsCost", DEFAULT_CONGRATS_COST, DEF_MIN_COST, DEF_MAX_COST);
+            //signumCost = builder.translation("text.autoconfig.ephemera.option.server.costs.signumCost").defineInRange("signumCost", DEFAULT_SIGNUM_COST, DEF_MIN_COST, DEF_MAX_COST);
 
             builder.pop();
         }
 
         @Override
-        public int getCongratsCost() {
-            return (int) (congratsCost.get() * MediaConstants.DUST_UNIT);
-        }
-
-        @Override
-        public int getSignumCost() {
-            return (int) (signumCost.get() * MediaConstants.DUST_UNIT);
+        public boolean getLessThanEqualSentinel() {
+            return lessthanequalSentinel.get();
         }
     }
 }

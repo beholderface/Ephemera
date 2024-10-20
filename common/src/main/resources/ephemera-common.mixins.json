@@ -6,7 +6,8 @@
   "client": [
   ],
   "mixins": [
-    "IllegalIotasMixin"
+    "IllegalIotasMixin",
+    "LessThanEqualToSentinelMixin"
   ],
   "injectors": {
     "defaultRequire": 1

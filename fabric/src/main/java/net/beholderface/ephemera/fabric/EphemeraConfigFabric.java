@@ -53,15 +53,15 @@ public class EphemeraConfigFabric extends PartitioningSerializer.GlobalData {
     private static class Server implements ConfigData, EphemeraConfig.ServerConfigAccess {
 
         @ConfigEntry.Gui.CollapsibleObject
-        private Costs costs = new Costs();
+        private MiscConfig miscConfig = new MiscConfig();
 
         @Override
         public void validatePostLoad() throws ValidationException {
-            this.costs.signumCost = EphemeraConfig.bound(this.costs.signumCost, DEF_MIN_COST, DEF_MAX_COST);
-            this.costs.congratsCost = EphemeraConfig.bound(this.costs.congratsCost, DEF_MIN_COST, DEF_MAX_COST);
+            /*this.costs.signumCost = EphemeraConfig.bound(this.costs.signumCost, DEF_MIN_COST, DEF_MAX_COST);
+            this.costs.congratsCost = EphemeraConfig.bound(this.costs.congratsCost, DEF_MIN_COST, DEF_MAX_COST);*/
         }
 
-        @Override
+        /*@Override
         public int getSignumCost() {
             return (int) (costs.signumCost * MediaConstants.DUST_UNIT);
         }
@@ -69,12 +69,15 @@ public class EphemeraConfigFabric extends PartitioningSerializer.GlobalData {
         @Override
         public int getCongratsCost() {
             return (int) (costs.congratsCost * MediaConstants.DUST_UNIT);
+        }*/
+
+        static class MiscConfig {
+            boolean lessThanEqualSentinel = DEFAULT_LESSTHANEQUAL_SENTINEL;
         }
 
-        static class Costs {
-            // costs of actions
-            double signumCost = DEFAULT_SIGNUM_COST;
-            double congratsCost = DEFAULT_CONGRATS_COST;
+        @Override
+        public boolean getLessThanEqualSentinel() {
+            return miscConfig.lessThanEqualSentinel;
         }
     }
 }
