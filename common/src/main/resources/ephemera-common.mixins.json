@@ -7,7 +7,8 @@
   ],
   "mixins": [
     "IllegalIotasMixin",
-    "LessThanEqualToSentinelMixin"
+    "LessThanEqualToSentinelMixin",
+    "NoDispenserAllowedMixin"
   ],
   "injectors": {
     "defaultRequire": 1
