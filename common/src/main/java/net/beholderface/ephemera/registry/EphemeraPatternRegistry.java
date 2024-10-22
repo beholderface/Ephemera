@@ -13,6 +13,7 @@ import net.beholderface.ephemera.casting.patterns.link.OpNodeIndex;
 import net.beholderface.ephemera.casting.patterns.math.OpGaussianRand;
 import net.beholderface.ephemera.casting.patterns.link.OpNetworkTeleport;
 import net.beholderface.ephemera.casting.patterns.spells.*;
+import net.beholderface.ephemera.casting.patterns.spells.great.OpLoadChunk;
 import net.beholderface.ephemera.casting.patterns.spells.great.OpMageArmor;
 import net.beholderface.ephemera.casting.patterns.spells.great.OpRepair;
 import net.beholderface.ephemera.casting.patterns.status.*;
@@ -27,60 +28,6 @@ import static net.beholderface.ephemera.Ephemera.id;
 public class EphemeraPatternRegistry {
     public static List<Triple<HexPattern, Identifier, Action>> PATTERNS = new ArrayList<>();
     public static List<Triple<HexPattern, Identifier, Action>> PER_WORLD_PATTERNS = new ArrayList<>();
-
-    //when appended to aqaa, these suffixes produce a numerical reflection corresponding to their index in the array
-    //most suffixes obtained via HexBug
-    private static final String[] DATAPACK_SPELL_SUFFIXES = {
-            "", "w", "wa", "edwd", "waa", "q", "edw", "waq", "waqw", "waaq",
-            "e", "qaw", "qwa", "wqaw", "waaqq", "edaq", "qawq", "qwaq", "waaqa", "waaqe",
-            "ee", "eaw", "qawa", "dweede", "qwaa", "eaq", "eaqw", "wqaaede", "waaqqa", "qwaaq",
-            "eaqq", "eqaw"
-    };
-    private static int index = 0;
-    private static int getIndex(){
-        int output = index;
-        index++;
-        return output;
-    }
-
-    /*public static HexPattern[] DATAPACK_SPELLS;
-    static {
-        ArrayList<HexPattern> spells = new ArrayList<>();
-        ArrayList<Integer> argCounts = new ArrayList<>();
-        for (int i = 0; i < 10; i++){
-            argCounts.add(0);
-        }
-        for (int i = 0; i < 10; i++){
-            argCounts.add(1);
-        }
-        for (int i = 0; i < 5; i++){
-            argCounts.add(2);
-        }
-        for (int i = 0; i < 3; i++){
-            argCounts.add(3);
-        }
-        for (int i = 0; i < 2; i++){
-            argCounts.add(4);
-        }
-        for (int i = 0; i < 2; i++){
-            argCounts.add(5);
-        }
-        int i = 0;
-        for (String suffix : DATAPACK_SPELL_SUFFIXES) {
-            spells.add(register(HexPattern.fromAngles("qaeaqew" + suffix, HexDir.NORTH_WEST), "datapackspell-" + i,
-                    new OpDatapackFunction(argCounts.get(i), "datapackspell-" + i)));
-            i++;
-        }
-        //jank :(
-        DATAPACK_SPELLS = new HexPattern[]{spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()),
-                spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()),
-                spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()),
-                spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()),
-                spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()),
-                spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex()),
-                spells.get(getIndex()), spells.get(getIndex()), spells.get(getIndex())};
-        Ephemera.LOGGER.info("Registered " + DATAPACK_SPELLS.length + " datapack spells");
-    }*/
 
     //assorted great spells
     public static HexPattern INVISIBILITY = registerPerWorld(HexPattern.fromAngles("qqqqqaewawaweqa", HexDir.SOUTH_WEST), "invisibility", new OpPotionEffect(
@@ -115,6 +62,9 @@ public class EphemeraPatternRegistry {
     public static HexPattern PAINT_CONJURED = register(HexPattern.fromAngles("eqdweeqdwweeqddqdwwwdeww", HexDir.WEST), "paintconjured", new OpSplatoon());
     public static HexPattern REVEAL_TO_OTHER = register(HexPattern.fromAngles("qde", HexDir.EAST), "revealtoother", new OpPrintToOther());
     public static HexPattern CLEAR_REVEAL_COST = register(HexPattern.fromAngles("qdeqa", HexDir.EAST), "clearrevealcost", new OpClearTransmitHistory());
+
+    public static HexPattern LOAD_WISP_CHUNK = register(HexPattern.fromAngles("ede"/*placeholder, obviously*/, HexDir.NORTH_WEST), "loadwispchunk", new OpLoadChunk());
+
     public static void init() {
         try {
             for (Triple<HexPattern, Identifier, Action> patternTriple : PATTERNS) {

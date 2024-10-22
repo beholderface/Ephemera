@@ -3,6 +3,7 @@ package net.beholderface.ephemera;
 import com.mojang.datafixers.util.Either;
 import dev.architectury.event.events.common.LifecycleEvent;
 import dev.architectury.event.events.common.TickEvent;
+import net.beholderface.ephemera.casting.ChunkLoadingManager;
 import net.beholderface.ephemera.items.ConjuredArmorItem;
 import net.beholderface.ephemera.recipe.EphemeraRecipeSerializer;
 import net.beholderface.ephemera.recipe.EphemeraRecipeTypes;
@@ -46,11 +47,15 @@ public class Ephemera {
             if (SHAME_MAP.isEmpty()){
                 SHAME_MAP.put(EphemeraMiscRegistry.SHAME_CURSE.get(), 1);
             }
+            ChunkLoadingManager loadingManager = ChunkLoadingManager.getServerState(startedserver);
         });
         LifecycleEvent.SERVER_BEFORE_START.register((startedserver) ->{
             CACHED_SERVER = startedserver;
         });
 
+        TickEvent.SERVER_PRE.register((server)->{
+            ChunkLoadingManager.tick();
+        });
         TickEvent.SERVER_POST.register((server)->{
             MemeticDiseaseEffect.processDiseaseRetention(Either.left(server));
         });
