@@ -6,6 +6,7 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.beholderface.ephemera.Ephemera;
 import net.beholderface.ephemera.blocks.ExtraConnectedSlateBlock;
+import net.beholderface.ephemera.blocks.InertSlateBlock;
 import net.beholderface.ephemera.blocks.RelayIndexBlock;
 import net.beholderface.ephemera.blocks.RelayTPDetectorBlock;
 import net.beholderface.ephemera.blocks.blockentity.ExtraConnectedSlateBlockEntity;
@@ -36,5 +37,5 @@ public class EphemeraBlockRegistry {
     public static final RegistrySupplier<ExtraConnectedSlateBlock> SNEAKY_SLATE = BLOCKS.register("sneakyslate", ()-> new ExtraConnectedSlateBlock(AbstractBlock.Settings.copy(HexBlocks.SLATE)));
     public static final RegistrySupplier<BlockEntityType<ExtraConnectedSlateBlockEntity>> SNEAKY_SLATE_ENTITY = BLOCK_ENTITIES.register("sneakyslate_entity", ()->BlockEntityType.Builder.create(ExtraConnectedSlateBlockEntity::new, SNEAKY_SLATE.get()).build(null));
 
-    public static final RegistrySupplier<Block> FAKE_SLATE = BLOCKS.register("fakeslate", ()->new Block(AbstractBlock.Settings.copy(HexBlocks.SLATE)));
+    public static final RegistrySupplier<InertSlateBlock> FAKE_SLATE = BLOCKS.register("fakeslate", ()->new InertSlateBlock(AbstractBlock.Settings.copy(HexBlocks.SLATE)));
 }

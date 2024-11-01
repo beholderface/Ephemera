@@ -6,10 +6,12 @@ import at.petrak.hexcasting.api.spell.math.HexPattern;
 import at.petrak.hexcasting.common.blocks.circles.BlockSlate;
 import net.beholderface.ephemera.blocks.blockentity.ExtraConnectedSlateBlockEntity;
 import net.beholderface.ephemera.registry.EphemeraItemRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.state.StateManager;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -22,6 +24,12 @@ import java.util.EnumSet;
 public class InertSlateBlock extends BlockSlate {
     public InertSlateBlock(Settings settings) {
         super(settings);
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
+    }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(FACING, ATTACH_FACE, WATERLOGGED);
     }
 
     @Override

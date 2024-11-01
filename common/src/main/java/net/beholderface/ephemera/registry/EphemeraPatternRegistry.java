@@ -43,6 +43,7 @@ public class EphemeraPatternRegistry {
     public static HexPattern GET_BY_STATUS = register(HexPattern.fromAngles("ewqqqqqwe", HexDir.EAST), "getbystatus", new OpGetEntitiesByStatus(false));
     public static HexPattern GET_BY_STATUS_INVERSE = register(HexPattern.fromAngles("qweeeeewq", HexDir.EAST), "getbystatusinverse", new OpGetEntitiesByStatus(true));
     public static HexPattern GET_BY_STATUS_SINGLE = register(HexPattern.fromAngles("eaeeeeeae", HexDir.EAST), "getbystatussingle", new OpGetEntityByStatus());
+    public static HexPattern GET_ABSORPTION = register(HexPattern.fromAngles("wqeawaqddaqw", HexDir.NORTH_EAST), "getabsorption", new OpGetAbsorption());
     //misc actions
     public static HexPattern FILTERED_SCOUTS = register(HexPattern.fromAngles("wqded", HexDir.EAST), "filteredentityraycast", new OpFilteredEntityRaycast());
     public static HexPattern GAUSSIAN_RAND = register(HexPattern.fromAngles("eeeeq", HexDir.NORTH_EAST), "gaussianrand", new OpGaussianRand());
@@ -62,7 +63,7 @@ public class EphemeraPatternRegistry {
     public static HexPattern PAINT_CONJURED = register(HexPattern.fromAngles("eqdweeqdwweeqddqdwwwdeww", HexDir.WEST), "paintconjured", new OpSplatoon());
     public static HexPattern REVEAL_TO_OTHER = register(HexPattern.fromAngles("qde", HexDir.EAST), "revealtoother", new OpPrintToOther());
     public static HexPattern CLEAR_REVEAL_COST = register(HexPattern.fromAngles("qdeqa", HexDir.EAST), "clearrevealcost", new OpClearTransmitHistory());
-    
+
     public static void init() {
         try {
             for (Triple<HexPattern, Identifier, Action> patternTriple : PATTERNS) {

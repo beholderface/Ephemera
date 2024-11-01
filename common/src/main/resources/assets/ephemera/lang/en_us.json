@@ -9,6 +9,7 @@
   "block.ephemera.relay_tp_detector": "Network Gateway Probe",
   "block.ephemera.relay_index": "Network Routing Index",
   "block.ephemera.sneakyslate": "Rooted Slate",
+  "block.ephemera.fakeslate": "Inert Slate",
   "block.ephemera.sneakyslate.blank": "Blank Rooted Slate",
   "block.ephemera.sneakyslate.written": "Patterned Rooted Slate",
 
@@ -40,6 +41,7 @@
   "hexcasting.spell.book.ephemera:getbystatusinverse": "Zone Exltn.: Not-Status",
   "hexcasting.spell.ephemera:getbystatussingle": "Entity Distillation: Status",
   "hexcasting.spell.ephemera:removestatus": "Cleanse Status",
+  "hexcasting.spell.ephemera:getabsorption": "Ablation Purification",
   "hexcasting.spell.ephemera:filteredentityraycast": "Scout's Exaltation",
   "hexcasting.spell.ephemera:gaussianrand": "Entropy Reflection II",
   "hexcasting.spell.ephemera:plasmabeam": "Plasma Beam",
