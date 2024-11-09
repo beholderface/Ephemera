@@ -9,6 +9,7 @@
   "block.ephemera.relay_tp_detector": "网络门径探测器",
   "block.ephemera.relay_index": "网络路由索引",
   "block.ephemera.sneakyslate": "根植石板",
+  "block.ephemera.fakeslate": "惰性石板",
   "block.ephemera.sneakyslate.blank": "空白根植石板",
   "block.ephemera.sneakyslate.written": "有图案的根植石板",
 
@@ -40,6 +41,7 @@
   "hexcasting.spell.book.ephemera:getbystatusinverse": "区域之提整：非状态",
   "hexcasting.spell.ephemera:getbystatussingle": "实体之馏化：状态",
   "hexcasting.spell.ephemera:removestatus": "清除状态",
+  "hexcasting.spell.ephemera:getabsorption": "销蚀之纯化",
   "hexcasting.spell.ephemera:filteredentityraycast": "侦查员之提整",
   "hexcasting.spell.ephemera:gaussianrand": "熵之精思，第二型",
   "hexcasting.spell.ephemera:plasmabeam": "等离子冲击",
