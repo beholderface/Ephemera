@@ -24,7 +24,7 @@ import java.util.EnumSet;
 public class InertSlateBlock extends BlockSlate {
     public InertSlateBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
+        //this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
 
     @Override

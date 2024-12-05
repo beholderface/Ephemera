@@ -37,5 +37,5 @@ public class EphemeraBlockRegistry {
     public static final RegistrySupplier<ExtraConnectedSlateBlock> SNEAKY_SLATE = BLOCKS.register("sneakyslate", ()-> new ExtraConnectedSlateBlock(AbstractBlock.Settings.copy(HexBlocks.SLATE)));
     public static final RegistrySupplier<BlockEntityType<ExtraConnectedSlateBlockEntity>> SNEAKY_SLATE_ENTITY = BLOCK_ENTITIES.register("sneakyslate_entity", ()->BlockEntityType.Builder.create(ExtraConnectedSlateBlockEntity::new, SNEAKY_SLATE.get()).build(null));
 
-    public static final RegistrySupplier<InertSlateBlock> FAKE_SLATE = BLOCKS.register("fakeslate", ()->new InertSlateBlock(AbstractBlock.Settings.copy(HexBlocks.SLATE)));
+    //public static final RegistrySupplier<InertSlateBlock> FAKE_SLATE = BLOCKS.register("fakeslate", ()->new InertSlateBlock(AbstractBlock.Settings.copy(HexBlocks.SLATE)));
 }

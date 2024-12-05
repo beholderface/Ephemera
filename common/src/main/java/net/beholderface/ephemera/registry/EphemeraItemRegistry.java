@@ -39,5 +39,5 @@ public class EphemeraItemRegistry {
     public static final RegistrySupplier<BlockItem> TP_DETECTOR_ITEM = ITEMS.register("relay_tp_detector", ()->new BlockItem(EphemeraBlockRegistry.TP_DETECTOR.get(), EPHEMERA_STACKABLE64));
 
     public static final RegistrySupplier<ExtraConnectedSlateItem> SNEAKY_SLATE = ITEMS.register("sneakyslate", ()->new ExtraConnectedSlateItem(EphemeraBlockRegistry.SNEAKY_SLATE.get(), EPHEMERA_STACKABLE64));
-    public static final RegistrySupplier<BlockItem> FAKE_SLATE = ITEMS.register("fakeslate", ()->new BlockItem(EphemeraBlockRegistry.FAKE_SLATE.get(), EPHEMERA_STACKABLE64));
+    //public static final RegistrySupplier<BlockItem> FAKE_SLATE = ITEMS.register("fakeslate", ()->new BlockItem(EphemeraBlockRegistry.FAKE_SLATE.get(), EPHEMERA_STACKABLE64));
 }
