@@ -77,7 +77,7 @@
       <ul class="nav navbar-nav navbar-right">
             <li>
     <a
-      href="https://github.com/beholderface/Ephemera/tree/1255f4f5468fc581a0b8fa55a7b8512189f7f51a"
+      href="https://github.com/beholderface/Ephemera/tree/54ae7375776008bd1ba79f4bb7cfee502ee51876"
         target="_blank"
       class="navbar-link"
       role="button"
@@ -153,6 +153,13 @@
       loading="lazy"
       class="item-texture  texture pixelated"
     > Ephemera：杂项图案</a></li>
+          <li><a href="#patterns/hashing" class="toc-elem "><img
+      title="发光地衣"
+      alt="发光地衣"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/blocks/glow_lichen.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Iota Hashing</a></li>
           <li><a href="#patterns/spells/status_iotas" class="toc-elem "><img
       title="药水"
       alt="药水"
@@ -171,13 +178,6 @@
       class="item-texture  texture pixelated"
     > 法术</a></summary>
       <ul>
-          <li><a href="#patterns/spells/plasma" class="toc-elem "><img
-      title="龙息"
-      alt="龙息"
-      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/dragon_breath.png"
-      loading="lazy"
-      class="item-texture  texture pixelated"
-    > 等离子冲击</a></li>
           <li><a href="#patterns/spells/reveal_other" class="toc-elem "><img
       title="纸"
       alt="纸"
@@ -216,10 +216,17 @@
       class="item-texture  texture pixelated"
     > 卓越法术</a></summary>
       <ul>
+          <li><a href="#patterns/spells/great/mending" class="toc-elem "><img
+      title="附魔书"
+      alt="附魔书"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/enchanted_book.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Induce Mending</a></li>
           <li><a href="#patterns/spells/great/magearmor" class="toc-elem "><img
       title="咒塑胸甲"
       alt="咒塑胸甲"
-      src="https://raw.githubusercontent.com/beholderface/Ephemera/1255f4f5468fc581a0b8fa55a7b8512189f7f51a/common/src/main/resources/assets/ephemera/textures/item/media_chestplate.png"
+      src="https://raw.githubusercontent.com/beholderface/Ephemera/54ae7375776008bd1ba79f4bb7cfee502ee51876/common/src/main/resources/assets/ephemera/textures/item/media_chestplate.png"
       loading="lazy"
       class="item-texture  texture pixelated"
     > 瞬时庇护</a></li>
@@ -493,6 +500,82 @@
       >浏览器不支持图案的可视化。图案代码见此：eeeeq</canvas>
   </details>
       <p>返回 0 与 1 之间的随机数，服从正态分布。</p>
+  </div>
+<br />
+</div>
+<div id="patterns/hashing" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="发光地衣"
+      alt="发光地衣"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/blocks/glow_lichen.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Iota Hashing<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/hashing"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+    <p>I&#39;ve discovered a curious pattern which scrambles an iota into an unreadable mess. However, unlike Garbage iotas, <i>this</i> mess still contains data, and running the same iota through the pattern will always produce the same mess (known as a hash). While it is not possible to recover an iota from a hash, it can be quite useful for comparisons in situations where I cannot save the unaltered iota.</p>
+<br />
+  <div id="patterns/hashing@ephemera:hash" class="">
+<h4 class="pattern-title">哈希之纯化 (any → hash)<a
+    href="#patterns/hashing@ephemera:hash"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqawqaqw"
+        data-start="south_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qqawqaqw</canvas>
+  </details>
+      <p>Accepts any iota, and converts it into its hashed form.</p>
   </div>
 <br />
 </div>
@@ -907,6 +990,62 @@
       <p>接受一个状态效果，一个向量和一个数（<i>n</i>），返回该位置给定距离范围（<i>n</i>）内所有无给定状态效果生物的列表。</p>
   </div>
 <br />
+  <div id="patterns/spells/status_iotas@ephemera:getabsorption" class="">
+<h4 class="pattern-title">销蚀之纯化 (entity → num)<a
+    href="#patterns/spells/status_iotas@ephemera:getabsorption"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wqeawaqddaqw"
+        data-start="north_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：wqeawaqddaqw</canvas>
+  </details>
+      <p>接受一个实体和一个状态效果，并移除该实体身上的所给状态效果。消耗由效果自身的伤害性、强度、剩余持续时间决定。</p>
+  </div>
+<br />
   <div id="patterns/spells/status_iotas@ephemera:removestatus" class="">
 <h4 class="pattern-title">清除状态 (entity, status →)<a
     href="#patterns/spells/status_iotas@ephemera:removestatus"
@@ -960,10 +1099,10 @@
         data-per-world="False"
       >浏览器不支持图案的可视化。图案代码见此：eeeeedaqdewed</canvas>
   </details>
-      <p>接受一个实体和一个状态效果，并移除该实体身上的所给状态效果。消耗由效果自身的伤害性、强度、剩余持续时间决定。</p>
+      <p>若是要移除非自身实体身上的正面效果，则消耗会增加。</p><p>所有需要检测实体身上有无所给状态效果的图案都有副作用。如果该实体当前没有这种效果，则图案会失效，并给予我反胃。</p>
   </div>
 <br />
-    <p>若是要移除非自身实体身上的正面效果，则消耗会增加。</p><p>所有需要检测实体身上有无所给状态效果的图案都有副作用。如果该实体当前没有这种效果，则图案会失效，并给予我反胃。</p>
+    <p>Costs more if attempting to remove a positive effect from an entity other than myself.</p><p>All of the patterns which deal with a specific status effect on an entity have the side effect that if the entity does not currently have the specified effect, the pattern will fail and inflict nausea upon me.</p>
 <br />
 </div>
 </section>
@@ -985,84 +1124,6 @@
     title="Permalink"
   ><i class="bi bi-link-45deg"></i></a></h2>
     <p>能以魔法影响到世界的图案和操作。</p>
-<div id="patterns/spells/plasma" class="entry">
-    <h3 class="entry-title page-header">
-    <img
-      title="龙息"
-      alt="龙息"
-      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/dragon_breath.png"
-      loading="lazy"
-      class="item-texture  texture pixelated"
-    >等离子冲击<a
-    href="#table-of-contents"
-    class="permalink small"
-    title="Jump to top"
-  ><i class="bi bi-box-arrow-up"></i></a><a
-    href="#patterns/spells/plasma"
-    class="permalink small"
-    title="Permalink"
-  ><i class="bi bi-link-45deg"></i></a></h3>
-    <p>我所遇到的极具破坏性的法术之一，此法术会将构成咒灵的一部分媒质转换成一束类似等离子体的能量，它能够穿透并伤害途径的所有生物（包括我自己），也有可能破坏强度不算高的方块。</p>
-<br />
-  <div id="patterns/spells/plasma@ephemera:plasmabeam" class="">
-<h4 class="pattern-title">等离子冲击<a
-    href="#patterns/spells/plasma@ephemera:plasmabeam"
-    class="permalink small"
-    title="Permalink"
-  ><i class="bi bi-link-45deg"></i></a></h4>
-  <details class="details-collapsible">
-    <summary class="collapse-details collapse-spell"></summary>
-    <div class="dropdown spell-settings-dropdown">
-      <span
-        href=""
-        class="dropdown-toggle spell-settings-toggle"
-        data-toggle="dropdown"
-        role="button"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        <i class="bi bi-gear-fill"></i>
-      </span>
-      <ul class="dropdown-menu">
-        <li class="dropdown-submenu">
-          <a
-            href=""
-            class="dropdown-toggle"
-            data-toggle="dropdown"
-            role="button"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >Renders</a>
-          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
-        </li>
-        <li class="dropdown-submenu">
-          <a
-            href=""
-            class="dropdown-toggle"
-            data-toggle="dropdown"
-            role="button"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >Palettes</a>
-          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
-        </li>
-      </ul>
-    </div>
-      <canvas
-        class="spell-viz"
-        width="216"
-        height="216"
-        data-string="aqqqadweaqa"
-        data-start="north_east"
-        data-per-world="False"
-      >浏览器不支持图案的可视化。图案代码见此：aqqqadweaqa</canvas>
-  </details>
-      <p>沿施法咒灵的运动向量发射冲击，未在移动则选取随机向量。消耗 2 个紫水晶粉。</p>
-  </div>
-<br />
-    <p>模组作者给 Forge 用户的留言：此法术在 Forge 上无法产生粒子。我不知道具体的原因。至少伤害实体和破坏方块的功能依然可用。抱歉。</p><p>我会尽力让它正常运作。</p>
-<br />
-</div>
 <div id="patterns/spells/reveal_other" class="entry">
     <h3 class="entry-title page-header">
     <img
@@ -1799,12 +1860,200 @@
     title="Permalink"
   ><i class="bi bi-link-45deg"></i></a></h2>
     <p>这类法术据信极难施放，但也极为强力。记载它们的文献极为少见（据称理由充分）。这也许只是某些消亡的老古董口中的胡言乱语，不过——它们只是简单的图案罢了。试试看又能出什么错呢？</p>
+<div id="patterns/spells/great/mending" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="附魔书"
+      alt="附魔书"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.19.1/items/enchanted_book.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Induce Mending<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/great/mending"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <div id="patterns/spells/great/mending@ephemera:repair" class="">
+<h4 class="pattern-title">咒感修补 (entity →)<a
+    href="#patterns/spells/great/mending@ephemera:repair"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="waqdqqwqqdqawwqqqqqaqedeq"
+        data-start="west"
+        data-per-world="True"
+      >浏览器不支持图案的可视化。图案代码见此：waqdqqwqqdqawwqqqqqaqedeq</canvas>
+  </details>
+      <p>Accepts a raw media item on the ground, and attempts to use it to repair a tool in my other hand.</p>
+  </div>
+<br />
+    <p>Generally only works on items enchanted with Mending, which are already damaged. Restores twenty points of damage for each amethyst dust&#39;s worth of media.</p>
+<br />
+  <div id="patterns/spells/great/mending@ephemera:getdurabilitymainhand" class="">
+<h4 class="pattern-title">Menderbug&#39;s Rfln. (→ num)<a
+    href="#patterns/spells/great/mending@ephemera:getdurabilitymainhand"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qwdea"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qwdea</canvas>
+  </details>
+      <p>Returns how many times the item in my other hand can be used without breaking, durability-manipulating effects notwithstanding.</p>
+  </div>
+<br />
+  <div id="patterns/spells/great/mending@ephemera:getdurabilityoffhand" class="">
+<h4 class="pattern-title">Menderbug&#39;s Rfln. II (→ num)<a
+    href="#patterns/spells/great/mending@ephemera:getdurabilityoffhand"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aedwq"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：aedwq</canvas>
+  </details>
+      <p>As previous, targeting the item in the hand I&#39;m casting this with. Most useful with delayed casts of one form or another.</p>
+  </div>
+<br />
+</div>
 <div id="patterns/spells/great/magearmor" class="entry">
     <h3 class="entry-title page-header">
     <img
       title="咒塑胸甲"
       alt="咒塑胸甲"
-      src="https://raw.githubusercontent.com/beholderface/Ephemera/1255f4f5468fc581a0b8fa55a7b8512189f7f51a/common/src/main/resources/assets/ephemera/textures/item/media_chestplate.png"
+      src="https://raw.githubusercontent.com/beholderface/Ephemera/54ae7375776008bd1ba79f4bb7cfee502ee51876/common/src/main/resources/assets/ephemera/textures/item/media_chestplate.png"
       loading="lazy"
       class="item-texture  texture pixelated"
     >瞬时庇护<a
