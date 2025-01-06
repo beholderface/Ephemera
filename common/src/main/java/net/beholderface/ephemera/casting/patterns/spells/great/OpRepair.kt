@@ -43,16 +43,15 @@ class OpRepair : SpellAction {
         }
 
         val toRepair = ctx.caster.getStackInHand(ctx.otherHand)
-        val whitelisted = toRepair.isIn(getItemTagKey(Identifier("oneironaut:repairwhitelist")))
-        val blacklisted = toRepair.isIn(getItemTagKey(Identifier("oneironaut:repairblacklist")))
+        val whitelisted = toRepair.isIn(getItemTagKey(Identifier("ephemera:repairwhitelist")))
+        val blacklisted = toRepair.isIn(getItemTagKey(Identifier("ephemera:repairblacklist")))
         if (toRepair.isDamaged && ((whitelisted || EnchantmentHelper.getLevel(Enchantments.MENDING, toRepair) > 0) && !blacklisted)){
             val cost = MediaConstants.SHARD_UNIT
-            OpRecharge
             val repairCost = ((toRepair.damage / 20.0) * MediaConstants.DUST_UNIT).coerceAtMost(extractMedia(mediaStack,
                 ((toRepair.damage / 20.0) * MediaConstants.DUST_UNIT).toInt(), true, true).toDouble())
             return Triple(Spell(mediaEntity, toRepair, repairCost.toInt(), ((repairCost / MediaConstants.DUST_UNIT) * 20).toInt()), cost, listOf(ParticleSpray.burst(mediaEntity.pos, 1.0, 16)))
         } else {
-            throw MishapBadOffhandItem.of(toRepair, ctx.otherHand, "oneironaut:repairable")
+            throw MishapBadOffhandItem.of(toRepair, ctx.otherHand, "ephemera:repairable")
         }
     }
 

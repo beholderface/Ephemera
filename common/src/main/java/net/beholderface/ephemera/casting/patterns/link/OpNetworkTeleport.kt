@@ -13,6 +13,7 @@ import net.beholderface.ephemera.blocks.RelayTPDetectorBlock
 import net.beholderface.ephemera.registry.EphemeraBlockRegistry
 import net.minecraft.entity.Entity
 import net.minecraft.entity.ItemEntity
+import net.minecraft.entity.decoration.ArmorStandEntity
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Direction
@@ -120,13 +121,11 @@ class OpNetworkTeleport : SpellAction {
             } else {
                 false
             }
-            return if (fightsBack){
-                MediaConstants.SHARD_UNIT * 3
-            } else {
-                MediaConstants.DUST_UNIT
+            if (fightsBack){
+                return MediaConstants.SHARD_UNIT * 3
             }
         }
-        if (target is ItemEntity){
+        if (!target.isLiving || target is ArmorStandEntity){
             return MediaConstants.DUST_UNIT
         }
         return MediaConstants.SHARD_UNIT * 3

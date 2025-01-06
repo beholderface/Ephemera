@@ -1,0 +1,35 @@
+{
+  "name": "ephemera.entry.mending",
+  "category": "hexcasting:patterns/great_spells",
+  "icon": "minecraft:enchanted_book",
+  "sortnum": 3,
+  "advancement": "hexcasting:root",
+  "read_by_default": false,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:repair",
+      "anchor": "ephemera:repair",
+      "input": "entity",
+      "output": "",
+      "text": "ephemera.page.mending.1"
+    },
+    "ephemera.page.mending.2",
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:getdurabilitymainhand",
+      "anchor": "ephemera:getdurabilitymainhand",
+      "input": "",
+      "output": "num",
+      "text": "ephemera.page.mending.3"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:getdurabilityoffhand",
+      "anchor": "ephemera:getdurabilityoffhand",
+      "input": "",
+      "output": "num",
+      "text": "ephemera.page.mending.4"
+    }
+  ]
+}

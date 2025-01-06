@@ -24,7 +24,6 @@ public class EphemeraItemRegistry {
 
     public static final ArmorMaterial MEDIA_ARMOR = new ConjuredArmorMaterial();
 
-    // A new creative tab. Notice how it is one of the few things that are not deferred
     public static final ItemGroup EPHEMERA_STUFF = CreativeTabRegistry.create(id("ephemera"), () -> new ItemStack(EphemeraItemRegistry.TP_DETECTOR_ITEM.get()));
 
     private static final Item.Settings EPHEMERA_STACKABLE64 = new Item.Settings().group(EPHEMERA_STUFF).maxCount(64);

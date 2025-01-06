@@ -13,11 +13,11 @@ import net.beholderface.ephemera.casting.patterns.link.OpNodeIndex;
 import net.beholderface.ephemera.casting.patterns.math.OpGaussianRand;
 import net.beholderface.ephemera.casting.patterns.link.OpNetworkTeleport;
 import net.beholderface.ephemera.casting.patterns.spells.*;
-import net.beholderface.ephemera.casting.patterns.spells.great.OpLoadChunk;
 import net.beholderface.ephemera.casting.patterns.spells.great.OpMageArmor;
 import net.beholderface.ephemera.casting.patterns.spells.great.OpRepair;
 import net.beholderface.ephemera.casting.patterns.status.*;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
@@ -25,13 +25,14 @@ import java.util.List;
 
 import static net.beholderface.ephemera.Ephemera.id;
 
+@SuppressWarnings("unused")
 public class EphemeraPatternRegistry {
     public static List<Triple<HexPattern, Identifier, Action>> PATTERNS = new ArrayList<>();
     public static List<Triple<HexPattern, Identifier, Action>> PER_WORLD_PATTERNS = new ArrayList<>();
 
     //assorted great spells
     public static HexPattern INVISIBILITY = registerPerWorld(HexPattern.fromAngles("qqqqqaewawaweqa", HexDir.SOUTH_WEST), "invisibility", new OpPotionEffect(
-            StatusEffects.INVISIBILITY, (int)(MediaConstants.DUST_UNIT / 3), false, false, true));
+            StatusEffects.INVISIBILITY, MediaConstants.DUST_UNIT / 3, false, false, true));
     public static HexPattern MAGE_ARMOR = registerPerWorld(HexPattern.fromAngles("qaweqqwqqewaqeqqqqqad", HexDir.NORTH_WEST), "magearmor", new OpMageArmor());
     public static HexPattern REPAIR = registerPerWorld(HexPattern.fromAngles("waqdqqwqqdqawwqqqqqaqedeq", HexDir.WEST), "repair", new OpRepair());
     //status stuff
@@ -50,6 +51,8 @@ public class EphemeraPatternRegistry {
     public static HexPattern HASH = register(HexPattern.fromAngles("qqawqaqw", HexDir.SOUTH_EAST), "hash", new OpHash());
     public static HexPattern HASH_BITS = register(HexPattern.fromAngles("eedwedew", HexDir.SOUTH_WEST), "hashbits", new OpHashBits());
     public static HexPattern GET_REVEAL_COST = register(HexPattern.fromAngles("qdeaaqqqqq", HexDir.EAST), "getrevealcost", new OpGetTransmitCost());
+    public static HexPattern GET_DURABILITY_MAINHAND = register(HexPattern.fromAngles("qwdea", HexDir.EAST), "getdurabilitymainhand", new OpHandDurability(true));
+    public static HexPattern GET_DURABILITY_OFFHAND = register(HexPattern.fromAngles("aedwq", HexDir.EAST), "getdurabilityoffhand", new OpHandDurability(false));
     //frame stuff
     public static HexPattern READ_FRAME_ROTATION = register(HexPattern.fromAngles("wwawwqwwawwaeae", HexDir.SOUTH_WEST), "readframerotation", new OpFrameRotation(0));
     public static HexPattern SET_FRAME_ROTATION = register(HexPattern.fromAngles("wwawwqwwawwaqdq", HexDir.SOUTH_WEST), "setframerotation", new OpFrameRotation(1));

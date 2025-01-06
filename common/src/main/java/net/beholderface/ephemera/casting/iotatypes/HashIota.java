@@ -3,11 +3,14 @@ package net.beholderface.ephemera.casting.iotatypes;
 import at.petrak.hexcasting.api.spell.iota.Iota;
 import at.petrak.hexcasting.api.spell.iota.IotaType;
 import at.petrak.hexcasting.api.utils.HexUtils;
+import at.petrak.hexcasting.api.utils.NBTHelper;
 import at.petrak.hexcasting.common.lib.hex.HexIotaTypes;
+import dev.architectury.platform.Platform;
 import net.beholderface.ephemera.api.MiscAPIKt;
 import net.beholderface.ephemera.registry.EphemeraIotaTypeRegistry;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
+import net.minecraft.nbt.NbtHelper;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
@@ -31,7 +34,11 @@ public class HashIota extends Iota {
 
     public static HashIota of(Iota iota){
         NbtCompound container = new NbtCompound();
-        container.put("iotaData", iota.serialize());
+        NbtCompound iotaData = HexUtils.downcast(iota.serialize(), NbtCompound.TYPE);
+        if (Platform.isModLoaded("hexgloop") && iota.getType() == HexIotaTypes.ENTITY){
+            iotaData.remove("keyUUID");
+        }
+        container.put("iotaData", iotaData);
         Identifier id = HexIotaTypes.REGISTRY.getId(iota.getType());
         assert id != null;
         container.putString("iotaType", id.toString());

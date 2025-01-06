@@ -54,7 +54,7 @@ public class Ephemera {
         });
 
         TickEvent.SERVER_PRE.register((server)->{
-            ChunkLoadingManager.tick();
+            //ChunkLoadingManager.tick();
         });
         TickEvent.SERVER_POST.register((server)->{
             MemeticDiseaseEffect.processDiseaseRetention(Either.left(server));
