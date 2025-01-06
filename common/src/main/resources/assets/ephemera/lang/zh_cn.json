@@ -46,10 +46,15 @@
   "hexcasting.spell.ephemera:gaussianrand": "熵之精思，第二型",
   "hexcasting.spell.ephemera:plasmabeam": "等离子冲击",
   "hexcasting.spell.ephemera:hash": "哈希之纯化",
+  "hexcasting.spell.ephemera:hashbits": "未记录的哈希至数转换图案",
   "hexcasting.spell.ephemera:revealtoother": "邮递员之策略",
   "hexcasting.spell.ephemera:getrevealcost": "邮递员之纯化",
   "hexcasting.spell.ephemera:clearrevealcost": "邮递员之策略，第二型",
   "hexcasting.spell.ephemera:repair": "咒感修补",
+  "hexcasting.spell.ephemera:getdurabilitymainhand": "维修虫之精思",
+  "hexcasting.spell.book.ephemera:getdurabilitymainhand": "维修虫之精思",
+  "hexcasting.spell.ephemera:getdurabilityoffhand": "维修虫之精思，第二型",
+  "hexcasting.spell.book.ephemera:getdurabilityoffhand": "维修虫之精思，第二型",
 
   "hexcasting.mishap.location_ephemera:inputrelaytprange": "目标实体距%s处的目标节点过远。",
   "hexcasting.mishap.location_ephemera:outputrelaytprange": "无法在范围%s内找到已连接的节点。",
@@ -59,7 +64,7 @@
   "ephemera.mishap.entitytypelistplease": "一个实体类型列表",
   "ephemera.mishap.toolongiota": "一个可用少于256个字符显示的iota",
   "hexcasting.mishap.ephemera:blacklist": "此效果已被标签禁用。",
-  "hexcasting.mishap.ephemera:instant": "你是怎么拿到这个iota的？",
+  "hexcasting.mishap.ephemera:instant": "是如何拿到这个iota的？",
 
   "item.ephemeral.media_armor.tooltip.1": "给予穿戴者%s %s。",
 
@@ -68,6 +73,9 @@
   "ephemera.entry.status_iotas": "状态 Iota",
   "ephemera.entry.network": "链接实用图案",
   "ephemera.entry.revealtoother": "信息传递",
+  "ephemera.entry.mending": "咒感修补",
+  "ephemera.entry.hashing": "Iota 哈希",
+  "ephemera.entry.specialslates": "变种石板",
 
   "ephemera.page.paintconjured.1": "接受一个向量与代表染色剂的物品类型。如果目标为我自己的方块，消耗极少量媒质；否则消耗 1 个紫水晶粉。",
   "ephemera.page.paintconjured.2": "将所给位置处构筑方块的颜色设置为所给染色剂的颜色；如果传入的是 Null，则将其设置为我意识的颜色。$(br2)不保证对非传统的构筑物质有效。",
@@ -88,8 +96,9 @@
   "ephemera.page.status_iotas.6": "接受一个状态效果和一个向量，并返回该处带有该状态效果的实体。",
   "ephemera.page.status_iotas.7": "接受一个状态效果，一个向量和一个数（$(o)n$()），返回该位置给定距离范围（$(o)n$()）内所有带有给定状态效果生物的列表。",
   "ephemera.page.status_iotas.8": "接受一个状态效果，一个向量和一个数（$(o)n$()），返回该位置给定距离范围（$(o)n$()）内所有无给定状态效果生物的列表。",
-  "ephemera.page.status_iotas.9": "接受一个实体和一个状态效果，并移除该实体身上的所给状态效果。消耗由效果自身的伤害性、强度、剩余持续时间决定。",
-  "ephemera.page.status_iotas.10": "若是要移除非自身实体身上的正面效果，则消耗会增加。$(br2)所有需要检测实体身上有无所给状态效果的图案都有副作用。如果该实体当前没有这种效果，则图案会失效，并给予我反胃。",
+  "ephemera.page.status_iotas.9": "接受一个活体实体，并返回其在生命值受影响前能吸收的伤害量。",
+  "ephemera.page.status_iotas.10": "接受一个实体和一个状态效果，并移除该实体身上的所给状态效果。消耗由效果自身的伤害性、强度、剩余持续时间决定。",
+  "ephemera.page.status_iotas.11": "若是要移除非自身实体身上的正面效果，则消耗会增加。$(br2)所有需要检测实体身上有无所给状态效果的图案都有副作用。如果该实体当前没有这种效果，则图案会失效，并给予我反胃。",
   "ephemera.page.magearmor.1": "我发现了一种比较有趣的法术，它能够产生防御性的媒质屏障，防护力媲美甚至超过许多种传统盔甲。此类屏障甚至还能给予穿戴者许多$(l:ephemera:patterns/spells/status_iotas)持久效果$(/l)，堪称泛用。",
   "ephemera.page.magearmor.2": "接受作为盔甲接收方的玩家，盔甲的耐久度，盔甲的护甲值（最多为 10），施加的状态效果，状态效果的等级。最后两个参数可用其他类型的 iota 代替，此时这两个参数会被忽略。",
   "ephemera.page.magearmor.3": "当然，这种屏障并非无法破坏。除去受击致损外，其耐久度还会持续减少。这种减少效应的基础速率看作每秒 1 “点”，则还需附加上其中效果等级平方个“点”。此外，穿戴者脱下后它们会立刻消失。换言之，除非重新施法覆写其状态，否则没有方法修复它们。",
@@ -97,6 +106,7 @@
   "ephemera.page.magearmor.5": "这一计算结果的前提是我没有穿戴其他盔甲，实际操作中消耗可以缩减到最低 25%%，出现在所有盔甲槽位中只有 1 格空出的情况中。",
   "ephemera.page.plasmabeam.1": "我所遇到的极具破坏性的法术之一，此法术会将构成咒灵的一部分媒质转换成一束类似等离子体的能量，它能够穿透并伤害途径的所有生物（包括我自己），也有可能破坏强度不算高的方块。",
   "ephemera.page.plasmabeam.2": "沿施法咒灵的运动向量发射冲击，未在移动则选取随机向量。消耗 2 个紫水晶粉。",
+  "ephemera.page.plasmabeam.3": "说实话，我不喜欢这个法术。我会删掉手册里的条目。模组更新到 1.20.1 后就不会有这个法术了。",
   "ephemera.page.network.1": "我设计了一系列图案和若干方块，旨在赋予链接更多用途，除去已有数据传输和媒质共享之外。$(br2)需要注意，对于从网络中获取信息的图案，其返回的可链接事物不一定处在施法范围之内。",
   "ephemera.page.network.2": "递归扫描与输入端可链接事物相连的链接网络，最大深度为所给数（最高为 32），并返回所有可链接事物组成的列表。消耗极少量媒质。",
   "ephemera.page.network.3": "接受需传送的实体，用于访问网络的可链接事物，以及目的地。如果实体位于所给可链接事物 8 格之内，且距目的地 4 格之内存在网络节点，则实体会被传送。消耗量由被传送实体的类型决定。",
@@ -108,8 +118,20 @@
   "ephemera.page.revealtoother.2": "接受一个玩家，返回紫水晶粉的数量，对应通过邮递员之策略向其发送信息的消耗，范围在 1/10 个到 10 个之间。",
   "ephemera.page.revealtoother.3": "重置通过邮递员之策略向我发送信息的消耗，也即 1/10 个紫水晶粉。消耗 1/10 个紫水晶粉。",
 
+  "ephemera.page.mending.1": "接受自然包含媒质的物品实体，用其修复我另一只手中的工具。",
+  "ephemera.page.mending.2": "通常只对拥有经验修补魔咒的受损物品有效。每个紫水晶粉的媒质恢复 20 点耐久度。",
+  "ephemera.page.mending.3": "返回我另一只手中物品在损毁前还能使用的次数，会影响耐久度使用的效果不计。",
+  "ephemera.page.mending.4": "和前页图案类似，但它会以施法用手中的物品为目标。最适合配合各种形式的延迟施法使用。",
+
+  "ephemera.page.hashing.1": "我发现了一个神奇的图案，能将 iota 变成一团读不懂的乱麻。但和垃圾 iota 不一样的是，$(o)这种$()乱麻中依然含有数据，并且同样的 iota 必定给出同样的乱麻（又称哈希）。虽然哈希后的乱麻没法还原成 iota，但很适合在无法保存未经修改的 iota 的情况下用来比对。",
+  "ephemera.page.hashing.2": "接受任意 iota，转换成哈希值。",
+
+  "ephemera.page.specialslates.1": "我设计了若干种可用于法术环的石板。虽然它们没有什么开创性的新功能，但有这些选择也不错。",
+  "ephemera.page.specialslates.2": "和普通的石板功效一样，但它能够向其所依附的方块传递媒质波。",
+  "ephemera.page.specialslates.3": "在切石机中加工普通石板而得。$(br2)和普通石板外观一致，但完全无法传导媒质波，且无法写入。",
+
   "ephemera.page.forgewarning.1": "模组作者给 Forge 用户的留言：此法术在 Forge 上无法运行。我不知道具体的原因。我已将 Forge 端中此法术的消耗设置为 0，避免浪费媒质。抱歉。$(br2)我会尽力让它正常运作。",
-  "ephemera.page.forgewarning.2": "模组作者给 Forge 用户的留言：此法术在 Forge 上无法产生粒子。我不知道具体的原因。至少伤害实体和破坏方块的功能依然可用。抱歉。$(br2)我会尽力让它正常运作。",
+  "ephemera.page.forgewarning.2": "模组作者给 Forge 用户的留言：此法术在 Forge 上无法产生粒子。我不知道具体的原因。至少伤害实体和破坏方块的功能依然可用。抱歉。$(br2)我会尽力让它正常运作（不我不会的）。",
 
   "hexcasting.iota.ephemera:potion": "状态效果",
   "hexcasting.iota.ephemera:hash": "哈希",
