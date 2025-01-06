@@ -1,0 +1,23 @@
+{
+  "name": "ephemera.entry.specialslates",
+  "category": "hexcasting:greatwork",
+  "icon": "ephemera:fakeslate",
+  "sortnum": 7,
+  "advancement": "hexcasting:enlightenment",
+  "entry_color": "54398a",
+  "read_by_default": false,
+  "pages": [
+    "ephemera.page.specialslates.1",
+    {
+      "type": "patchouli:crafting",
+      "text": "ephemera.page.specialslates.2",
+      "recipe": "ephemera:sneakyslate"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "text": "ephemera.page.specialslates.3",
+      "item": "ephemera:fakeslate",
+      "link_recipe": true
+    }
+  ]
+}

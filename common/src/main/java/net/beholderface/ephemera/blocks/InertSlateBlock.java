@@ -29,7 +29,7 @@ public class InertSlateBlock extends BlockSlate {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, ATTACH_FACE, WATERLOGGED);
+        builder.add(FACING, ATTACH_FACE, WATERLOGGED, BlockSlate.ENERGIZED);
     }
 
     @Override

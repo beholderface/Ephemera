@@ -75,6 +75,7 @@
   "ephemera.entry.revealtoother": "Messaging",
   "ephemera.entry.mending": "Induce Mending",
   "ephemera.entry.hashing": "Iota Hashing",
+  "ephemera.entry.specialslates": "Modified Slates",
 
   "ephemera.page.paintconjured.1": "Accepts a vector and an itemtype representing a pigment. Costs a negligible amount of media if targeting my own block, or 1 Amethyst Dust if not.",
   "ephemera.page.paintconjured.2": "Sets the colors of the conjured block corresponding to the vector to the colorset represented by the passed pigment, or mine if passed a NULL iota.$(br2)Not guaranteed to work with unconventional forms of conjured matter. ",
@@ -124,6 +125,10 @@
 
   "ephemera.page.hashing.1": "I've discovered a curious pattern which scrambles an iota into an unreadable mess. However, unlike Garbage iotas, $(o)this$() mess still contains data, and running the same iota through the pattern will always produce the same mess (known as a hash). While it is not possible to recover an iota from a hash, it can be quite useful for comparisons in situations where I cannot save the unaltered iota.",
   "ephemera.page.hashing.2": "Accepts any iota, and converts it into its hashed form.",
+
+  "ephemera.page.specialslates.1": "I've designed a couple types of slate to be used in spell circles. While they don't provide any groundbreaking new functionality, they can be nice to have.",
+  "ephemera.page.specialslates.2": "Works just like a normal slate, but is capable of sending the media wave into the block it is placed on.",
+  "ephemera.page.specialslates.3": "Crafted with a normal slate and a stonecutter.$(br2)Looks just like a normal slate, but can't direct a media wave at all. Cannot be written to.",
 
   "ephemera.page.forgewarning.1": "Mod author's note for Forge users: This spell does not work on Forge. I do not know why. I've set the cost on Forge to zero so at least it won't waste media. Sorry.$(br2)I'll try to get it working eventually.",
   "ephemera.page.forgewarning.2": "Mod author's note for Forge users: This spell does not produce particles on Forge. I do not know why. The entity damage and block breaking still work fine, at least. Sorry.$(br2)I'll try to get it working eventually (no I won't).",
