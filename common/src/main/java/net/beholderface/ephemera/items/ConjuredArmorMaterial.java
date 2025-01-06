@@ -13,7 +13,7 @@ public class ConjuredArmorMaterial implements ArmorMaterial {
     }
     public static int staticDurability(){
         //magic number chosen because it allows for about 4.5 hours of armor existence without taking hits or status maintenance cost
-        return 16384;
+        return (int) Math.pow(2.0, 16.0);
     }
 
     @Override
