@@ -32,16 +32,24 @@ public class HashIota extends Iota {
         super(EphemeraIotaTypeRegistry.HASH, payload);
     }
 
+    public static final String DATA_KEY = "iotaData";
+    public static final String TYPE_KEY = "iotaType";
+
     public static HashIota of(Iota iota){
         NbtCompound container = new NbtCompound();
-        NbtCompound iotaData = HexUtils.downcast(iota.serialize(), NbtCompound.TYPE);
-        if (Platform.isModLoaded("hexgloop") && iota.getType() == HexIotaTypes.ENTITY){
-            iotaData.remove("keyUUID");
+        NbtElement serialized = iota.serialize();
+        try {
+            NbtCompound iotaData = HexUtils.downcast(serialized, NbtCompound.TYPE);
+            if (Platform.isModLoaded("hexgloop") && iota.getType() == HexIotaTypes.ENTITY){
+                iotaData.remove("keyUUID");
+            }
+            container.put(DATA_KEY, iotaData);
+        } catch (IllegalArgumentException ignored){
+            container.put(DATA_KEY, serialized);
         }
-        container.put("iotaData", iotaData);
         Identifier id = HexIotaTypes.REGISTRY.getId(iota.getType());
         assert id != null;
-        container.putString("iotaType", id.toString());
+        container.putString(TYPE_KEY, id.toString());
         return new HashIota(container);
     }
 
