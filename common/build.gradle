@@ -12,6 +12,9 @@ loom {
 }
 
 dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraftVersion}"
+
+    mappings "net.fabricmc:yarn:${project.yarnMappingsVersion}:v2"
     implementation 'org.jetbrains:annotations:24.0.0'
 
     // We depend on fabric loader here to use the fabric @Environment annotations and get the mixin dependencies
@@ -20,14 +23,14 @@ dependencies {
     modApi "dev.architectury:architectury:${project.architecturyVersion}"
 
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
-    implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2' // for @Nonnull
+    //implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2' // for @Nonnull
 
     modCompileOnly "at.petra-k.paucal:paucal-common-$minecraftVersion:$paucalVersion"
     modCompileOnly "at.petra-k.hexcasting:hexcasting-fabric-$minecraftVersion:$hexcastingVersion"
     modCompileOnly "vazkii.patchouli:Patchouli-xplat:$minecraftVersion-$patchouliVersion"
-    modImplementation(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-common:${mixinExtrasVersion}"))
-    modCompileOnly("maven.modrinth:hexal:${hexalVersion}")
-    modRuntimeOnly("maven.modrinth:hexal:${hexalVersion}")
+    //modImplementation(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-common:${mixinExtrasVersion}"))
+    modImplementation "localModLibs:hexal-fabric-${minecraftVersion}-${hexalVersion}"
+    modImplementation "localModLibs:moreiotas-fabric-${minecraftVersion}-${moreiotasVersion}"
 }
 
 publishing {
@@ -46,4 +49,8 @@ publishing {
 
 repositories {
     mavenCentral()
+    maven {
+        name = "Ladysnake Mods"
+        url = 'https://maven.ladysnake.org/releases'
+    }
 }

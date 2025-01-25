@@ -35,7 +35,7 @@ public class MemeticCureEffect extends StatusEffect {
             entity.removeStatusEffect(EphemeraMiscRegistry.BRAINROT.get());
             MemeticDiseaseEffect.DISEASE_MAP.remove(entity);
         }
-        World world = entity.world;
+        World world = entity.getWorld();
         Vec3d spreaderCenter = entity.getBoundingBox().getCenter();
         List<Entity> nearbyEntities = world.getOtherEntities(entity, Box.from(spreaderCenter).expand(8.0),
                 (subject)->{
@@ -43,7 +43,7 @@ public class MemeticCureEffect extends StatusEffect {
                 return livingEntity.hasStatusEffect(EphemeraMiscRegistry.BRAINROT.get());
             }
             return false;});
-        int chance = entity.world.random.nextBetween(1, 10);
+        int chance = world.random.nextBetween(1, 10);
         for (Entity e : nearbyEntities){
             if (e.getBoundingBox().getCenter().distanceTo(spreaderCenter) <= 8 && e instanceof LivingEntity livingEntity
                     && chance == 1){
@@ -52,7 +52,7 @@ public class MemeticCureEffect extends StatusEffect {
                 livingEntity.removeStatusEffect(EphemeraMiscRegistry.BRAINROT.get());
                 MemeticDiseaseEffect.DISEASE_MAP.remove(e);
             }
-            chance = entity.world.random.nextBetween(1, 10);
+            chance = world.random.nextBetween(1, 10);
         }
     }
 

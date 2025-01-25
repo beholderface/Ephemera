@@ -10,11 +10,11 @@ import net.beholderface.ephemera.status.MemeticPreventionEffect;
 import net.beholderface.ephemera.status.MissingEffect;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.RegistryKeys;
 
 public class EphemeraMiscRegistry {
-    public static final DeferredRegister<StatusEffect> EFFECTS = DeferredRegister.create(Ephemera.MOD_ID, Registry.MOB_EFFECT_KEY);
-    public static final DeferredRegister<Enchantment> ENCHANTMENTS = DeferredRegister.create(Ephemera.MOD_ID, Registry.ENCHANTMENT_KEY);
+    public static final DeferredRegister<StatusEffect> EFFECTS = DeferredRegister.create(Ephemera.MOD_ID, RegistryKeys.STATUS_EFFECT);
+    public static final DeferredRegister<Enchantment> ENCHANTMENTS = DeferredRegister.create(Ephemera.MOD_ID, RegistryKeys.ENCHANTMENT);
 
     public static final RegistrySupplier<MissingEffect> MISSING = EFFECTS.register("missing", MissingEffect::new);
     public static final RegistrySupplier<MemeticDiseaseEffect> BRAINROT = EFFECTS.register("brainrot", MemeticDiseaseEffect::new);

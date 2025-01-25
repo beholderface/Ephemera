@@ -72,12 +72,12 @@ public class EphemeraConfigFabric extends PartitioningSerializer.GlobalData {
         }*/
 
         static class MiscConfig {
-            boolean lessThanEqualSentinel = DEFAULT_LESSTHANEQUAL_SENTINEL;
+            //boolean lessThanEqualSentinel = DEFAULT_LESSTHANEQUAL_SENTINEL;
         }
 
-        @Override
+        /*@Override
         public boolean getLessThanEqualSentinel() {
             return miscConfig.lessThanEqualSentinel;
-        }
+        }*/
     }
 }

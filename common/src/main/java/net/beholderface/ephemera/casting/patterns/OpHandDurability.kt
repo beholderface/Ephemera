@@ -1,21 +1,24 @@
 package net.beholderface.ephemera.casting.patterns
 
-import at.petrak.hexcasting.api.spell.ConstMediaAction
-import at.petrak.hexcasting.api.spell.casting.CastingContext
-import at.petrak.hexcasting.api.spell.iota.DoubleIota
-import at.petrak.hexcasting.api.spell.iota.Iota
-import at.petrak.hexcasting.api.spell.iota.NullIota
-import net.minecraft.util.Hand
+import at.petrak.hexcasting.api.casting.castables.ConstMediaAction
+import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
+import at.petrak.hexcasting.api.casting.iota.DoubleIota
+import at.petrak.hexcasting.api.casting.iota.Iota
+import at.petrak.hexcasting.api.casting.iota.NullIota
+import at.petrak.hexcasting.api.casting.mishaps.MishapBadCaster
 
 class OpHandDurability(val other : Boolean) : ConstMediaAction {
     override val argc = 0
-    override fun execute(args: List<Iota>, ctx: CastingContext): List<Iota> {
+    override fun execute(args: List<Iota>, env: CastingEnvironment): List<Iota> {
         val hand = if (other){
-            ctx.otherHand
+            env.otherHand
         } else {
-            ctx.castingHand
+            env.castingHand
         }
-        val stack = ctx.caster.getStackInHand(hand)
+        if (env.castingEntity == null){
+            throw MishapBadCaster()
+        }
+        val stack = env.castingEntity!!.getStackInHand(hand)
         return if (stack.isDamageable){
             listOf(DoubleIota((stack.maxDamage - stack.damage).toDouble()))
         } else {

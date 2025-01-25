@@ -15,10 +15,10 @@ public class EphemeraConfig {
     private static final ClientConfigAccess dummyClient = new ClientConfigAccess() {
     };
     private static final ServerConfigAccess dummyServer = new ServerConfigAccess() {
-        @Override
+        /*@Override
         public boolean getLessThanEqualSentinel() {
             throw new IllegalStateException("Attempted to access property of Dummy Config Object");
-        }
+        }*/
         /*@Override
         public int getCongratsCost() {
             throw new IllegalStateException("Attempted to access property of Dummy Config Object");
@@ -82,7 +82,7 @@ public class EphemeraConfig {
     }
 
     public interface ServerConfigAccess {
-        boolean DEFAULT_LESSTHANEQUAL_SENTINEL = true;
-        boolean getLessThanEqualSentinel();
+        /*boolean DEFAULT_LESSTHANEQUAL_SENTINEL = true;
+        boolean getLessThanEqualSentinel();*/
     }
 }

@@ -1,7 +1,7 @@
 package net.beholderface.ephemera.items;
 
 import at.petrak.hexcasting.api.HexAPI;
-import at.petrak.hexcasting.common.items.ItemSlate;
+import at.petrak.hexcasting.common.items.storage.ItemSlate;
 import net.beholderface.ephemera.Ephemera;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;

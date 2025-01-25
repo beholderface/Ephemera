@@ -19,8 +19,8 @@ public class RevealHistoryManager {
     private static final Map<UUID, Long> HISTORY_MAP = new HashMap<>();
     public static final int minuteInTicks = 20 * 60;
 
-    public static int calculateCost(UUID uuid, long currentTime){
-        int defaultCost = MediaConstants.DUST_UNIT / 10;
+    public static long calculateCost(UUID uuid, long currentTime){
+        long defaultCost = MediaConstants.DUST_UNIT / 10;
         if (!HISTORY_MAP.containsKey(uuid) || (HISTORY_MAP.containsKey(uuid) && (HISTORY_MAP.get(uuid) < currentTime - minuteInTicks || HISTORY_MAP.get(uuid) > currentTime))){
             return defaultCost;
         } else {
@@ -33,7 +33,7 @@ public class RevealHistoryManager {
                     - (minuteInTicks / 10.0), 2), 0.5) * ((5.0 / 3.0 / 20.0) * -1)) + ((minuteInTicks/10.0) * ((5.0 / 3.0 / 20.0) * -1))) / -2)) * 2;
             //Ephemera.LOGGER.info(rawOutput);
             double coercedOutput = Math.max(rawOutput, 0.1);
-            return (int)(coercedOutput * MediaConstants.DUST_UNIT);
+            return (long)(coercedOutput * MediaConstants.DUST_UNIT);
         }
     }
 

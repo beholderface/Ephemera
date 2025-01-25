@@ -47,15 +47,17 @@ dependencies {
 
     // // Hex Casting Dependencies
     modCompileOnly "at.petra-k.paucal:paucal-forge-${minecraftVersion}:${paucalVersion}"
-    modCompileOnly "vazkii.patchouli:Patchouli:${minecraftVersion}-${patchouliVersion}"
+    modCompileOnly "vazkii.patchouli:Patchouli:${minecraftVersion}-${patchouliVersion}-FORGE"
 
     modRuntimeOnly "at.petra-k.paucal:paucal-forge-${minecraftVersion}:${paucalVersion}"
-    modRuntimeOnly "vazkii.patchouli:Patchouli:${minecraftVersion}-${patchouliVersion}"
+    modRuntimeOnly "vazkii.patchouli:Patchouli:${minecraftVersion}-${patchouliVersion}-FORGE"
 
     runtimeOnly "thedarkcolour:kotlinforforge:$project.forgeKotlinVersion"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
+    modImplementation "localModLibs:hexal-forge-${minecraftVersion}-${hexalVersion}"
+    modImplementation "localModLibs:moreiotas-forge-${minecraftVersion}-${moreiotasVersion}"
 }
 
 processResources {

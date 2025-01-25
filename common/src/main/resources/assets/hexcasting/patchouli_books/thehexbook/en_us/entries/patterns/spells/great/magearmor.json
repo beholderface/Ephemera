@@ -1,5 +1,5 @@
 {
-  "name": "hexcasting.spell.ephemera:magearmor",
+  "name": "hexcasting.action.ephemera:magearmor",
   "category": "hexcasting:patterns/great_spells",
   "icon": "ephemera:media_chestplate",
   "sortnum": 3,

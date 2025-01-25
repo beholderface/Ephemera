@@ -1,8 +1,9 @@
 package net.beholderface.ephemera.blocks.blockentity;
 
-import at.petrak.hexcasting.api.spell.iota.Iota;
-import at.petrak.hexcasting.api.spell.iota.NullIota;
-import at.petrak.hexcasting.api.spell.mishaps.MishapOthersName;
+import at.petrak.hexcasting.api.casting.iota.Iota;
+import at.petrak.hexcasting.api.casting.iota.IotaType;
+import at.petrak.hexcasting.api.casting.iota.NullIota;
+import at.petrak.hexcasting.api.casting.mishaps.MishapOthersName;
 import at.petrak.hexcasting.api.utils.NBTHelper;
 import at.petrak.hexcasting.common.lib.hex.HexIotaTypes;
 import net.beholderface.ephemera.Ephemera;
@@ -48,7 +49,7 @@ public class RelayIndexBlockEntity extends BlockEntity {
     @Override
     protected void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
-        NBTHelper.putCompound(nbt, STORAGE_TAG, HexIotaTypes.serialize(this.storedIota));
+        NBTHelper.putCompound(nbt, STORAGE_TAG, IotaType.serialize(this.storedIota));
         if (this.world != null){
             Ephemera.boolLogger("Nonnull world, recording registry key", debugMessages);
             nbt.putString(WORLD_TAG, this.world.getRegistryKey().getValue().toString());
@@ -72,7 +73,7 @@ public class RelayIndexBlockEntity extends BlockEntity {
         try {
             if (this.world != null && !this.world.isClient){
                 Ephemera.boolLogger("Attempting to deserialize stored iota", debugMessages);
-                this.storedIota = HexIotaTypes.deserialize(nbt.getCompound(STORAGE_TAG), (ServerWorld) this.world);
+                this.storedIota = IotaType.deserialize(nbt.getCompound(STORAGE_TAG), (ServerWorld) this.world);
             } else {
                 Ephemera.boolLogger("Can't even try to deserialize iota", debugMessages);
                 this.storedIota = new NullIota();

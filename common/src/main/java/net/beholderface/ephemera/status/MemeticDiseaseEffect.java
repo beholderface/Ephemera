@@ -39,14 +39,14 @@ public class MemeticDiseaseEffect extends StatusEffect {
 
     @Override
     public void applyUpdateEffect(LivingEntity entity, int amplifier){
-        World world = entity.world;
+        World world = entity.getWorld();
         StatusEffectInstance instance = entity.getStatusEffect(this);
         assert instance != null;
         int duration = instance.getDuration();
         if (duration > 5){
             if (DISEASE_MAP.containsKey(entity)){
                 Pair<Long, Integer> preexisting = DISEASE_MAP.get(entity); // (pair.getFirst() + pair.getSecond()) - e.world.getTime();
-                int properDuration = (int) ((preexisting.getFirst() + preexisting.getSecond()) - entity.world.getTime());
+                int properDuration = (int) ((preexisting.getFirst() + preexisting.getSecond()) - world.getTime());
                 if (duration < properDuration){
                     instance.upgrade(new StatusEffectInstance(this, properDuration));
                 }
@@ -66,14 +66,14 @@ public class MemeticDiseaseEffect extends StatusEffect {
                                     || livingEntity.hasStatusEffect(this));
                         }
                         return false;});
-            int chance = entity.world.random.nextBetween(1, 10);
+            int chance = world.random.nextBetween(1, 10);
             for (Entity e : nearbyEntities){
                 if (e.getBoundingBox().getCenter().distanceTo(spreaderCenter) <= 8 && e instanceof LivingEntity livingEntity
                         && chance == 1){
                     //Ephemera.LOGGER.info("Spreading brainrot to " + livingEntity.getEntityName() + " at position " + livingEntity.getPos());
                     livingEntity.addStatusEffect(new StatusEffectInstance(this, SPREAD_DURATION), entity);
                 }
-                chance = entity.world.random.nextBetween(1, 10);
+                chance = world.random.nextBetween(1, 10);
             }
         }
     }
@@ -97,7 +97,7 @@ public class MemeticDiseaseEffect extends StatusEffect {
         for (LivingEntity e : DISEASE_MAP.keySet()){
             StatusEffectInstance instance = e.getStatusEffect(EphemeraMiscRegistry.BRAINROT.get());
             Pair<Long, Integer> pair = DISEASE_MAP.get(e);
-            long properDuration = (pair.getFirst() + pair.getSecond()) - e.world.getTime();
+            long properDuration = (pair.getFirst() + pair.getSecond()) - e.getWorld().getTime();
             if (instance != null){
                 if (instance.getDuration() + 1 < properDuration){
                     instance.upgrade(new StatusEffectInstance(instance.getEffectType(), (int) (properDuration)));

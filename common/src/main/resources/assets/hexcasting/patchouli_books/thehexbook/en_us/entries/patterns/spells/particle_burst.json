@@ -1,5 +1,5 @@
 {
-  "name": "hexcasting.spell.ephemera:particleburst",
+  "name": "hexcasting.action.ephemera:particleburst",
   "category": "hexcasting:patterns/spells",
   "icon": "minecraft:blaze_powder",
   "sortnum": 6,

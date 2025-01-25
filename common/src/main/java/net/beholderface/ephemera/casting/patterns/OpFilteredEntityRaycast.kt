@@ -1,20 +1,24 @@
 package net.beholderface.ephemera.casting.patterns
 
+import at.petrak.hexcasting.api.casting.asActionResult
+import at.petrak.hexcasting.api.casting.castables.Action
+import at.petrak.hexcasting.api.casting.castables.ConstMediaAction
+import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
+import at.petrak.hexcasting.api.casting.getList
+import at.petrak.hexcasting.api.casting.getVec3
+import at.petrak.hexcasting.api.casting.iota.Iota
+import at.petrak.hexcasting.api.casting.iota.NullIota
+import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota
 import at.petrak.hexcasting.api.misc.MediaConstants
-import at.petrak.hexcasting.api.spell.*
-import at.petrak.hexcasting.api.spell.casting.CastingContext
-import at.petrak.hexcasting.api.spell.iota.Iota
-import at.petrak.hexcasting.api.spell.iota.NullIota
-import at.petrak.hexcasting.api.spell.mishaps.MishapInvalidIota
 import dev.architectury.platform.Platform
 import net.minecraft.entity.Entity
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.projectile.ProjectileUtil
+import net.minecraft.registry.Registries
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.Box
-import net.minecraft.util.registry.Registry
-import ram.talia.hexal.api.spell.iota.EntityTypeIota
+import ram.talia.moreiotas.api.casting.iota.EntityTypeIota
 
 class OpFilteredEntityRaycast : ConstMediaAction {
     override val argc = 3
@@ -25,7 +29,7 @@ class OpFilteredEntityRaycast : ConstMediaAction {
             val livingEntity = entity as LivingEntity
             val effects = livingEntity.statusEffects
             for (effect in effects){
-                if (effect.effectType == Registry.STATUS_EFFECT.get(Identifier.tryParse("oneironaut:detection_resistance"))){
+                if (effect.effectType == Registries.STATUS_EFFECT.get(Identifier.tryParse("oneironaut:detection_resistance"))){
                     return false
                 }
             }
@@ -39,7 +43,7 @@ class OpFilteredEntityRaycast : ConstMediaAction {
         return false
     }
 
-    override fun execute(args: List<Iota>, ctx: CastingContext): List<Iota> {
+    override fun execute(args: List<Iota>, ctx: CastingEnvironment): List<Iota> {
         val filter = args.getList(0, argc)
         for (iota in filter){
             if (iota.type != EntityTypeIota.TYPE){
@@ -53,7 +57,7 @@ class OpFilteredEntityRaycast : ConstMediaAction {
         ctx.assertVecInRange(origin)
 
         val entityHitResult = ProjectileUtil.raycast(
-            ctx.caster,
+            ctx.castingEntity,
             origin,
             endp,
             Box(origin, endp),

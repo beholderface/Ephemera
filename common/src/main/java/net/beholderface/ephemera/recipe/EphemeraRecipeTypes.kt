@@ -4,8 +4,8 @@ import net.beholderface.ephemera.Ephemera.MOD_ID
 import net.beholderface.ephemera.Ephemera.id
 import net.minecraft.recipe.Recipe
 import net.minecraft.recipe.RecipeType
+import net.minecraft.registry.Registry
 import net.minecraft.util.Identifier
-import net.minecraft.util.registry.Registry
 import java.util.function.BiConsumer
 
 class EphemeraRecipeTypes {

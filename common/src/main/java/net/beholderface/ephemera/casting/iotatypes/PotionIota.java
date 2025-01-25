@@ -1,24 +1,27 @@
 package net.beholderface.ephemera.casting.iotatypes;
 
-import at.petrak.hexcasting.api.spell.iota.Iota;
-import at.petrak.hexcasting.api.spell.iota.IotaType;
+import at.petrak.hexcasting.api.casting.iota.Iota;
+import at.petrak.hexcasting.api.casting.iota.IotaType;
 import at.petrak.hexcasting.api.utils.HexUtils;
 import net.beholderface.ephemera.registry.EphemeraIotaTypeRegistry;
 import net.beholderface.ephemera.registry.EphemeraMiscRegistry;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Iterator;
 
 //import java.awt.*;
 
-public class PotionIota extends Iota{
+public class PotionIota extends Iota {
     public PotionIota(@NotNull StatusEffect effect){
         super(EphemeraIotaTypeRegistry.POTION, effect);
     }
@@ -52,15 +55,20 @@ public class PotionIota extends Iota{
         public PotionIota deserialize(NbtElement tag, ServerWorld world) throws IllegalArgumentException {
             //Ephemera.LOGGER.info("deserializing potion iota");
             var ctag = HexUtils.downcast(tag, NbtCompound.TYPE);
-            Iterator<StatusEffect> statusEffectIterator = Registry.STATUS_EFFECT.iterator();
-            String potionKey = ctag.getString("potion_key");
+            //Iterator<StatusEffect> statusEffectIterator = Registries.STATUS_EFFECT.iterator();
+            String potionString = ctag.getString("potion_key");
+            var potionKey = RegistryKey.of(RegistryKeys.STATUS_EFFECT, Identifier.tryParse(potionString));
             StatusEffect currentEffect = EphemeraMiscRegistry.MISSING.get();
-            while (statusEffectIterator.hasNext()){
+            StatusEffect foundEffect = Registries.STATUS_EFFECT.get(potionKey);
+            if (foundEffect != null){
+                currentEffect = foundEffect;
+            }
+            /*while (statusEffectIterator.hasNext()){
                 currentEffect = statusEffectIterator.next();
                 if (currentEffect.getTranslationKey().equals(potionKey)){
                     break;
                 }
-            }
+            }*/
             //Ephemera.LOGGER.info("deserialized potion iota");
             return new PotionIota(currentEffect);
         }

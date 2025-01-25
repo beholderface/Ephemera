@@ -42,7 +42,7 @@ public class EphemeraConfigForge {
 
         public Server(ForgeConfigSpec.Builder builder) {
             builder.translation("text.autoconfig.ephemera.option.server.costs").push("misc");
-            lessthanequalSentinel = builder.translation("text.autoconfig.ephemera.option.server.misc.lessthanequalSentinel").define("lessthanequalSentinel", DEFAULT_LESSTHANEQUAL_SENTINEL);
+            //lessthanequalSentinel = builder.translation("text.autoconfig.ephemera.option.server.misc.lessthanequalSentinel").define("lessthanequalSentinel", DEFAULT_LESSTHANEQUAL_SENTINEL);
 
             //congratsCost = builder.translation("text.autoconfig.ephemera.option.server.costs.congratsCost").defineInRange("congratsCost", DEFAULT_CONGRATS_COST, DEF_MIN_COST, DEF_MAX_COST);
             //signumCost = builder.translation("text.autoconfig.ephemera.option.server.costs.signumCost").defineInRange("signumCost", DEFAULT_SIGNUM_COST, DEF_MIN_COST, DEF_MAX_COST);
@@ -50,9 +50,9 @@ public class EphemeraConfigForge {
             builder.pop();
         }
 
-        @Override
+        /*@Override
         public boolean getLessThanEqualSentinel() {
             return lessthanequalSentinel.get();
-        }
+        }*/
     }
 }

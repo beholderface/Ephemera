@@ -17,6 +17,8 @@ import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
@@ -25,7 +27,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -42,7 +43,7 @@ public class ConjuredArmorItem extends ArmorItem {
     public static final Map<Enchantment, Integer> SHAME_MAP = new HashMap<>();
     public static final Map<PlayerEntity, Long> STATUS_REFRESH_MAP = new HashMap<>();
 
-    public ConjuredArmorItem(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
+    public ConjuredArmorItem(ArmorMaterial material, Type slot , Settings settings) {
         super(material, slot, settings);
     }
 
@@ -155,7 +156,7 @@ public class ConjuredArmorItem extends ArmorItem {
         if (!world.isClient){
             stack.setCount(0);
             if (sound){
-                world.playSoundFromEntity(null, entity, SoundEvents.ENTITY_ITEM_BREAK, entity.getSoundCategory(), 1f, 1f, 0);
+                world.playSoundFromEntity(null, entity, RegistryEntry.of(SoundEvents.ENTITY_ITEM_BREAK), entity.getSoundCategory(), 1f, 1f, 0);
             }
             /*ServerWorld serverWorld = (ServerWorld) world;
             MinecraftServer server = serverWorld.getServer();
@@ -172,7 +173,7 @@ public class ConjuredArmorItem extends ArmorItem {
             Identifier statusID = Identifier.tryParse(statusString);
             if (statusID != null){
                 //Ephemera.LOGGER.info("searching registry for identifier " + statusID);
-                StatusEffect effect = Registry.STATUS_EFFECT.get(statusID);
+                StatusEffect effect = Registries.STATUS_EFFECT.get(statusID);
                 //Ephemera.LOGGER.info("found effect: " + effect);
                 if (effect != null){
                     return new Pair<>(effect, storedStatus.getInt(STORED_STATUS_LEVEL_TAG));
@@ -214,7 +215,7 @@ public class ConjuredArmorItem extends ArmorItem {
         return MathHelper.hsvToRgb(0.75f, f, 1.0F);
     }
     @Override
-    public void appendTooltip(ItemStack stack, @javax.annotation.Nullable World world, List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         Pair<StatusEffect, Integer> storedStatus = getStoredStatus(stack);
         if (storedStatus != null){
             Text text = Text.translatable("item.ephemeral.media_armor.tooltip.1",

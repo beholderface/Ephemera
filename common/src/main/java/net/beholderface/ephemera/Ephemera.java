@@ -4,15 +4,14 @@ import com.mojang.datafixers.util.Either;
 import dev.architectury.event.events.common.LifecycleEvent;
 import dev.architectury.event.events.common.TickEvent;
 import net.beholderface.ephemera.casting.ChunkLoadingManager;
-import net.beholderface.ephemera.items.ConjuredArmorItem;
 import net.beholderface.ephemera.recipe.EphemeraRecipeSerializer;
 import net.beholderface.ephemera.recipe.EphemeraRecipeTypes;
 import net.beholderface.ephemera.registry.*;
 import net.beholderface.ephemera.networking.EphemeraNetworking;
 import net.beholderface.ephemera.status.MemeticDiseaseEffect;
+import net.minecraft.registry.Registries;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -38,8 +37,8 @@ public class Ephemera {
         EphemeraPatternRegistry.init();
 		EphemeraNetworking.init();
 
-        EphemeraRecipeSerializer.registerSerializers(EphemeraRecipeTypes.Companion.bind(Registry.RECIPE_SERIALIZER));
-        EphemeraRecipeTypes.registerTypes(EphemeraRecipeTypes.Companion.bind(Registry.RECIPE_TYPE));
+        EphemeraRecipeSerializer.registerSerializers(EphemeraRecipeTypes.Companion.bind(Registries.RECIPE_SERIALIZER));
+        EphemeraRecipeTypes.registerTypes(EphemeraRecipeTypes.Companion.bind(Registries.RECIPE_TYPE));
 
         LOGGER.info(EphemeraAbstractions.getConfigDirectory().toAbsolutePath().normalize().toString());
 

@@ -1,9 +1,9 @@
 package net.beholderface.ephemera.api
 
-import at.petrak.hexcasting.api.spell.iota.EntityIota
-import at.petrak.hexcasting.api.spell.iota.Iota
-import at.petrak.hexcasting.api.spell.mishaps.MishapInvalidIota
-import at.petrak.hexcasting.api.spell.mishaps.MishapNotEnoughArgs
+import at.petrak.hexcasting.api.casting.iota.EntityIota
+import at.petrak.hexcasting.api.casting.iota.Iota
+import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota
+import at.petrak.hexcasting.api.casting.mishaps.MishapNotEnoughArgs
 import net.beholderface.ephemera.Ephemera
 import net.beholderface.ephemera.casting.iotatypes.HashIota
 import net.beholderface.ephemera.casting.iotatypes.PotionIota
@@ -13,22 +13,26 @@ import net.minecraft.entity.EntityType
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.Item
+import net.minecraft.registry.Registries
+import net.minecraft.registry.RegistryKeys
+import net.minecraft.registry.tag.TagKey
 import net.minecraft.server.world.ServerWorld
-import net.minecraft.tag.TagKey
 import net.minecraft.util.Identifier
-import net.minecraft.util.registry.Registry
+import net.minecraft.util.math.Vec3d
+import net.minecraft.util.math.Vec3i
+import org.jetbrains.annotations.Nullable
 import ram.talia.hexal.api.linkable.ILinkable
 import ram.talia.hexal.common.entities.BaseWisp
 import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
-import javax.annotation.Nullable
+import kotlin.math.floor
 import kotlin.math.ln
 
 fun List<Iota>.getStatusEffect(idx: Int, argc: Int = 0, allowShroud : Boolean) : StatusEffect {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
     if (x is PotionIota) {
-        if (!allowShroud && (x as PotionIota).effect == Registry.STATUS_EFFECT.get(Identifier.tryParse("oneironaut:detection_resistance"))){
+        if (!allowShroud && (x as PotionIota).effect == Registries.STATUS_EFFECT.get(Identifier.tryParse("oneironaut:detection_resistance"))){
             throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "ephemera:visiblestatus")
         }
         return (x as PotionIota).effect
@@ -46,20 +50,20 @@ fun List<Iota>.getHash(idx: Int, argc: Int = 0) : String {
 }
 
 fun getBlockTagKey(id : Identifier) : TagKey<Block> {
-    return TagKey.of(Registry.BLOCK_KEY, id)
+    return TagKey.of(RegistryKeys.BLOCK, id)
 }
 fun getEntityTagKey(id : Identifier) : TagKey<EntityType<*>> {
-    return TagKey.of(Registry.ENTITY_TYPE_KEY, id)
+    return TagKey.of(RegistryKeys.ENTITY_TYPE, id)
 }
 fun getItemTagKey(id : Identifier) : TagKey<Item> {
-    return TagKey.of(Registry.ITEM_KEY, id)
+    return TagKey.of(RegistryKeys.ITEM, id)
 }
 fun getStatusTagKey(id : Identifier) : TagKey<StatusEffect> {
-    return TagKey.of(Registry.MOB_EFFECT_KEY, id)
+    return TagKey.of(RegistryKeys.STATUS_EFFECT, id)
 }
 
 fun StatusEffect.effectToIdentifier(): Identifier? {
-    return Registry.STATUS_EFFECT.getId(this)
+    return Registries.STATUS_EFFECT.getId(this)
 }
 
 fun ILinkable.getConnected(@Nullable previous : ILinkable?, connectionSet : HashSet<ILinkable>, recursion : Int, maxRecursion : Int) : HashSet<ILinkable>{
@@ -137,4 +141,8 @@ fun String.hash() : String{
 
 fun arbitraryLog(base: Double, num: Double): Double {
     return ln(num) / ln(base)
+}
+
+fun Vec3d.toVec3i() : Vec3i {
+    return Vec3i(floor(this.x).toInt(), floor(this.y).toInt(), floor(this.z).toInt())
 }

@@ -1,10 +1,14 @@
 package net.beholderface.ephemera.casting.patterns.spells.great
 
+import at.petrak.hexcasting.api.casting.ParticleSpray
+import at.petrak.hexcasting.api.casting.RenderedSpell
+import at.petrak.hexcasting.api.casting.castables.SpellAction
+import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
+import at.petrak.hexcasting.api.casting.getPlayer
+import at.petrak.hexcasting.api.casting.getPositiveInt
+import at.petrak.hexcasting.api.casting.iota.Iota
+import at.petrak.hexcasting.api.casting.mishaps.MishapDisallowedSpell
 import at.petrak.hexcasting.api.misc.MediaConstants
-import at.petrak.hexcasting.api.spell.*
-import at.petrak.hexcasting.api.spell.casting.CastingContext
-import at.petrak.hexcasting.api.spell.iota.Iota
-import at.petrak.hexcasting.api.spell.mishaps.MishapDisallowedSpell
 import net.beholderface.ephemera.api.getStatusEffect
 import net.beholderface.ephemera.api.getStatusTagKey
 import net.beholderface.ephemera.items.ConjuredArmorItem
@@ -17,18 +21,16 @@ import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.item.Items
+import net.minecraft.registry.Registries
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.util.Identifier
-import net.minecraft.util.registry.Registry
-import javax.annotation.Nullable
+import org.jetbrains.annotations.Nullable
 import kotlin.math.pow
 
 
 class OpMageArmor() : SpellAction {
     override val argc = 5
-    override val isGreat = true
-    override val causesBlindDiversion = true
-    override fun execute(args: List<Iota>, ctx: CastingContext): Triple<RenderedSpell, Int, List<ParticleSpray>>? {
+    override fun execute(args: List<Iota>, env: CastingEnvironment): SpellAction.Result {
         val target = args.getPlayer(0, argc)
         val durability = args.getPositiveInt(1, argc).coerceAtMost(ConjuredArmorMaterial.staticDurability())
         //strength 10 = slightly better than non-enchanted netherite
@@ -39,9 +41,9 @@ class OpMageArmor() : SpellAction {
             null
         }
         if (effect != null){
-            val effectKeyMaybe = Registry.STATUS_EFFECT.getKey(effect)
+            val effectKeyMaybe = Registries.STATUS_EFFECT.getKey(effect)
             if (effectKeyMaybe.isPresent){
-                val effectEntry = Registry.STATUS_EFFECT.entryOf(effectKeyMaybe.get())
+                val effectEntry = Registries.STATUS_EFFECT.entryOf(effectKeyMaybe.get())
                 if (effectEntry.isIn(getStatusTagKey(Identifier("ephemera:armor_blacklist")))){
                     throw MishapDisallowedSpell("ephemera:blacklist")
                 }
@@ -80,12 +82,13 @@ class OpMageArmor() : SpellAction {
             cost *= (effectStrength + 2).coerceAtMost(Integer.MAX_VALUE - 1)
         }
         cost = (cost * MediaConstants.DUST_UNIT).coerceAtMost(Long.MAX_VALUE - 1)
-        return Triple(Spell(target, slotBools, durability, armorStrength, effect, effectStrength), cost.coerceIn(0, Int.MAX_VALUE.toLong() - 1).toInt(), listOf(ParticleSpray.cloud(target.pos, 2.0)))
+        return SpellAction.Result(Spell(target, slotBools, durability, armorStrength, effect, effectStrength), cost, listOf(
+            ParticleSpray.cloud(target.pos, 2.0)))
     }
 
     private data class Spell(val player : ServerPlayerEntity, val slots : BooleanArray, val durability : Int, val armorStrength : Int,
-                             @Nullable val effect : StatusEffect?, val effectStrength : Int) : RenderedSpell{
-        override fun cast(ctx: CastingContext) {
+                             @Nullable val effect : StatusEffect?, val effectStrength : Int) : RenderedSpell {
+        override fun cast(env: CastingEnvironment) {
             val items = arrayOf(EphemeraItemRegistry.MEDIA_BOOTS.get(), EphemeraItemRegistry.MEDIA_LEGGINGS.get(),
                 EphemeraItemRegistry.MEDIA_CHESTPLATE.get(), EphemeraItemRegistry.MEDIA_HELMET.get())
             val armorSlots = arrayOf(EquipmentSlot.FEET, EquipmentSlot.LEGS, EquipmentSlot.CHEST, EquipmentSlot.HEAD)

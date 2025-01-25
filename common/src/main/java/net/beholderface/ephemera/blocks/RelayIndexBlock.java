@@ -1,6 +1,6 @@
 package net.beholderface.ephemera.blocks;
 
-import at.petrak.hexcasting.common.items.ItemFocus;
+import at.petrak.hexcasting.common.items.storage.ItemFocus;
 import at.petrak.hexcasting.common.lib.HexSounds;
 import net.beholderface.ephemera.blocks.blockentity.RelayIndexBlockEntity;
 import net.beholderface.ephemera.registry.EphemeraBlockRegistry;
@@ -57,7 +57,7 @@ public class RelayIndexBlock extends BlockWithEntity {
                         be.setStoredIota(focus.readIota(heldStack, (ServerWorld) world), player);
                     }
                 }
-                world.playSound(pos.getX(), pos.getY(), pos.getZ(), HexSounds.ACTUALLY_CAST, SoundCategory.BLOCKS, 1f, 1f, true);
+                world.playSound(pos.getX(), pos.getY(), pos.getZ(), HexSounds.CAST_SPELL, SoundCategory.BLOCKS, 1f, 1f, true);
                 return ActionResult.SUCCESS;
             }
         }

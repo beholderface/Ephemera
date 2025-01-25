@@ -1,5 +1,5 @@
 {
-  "name": "hexcasting.spell.ephemera:paintconjured",
+  "name": "hexcasting.action.ephemera:paintconjured",
   "category": "hexcasting:patterns/spells",
   "icon": "hexcasting:uuid_colorizer",
   "sortnum": 6,

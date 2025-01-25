@@ -1,6 +1,6 @@
 package net.beholderface.ephemera.api.xplat;
 
-import at.petrak.hexcasting.api.spell.iota.Iota;
+import at.petrak.hexcasting.api.casting.iota.Iota;
 import net.beholderface.ephemera.Ephemera;
 import net.minecraft.server.MinecraftServer;
 

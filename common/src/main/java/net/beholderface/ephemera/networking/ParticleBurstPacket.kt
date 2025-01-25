@@ -1,8 +1,8 @@
 package net.beholderface.ephemera.networking
 
-import at.petrak.hexcasting.api.misc.FrozenColorizer
-import at.petrak.hexcasting.common.network.IMessage
+import at.petrak.hexcasting.api.pigment.FrozenPigment
 import at.petrak.hexcasting.common.lib.HexSounds
+import at.petrak.hexcasting.common.msgs.IMessage
 import at.petrak.hexcasting.common.particles.ConjureParticleOptions
 import io.netty.buffer.ByteBuf
 import net.beholderface.ephemera.Ephemera
@@ -15,7 +15,8 @@ import ram.talia.hexal.api.nextColour
 
 
 //mostly stolen from Hexal
-class ParticleBurstPacket(val origin : Vec3d, val direction : Vec3d, val posRandom : Double, val speedRandom : Double, val color : FrozenColorizer, val quantity : Int, val isActuallySound : Boolean) : IMessage {
+class ParticleBurstPacket(val origin : Vec3d, val direction : Vec3d, val posRandom : Double, val speedRandom : Double,
+                          val color : FrozenPigment, val quantity : Int, val isActuallySound : Boolean) : IMessage {
     override fun serialize(buf: PacketByteBuf) {
         buf.writeDouble(origin.x)
         buf.writeDouble(origin.y)
@@ -50,7 +51,7 @@ class ParticleBurstPacket(val origin : Vec3d, val direction : Vec3d, val posRand
                 locs.add(Vec3(buf.readDouble(), buf.readDouble(), buf.readDouble()))
             }*/
 
-            return ParticleBurstPacket(origin, direction/*, speed*/, posRandom, speedRandom, FrozenColorizer.fromNBT(buf.readNbt()!!), buf.readInt() ,buf.readBoolean())
+            return ParticleBurstPacket(origin, direction/*, speed*/, posRandom, speedRandom, FrozenPigment.fromNBT(buf.readNbt()!!), buf.readInt() ,buf.readBoolean())
         }
 
         @JvmStatic
@@ -69,7 +70,7 @@ class ParticleBurstPacket(val origin : Vec3d, val direction : Vec3d, val posRand
                     for (i in 1 .. quantity){
                         val adjustedPos = Vec3d(origin.x + (rand.nextGaussian() * posRandom), origin.y + (rand.nextGaussian() * posRandom), origin.z + (rand.nextGaussian() * posRandom))
                         val adjustedSpeed = Vec3d(direction.x + (rand.nextGaussian() * speedRandom), direction.y + (rand.nextGaussian() * speedRandom), direction.z + (rand.nextGaussian() * speedRandom))
-                        world.addParticle(ConjureParticleOptions(color, true),
+                        world.addParticle(ConjureParticleOptions(color),
                             adjustedPos.x, adjustedPos.y, adjustedPos.z,
                             adjustedSpeed.x, adjustedSpeed.y, adjustedSpeed.z)
                     }

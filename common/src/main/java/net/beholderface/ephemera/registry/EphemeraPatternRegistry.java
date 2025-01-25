@@ -1,11 +1,12 @@
 package net.beholderface.ephemera.registry;
 
-import at.petrak.hexcasting.api.PatternRegistry;
+import at.petrak.hexcasting.api.casting.ActionRegistryEntry;
+import at.petrak.hexcasting.api.casting.castables.Action;
+import at.petrak.hexcasting.api.casting.math.HexDir;
+import at.petrak.hexcasting.api.casting.math.HexPattern;
 import at.petrak.hexcasting.api.misc.MediaConstants;
-import at.petrak.hexcasting.api.spell.Action;
-import at.petrak.hexcasting.api.spell.math.HexDir;
-import at.petrak.hexcasting.api.spell.math.HexPattern;
-import at.petrak.hexcasting.common.casting.operators.spells.OpPotionEffect;
+import at.petrak.hexcasting.common.casting.actions.spells.OpPotionEffect;
+import at.petrak.hexcasting.common.lib.hex.HexActions;
 import kotlin.Triple;
 import net.beholderface.ephemera.casting.patterns.*;
 import net.beholderface.ephemera.casting.patterns.link.OpNetworkScan;
@@ -17,6 +18,7 @@ import net.beholderface.ephemera.casting.patterns.spells.great.OpMageArmor;
 import net.beholderface.ephemera.casting.patterns.spells.great.OpRepair;
 import net.beholderface.ephemera.casting.patterns.status.*;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 
@@ -32,7 +34,7 @@ public class EphemeraPatternRegistry {
 
     //assorted great spells
     public static HexPattern INVISIBILITY = registerPerWorld(HexPattern.fromAngles("qqqqqaewawaweqa", HexDir.SOUTH_WEST), "invisibility", new OpPotionEffect(
-            StatusEffects.INVISIBILITY, MediaConstants.DUST_UNIT / 3, false, false, true));
+            StatusEffects.INVISIBILITY, MediaConstants.DUST_UNIT / 3, false, false));
     public static HexPattern MAGE_ARMOR = registerPerWorld(HexPattern.fromAngles("qaweqqwqqewaqeqqqqqad", HexDir.NORTH_WEST), "magearmor", new OpMageArmor());
     public static HexPattern REPAIR = registerPerWorld(HexPattern.fromAngles("waqdqqwqqdqawwqqqqqaqedeq", HexDir.WEST), "repair", new OpRepair());
     //status stuff
@@ -57,7 +59,6 @@ public class EphemeraPatternRegistry {
     public static HexPattern READ_FRAME_ROTATION = register(HexPattern.fromAngles("wwawwqwwawwaeae", HexDir.SOUTH_WEST), "readframerotation", new OpFrameRotation(0));
     public static HexPattern SET_FRAME_ROTATION = register(HexPattern.fromAngles("wwawwqwwawwaqdq", HexDir.SOUTH_WEST), "setframerotation", new OpFrameRotation(1));
 
-    public static HexPattern PLASMA_BEAM = register(HexPattern.fromAngles("aqqqadweaqa", HexDir.NORTH_EAST), "plasmabeam", new OpPlasma());
     //public static HexPattern LINK_DAMAGE = disabled(HexPattern.fromAngles("qqqqqwdeddwwaawaawa", HexDir.NORTH_WEST), "linkoverload", new OpLinkDamage());
     public static HexPattern LINK_SCAN = register(HexPattern.fromAngles("eqqqqqaweqaeaq", HexDir.EAST), "networkscan", new OpNetworkScan());
     public static HexPattern LINK_INDEX = register(HexPattern.fromAngles("eqqqqqaweqaeaqa", HexDir.EAST), "networkindex", new OpNodeIndex());
@@ -70,12 +71,9 @@ public class EphemeraPatternRegistry {
     public static void init() {
         try {
             for (Triple<HexPattern, Identifier, Action> patternTriple : PATTERNS) {
-                PatternRegistry.mapPattern(patternTriple.getFirst(), patternTriple.getSecond(), patternTriple.getThird());
+                Registry.register(HexActions.REGISTRY, patternTriple.getSecond(), new ActionRegistryEntry(patternTriple.getFirst(), patternTriple.getThird()));
             }
-            for (Triple<HexPattern, Identifier, Action> patternTriple : PER_WORLD_PATTERNS) {
-                PatternRegistry.mapPattern(patternTriple.getFirst(), patternTriple.getSecond(), patternTriple.getThird(), true);
-            }
-        } catch (PatternRegistry.RegisterPatternException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -87,8 +85,6 @@ public class EphemeraPatternRegistry {
     }
 
     private static HexPattern registerPerWorld(HexPattern pattern, String name, Action action) {
-        Triple<HexPattern, Identifier, Action> triple = new Triple<>(pattern, id(name), action);
-        PER_WORLD_PATTERNS.add(triple);
-        return pattern;
+        return register(pattern, name, action);
     }
 }
