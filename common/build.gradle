@@ -31,6 +31,8 @@ dependencies {
     //modImplementation(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-common:${mixinExtrasVersion}"))
     modImplementation "localModLibs:hexal-fabric-${minecraftVersion}-${hexalVersion}"
     modImplementation "localModLibs:moreiotas-fabric-${minecraftVersion}-${moreiotasVersion}"
+    implementation group: "org.jblas", name: "jblas", version: "1.2.5"
+
 }
 
 publishing {

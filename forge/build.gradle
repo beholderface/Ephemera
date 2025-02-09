@@ -17,8 +17,8 @@ loom {
         convertAccessWideners = true
         extraAccessWideners.add loom.accessWidenerPath.get().asFile.name
 
-        mixinConfig "ephemera-common.mixins.json"
-        mixinConfig "ephemera.mixins.json"
+        //mixinConfig "ephemera-common.mixins.json"
+        //mixinConfig "ephemera.mixins.json"
     }
     runs {
         client {
@@ -58,6 +58,8 @@ dependencies {
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
     modImplementation "localModLibs:hexal-forge-${minecraftVersion}-${hexalVersion}"
     modImplementation "localModLibs:moreiotas-forge-${minecraftVersion}-${moreiotasVersion}"
+    implementation group: "org.jblas", name: "jblas", version: "1.2.5"
+
 }
 
 processResources {

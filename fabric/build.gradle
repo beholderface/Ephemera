@@ -65,6 +65,8 @@ dependencies {
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
     modImplementation "localModLibs:hexal-fabric-${minecraftVersion}-${hexalVersion}"
     modImplementation "localModLibs:moreiotas-fabric-${minecraftVersion}-${moreiotasVersion}"
+    implementation group: "org.jblas", name: "jblas", version: "1.2.5"
+
 }
 
 processResources {

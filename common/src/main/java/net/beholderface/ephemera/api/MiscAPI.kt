@@ -14,10 +14,12 @@ import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.Item
 import net.minecraft.registry.Registries
+import net.minecraft.registry.RegistryKey
 import net.minecraft.registry.RegistryKeys
 import net.minecraft.registry.tag.TagKey
 import net.minecraft.server.world.ServerWorld
 import net.minecraft.util.Identifier
+import net.minecraft.util.math.Box
 import net.minecraft.util.math.Vec3d
 import net.minecraft.util.math.Vec3i
 import org.jetbrains.annotations.Nullable
@@ -119,12 +121,7 @@ fun List<Iota>.getWispOrPlayer(idx: Int, argc: Int = 0) : Entity {
 
 fun stringToWorld(key : Identifier) : ServerWorld? {
     val server = Ephemera.getCachedServer();
-    var output : ServerWorld? = null
-    server.worlds?.forEach {
-        if (it.registryKey.value.equals(key)){
-            output = it
-        }
-    }
+    val output : ServerWorld? = server.getWorld(RegistryKey.of(RegistryKeys.WORLD, key))
     return output
 }
 
@@ -145,4 +142,12 @@ fun arbitraryLog(base: Double, num: Double): Double {
 
 fun Vec3d.toVec3i() : Vec3i {
     return Vec3i(floor(this.x).toInt(), floor(this.y).toInt(), floor(this.z).toInt())
+}
+
+fun Box.containsPermissive(pos: Vec3d): Boolean {
+    return this.containsPermissive(pos.x, pos.y, pos.z)
+}
+
+fun Box.containsPermissive(x : Double, y : Double, z : Double): Boolean {
+    return x >= this.minX && x <= this.maxX && y >= this.minY && y <= this.maxY && z >= this.minZ && z <= this.maxZ
 }
