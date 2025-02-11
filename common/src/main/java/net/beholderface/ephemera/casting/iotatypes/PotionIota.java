@@ -43,7 +43,9 @@ public class PotionIota extends Iota {
         //Ephemera.LOGGER.info("serializing potion iota");
         var data = new NbtCompound();
         var payload = (StatusEffect) this.payload;
-        data.putString("potion_key", payload.getTranslationKey());
+        Identifier id = Registries.STATUS_EFFECT.getId(payload);
+        String key = id != null ? id.toString() : "ephemera:missing";
+        data.putString("potion_key", key);
         //Ephemera.LOGGER.info("serialized potion iota");
         return data;
     }
@@ -58,10 +60,9 @@ public class PotionIota extends Iota {
             //Iterator<StatusEffect> statusEffectIterator = Registries.STATUS_EFFECT.iterator();
             String potionString = ctag.getString("potion_key");
             var potionKey = RegistryKey.of(RegistryKeys.STATUS_EFFECT, Identifier.tryParse(potionString));
-            StatusEffect currentEffect = EphemeraMiscRegistry.MISSING.get();
             StatusEffect foundEffect = Registries.STATUS_EFFECT.get(potionKey);
-            if (foundEffect != null){
-                currentEffect = foundEffect;
+            if (foundEffect == null){
+                foundEffect = EphemeraMiscRegistry.MISSING.get();
             }
             /*while (statusEffectIterator.hasNext()){
                 currentEffect = statusEffectIterator.next();
@@ -70,20 +71,21 @@ public class PotionIota extends Iota {
                 }
             }*/
             //Ephemera.LOGGER.info("deserialized potion iota");
-            return new PotionIota(currentEffect);
+            return new PotionIota(foundEffect);
         }
 
         @Override
         public Text display(NbtElement tag) {
             var ctag = HexUtils.downcast(tag, NbtCompound.TYPE);
-            var text = ctag.getString("potion_key");
-            Text translatedName = Text.translatable(text);
+            Identifier text = Identifier.tryParse(ctag.getString("potion_key"));
+            StatusEffect effect = Registries.STATUS_EFFECT.get(text);
+            String key = effect != null ? effect.getTranslationKey() : EphemeraMiscRegistry.MISSING.get().getTranslationKey();
+            if (effect == null){
+                effect = EphemeraMiscRegistry.MISSING.get();
+            }
+            Text translatedName = Text.translatable(key);
             Style originalStyle = translatedName.getStyle();
-            Style formattedStyle = switch (text){
-                case "effect.oneironaut.detection_resistance" -> originalStyle.withColor(0xff55ff);
-                case "effect.ephemera.missing" -> originalStyle.withColor(0xaa0000).withBold(true);
-                default -> originalStyle.withColor(0x0000aa);
-            };
+            Style formattedStyle = originalStyle.withColor(effect.getColor());
             return translatedName.copy().setStyle(formattedStyle);
         }
         @Override

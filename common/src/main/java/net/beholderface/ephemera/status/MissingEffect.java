@@ -6,7 +6,7 @@ import net.minecraft.entity.effect.StatusEffectCategory;
 
 public class MissingEffect extends StatusEffect {
     public MissingEffect() {
-        super(StatusEffectCategory.NEUTRAL, 0);
+        super(StatusEffectCategory.NEUTRAL, 0xaa0000);
     }
     @Override
     public boolean canApplyUpdateEffect(int duration, int amplifier){
