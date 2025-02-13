@@ -55,6 +55,12 @@
   "hexcasting.action.book.ephemera:thothyoink": "Seshat's Rfln.",
   "hexcasting.action.ephemera:thothcount": "Seshat's Reflection II",
   "hexcasting.action.book.ephemera:thothcount": "Seshat's Rfln. II",
+  "hexcasting.action.ephemera:collisionprobe": "Clearance Purification",
+  "hexcasting.action.book.ephemera:collisionprobe": "Clearance Prfn.",
+  "hexcasting.action.ephemera:getiotasize": "Flock's Purification",
+  "hexcasting.action.ephemera:getstacksizedeep": "Flock's Reflection II",
+  "hexcasting.action.book.ephemera:getiotasize": "Flock's Prfn.",
+  "hexcasting.action.book.ephemera:getstacksizedeep": "Flock's Rfln. II",
 
   "hexcasting.mishap.location_ephemera:inputrelaytprange": "Target entity is too far from target node at %s.",
   "hexcasting.mishap.location_ephemera:outputrelaytprange": "Could not find connected node within range of %s.",
@@ -77,6 +83,7 @@
   "ephemera.entry.mending": "Induce Mending",
   "ephemera.entry.hashing": "Iota Hashing",
   "ephemera.entry.specialslates": "Modified Slates",
+  "ephemera.entry.metathoth": "Accumulator Manipulation",
 
   "ephemera.page.paintconjured.1": "Accepts a vector and an itemtype representing a pigment. Costs a negligible amount of media if targeting my own block, or 1 Amethyst Dust if not.",
   "ephemera.page.paintconjured.2": "Sets the colors of the conjured block corresponding to the vector to the colorset represented by the passed pigment, or mine if passed a NULL iota.$(br2)Not guaranteed to work with unconventional forms of conjured matter. ",
@@ -85,7 +92,10 @@
   "ephemera.page.miscpatterns.2": "Accepts an item frame entity, and returns its rotation, from 0 to 7.",
   "ephemera.page.miscpatterns.3": "Accepts an item frame entity and an integer from 0 to 7, and sets its rotation to the number. Costs a negligible amount of media.",
   "ephemera.page.miscpatterns.4": "As $(l:patterns/basics#hexcasting:raycast/entity)Scout's Distillation$(/l), but also accepts a list of entity type iotas. Any entity whose type is not present in the list will be ignored. Costs an amount of media slightly less negligible than that of the aforementioned pattern.",
-  "ephemera.page.miscpatterns.5": "Returns a random number between 0 and 1, with a gaussian distribution.",
+  "ephemera.page.miscpatterns.5": "Returns a random number with a gaussian distribution, with a mean of zero and a standard deviation of one.",
+  "ephemera.page.miscpatterns.6": "Accepts a vector, and returns whether that vector is within (or just on the edge of) the block in that space. Seems to involve the boxes I see in my mind's eye.",
+  "ephemera.page.miscpatterns.7": "Returns the total size of all iotas on my stack, including the contents of lists and similar. If this number ever reaches 1024, my stack shall come crashing down into garbage.",
+  "ephemera.page.miscpatterns.8": "Accepts any iota, and returns its total size.",
   "ephemera.page.particleburst.1": "Accepts two vectors and two numbers, and uses them to define a burst of particles. Costs a negligible amount of media.",
   "ephemera.page.particleburst.2": "The first vector determines the burst's origin position, and the second vector determines its direction and speed. The first number determines the scale of random numbers added to each position component, and the second does the same for the direction vector.",
   "ephemera.page.invisibility.1": "Functions just like the normal $(l:patterns/great_spells/zeniths)Zeniths$(/l), applying Invisibility. Costs one amethyst dust per three seconds.",
@@ -127,6 +137,10 @@
   "ephemera.page.specialslates.1": "I've designed a couple types of slate to be used in spell circles. While they don't provide any groundbreaking new functionality, they can be nice to have.",
   "ephemera.page.specialslates.2": "Works just like a normal slate, but is capable of sending the media wave into the block it is placed on.",
   "ephemera.page.specialslates.3": "Crafted with a normal slate and a stonecutter.$(br2)Looks just like a normal slate, but can't direct a media wave at all. Cannot be written to.",
+
+  "ephemera.page.metathoth.1": "It seems that the list which $(l:patterns/meta#hexcasting:for_each)Thoth's Gambit$(/l) forms as it iterates over a data set functions as a stack, simply one that is a bit out of the way. As such, I have devised a couple of patterns for interacting with this hidden stack, called the accumulator.",
+  "ephemera.page.metathoth.2": "Pops an iota from the accumulator and pushes it to the current stack. Mishaps if used outside of Thoth's Gambit.",
+  "ephemera.page.metathoth.3": "Returns how many iotas are currently accessible via Seshat's Reflection. Returns -1 if used outside of Thoth's Gambit.",
 
   "ephemera.page.forgewarning.1": "Mod author's note for Forge users: This spell does not work on Forge. I do not know why. I've set the cost on Forge to zero so at least it won't waste media. Sorry.$(br2)I'll try to get it working eventually.",
 
