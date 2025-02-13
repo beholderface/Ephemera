@@ -1,4 +1,4 @@
-package net.beholderface.ephemera.casting
+package net.beholderface.ephemera.casting.patterns
 
 import at.petrak.hexcasting.api.casting.castables.ConstMediaAction
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment

@@ -9,11 +9,6 @@
   "pages": [
     "ephemera.page.specialslates.1",
     {
-      "type": "patchouli:crafting",
-      "text": "ephemera.page.specialslates.2",
-      "recipe": "ephemera:sneakyslate"
-    },
-    {
       "type": "patchouli:spotlight",
       "text": "ephemera.page.specialslates.3",
       "item": "ephemera:fakeslate",

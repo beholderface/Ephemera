@@ -8,8 +8,8 @@ import at.petrak.hexcasting.api.misc.MediaConstants;
 import at.petrak.hexcasting.common.casting.actions.spells.OpPotionEffect;
 import at.petrak.hexcasting.common.lib.hex.HexActions;
 import kotlin.Triple;
-import net.beholderface.ephemera.casting.OpIotaSize;
-import net.beholderface.ephemera.casting.OpStackSizeDeep;
+import net.beholderface.ephemera.casting.patterns.OpIotaSize;
+import net.beholderface.ephemera.casting.patterns.OpStackSizeDeep;
 import net.beholderface.ephemera.casting.patterns.*;
 import net.beholderface.ephemera.casting.patterns.link.OpNetworkScan;
 import net.beholderface.ephemera.casting.patterns.link.OpNodeIndex;
@@ -21,7 +21,6 @@ import net.beholderface.ephemera.casting.patterns.spells.great.OpRepair;
 import net.beholderface.ephemera.casting.patterns.status.*;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.registry.Registry;
-import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
@@ -60,11 +59,12 @@ public class EphemeraPatternRegistry {
     public static HexPattern GET_IOTA_SIZE = register(HexPattern.fromAngles("qwaeawqaqdedd", HexDir.NORTH_WEST), "getiotasize", new OpIotaSize());
     public static HexPattern GET_STACK_SIZE_DEEP = register(HexPattern.fromAngles("qwaeawqaqded", HexDir.NORTH_WEST), "getstacksizedeep", new OpStackSizeDeep());
     public static HexPattern COLLISION_PROBE = register(HexPattern.fromAngles("qaqqqqqdaqa", HexDir.NORTH_WEST), "collisionprobe", new OpCollisionProbe());
+    public static HexPattern THOTH_YOINK = register(HexPattern.fromAngles("qaeaqdadad", HexDir.NORTH_WEST), "thothyoink", new OpThothYoink());
+    public static HexPattern THOTH_INSPECT = register(HexPattern.fromAngles("wqaqwadad", HexDir.NORTH_EAST), "thothcount", new OpThothCount());
     //frame stuff
     public static HexPattern READ_FRAME_ROTATION = register(HexPattern.fromAngles("wwawwqwwawwaeae", HexDir.SOUTH_WEST), "readframerotation", new OpFrameRotation(0));
     public static HexPattern SET_FRAME_ROTATION = register(HexPattern.fromAngles("wwawwqwwawwaqdq", HexDir.SOUTH_WEST), "setframerotation", new OpFrameRotation(1));
 
-    //public static HexPattern LINK_DAMAGE = disabled(HexPattern.fromAngles("qqqqqwdeddwwaawaawa", HexDir.NORTH_WEST), "linkoverload", new OpLinkDamage());
     public static HexPattern LINK_SCAN = register(HexPattern.fromAngles("eqqqqqaweqaeaq", HexDir.EAST), "networkscan", new OpNetworkScan());
     public static HexPattern LINK_INDEX = register(HexPattern.fromAngles("eqqqqqaweqaeaqa", HexDir.EAST), "networkindex", new OpNodeIndex());
     public static HexPattern LINK_TELEPORT = register(HexPattern.fromAngles("qqqqqwdeddwdawqqqwaq", HexDir.NORTH_WEST), "networktp", new OpNetworkTeleport());
