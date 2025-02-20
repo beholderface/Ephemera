@@ -10,7 +10,6 @@ import net.minecraft.util.DyeColor
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Vec3d
 
-//joke pattern
 class MishapNo(val pos: BlockPos) : Mishap() {
     override fun accentColor(ctx: CastingEnvironment, errorCtx: Context): FrozenPigment = dyeColor(DyeColor.RED)
 

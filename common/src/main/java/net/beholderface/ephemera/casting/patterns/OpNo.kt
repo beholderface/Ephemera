@@ -8,6 +8,7 @@ import net.beholderface.ephemera.api.toVec3i
 import net.beholderface.ephemera.casting.mishaps.MishapNo
 import net.minecraft.util.math.BlockPos
 
+//joke pattern
 class OpNo : ConstMediaAction {
     override val argc = 1
     override val mediaCost = 0L
