@@ -61,6 +61,7 @@ public class EphemeraPatternRegistry {
     public static HexPattern COLLISION_PROBE = register(HexPattern.fromAngles("qaqqqqqdaqa", HexDir.NORTH_WEST), "collisionprobe", new OpCollisionProbe());
     public static HexPattern THOTH_YOINK = register(HexPattern.fromAngles("qaeaqdadad", HexDir.NORTH_WEST), "thothyoink", new OpThothYoink());
     public static HexPattern THOTH_INSPECT = register(HexPattern.fromAngles("wqaqwadad", HexDir.NORTH_EAST), "thothcount", new OpThothCount());
+    public static HexPattern NO = register(HexPattern.fromAngles("wwaedadqdqdqdade", HexDir.NORTH_EAST), "no", new OpNo());
     //frame stuff
     public static HexPattern READ_FRAME_ROTATION = register(HexPattern.fromAngles("wwawwqwwawwaeae", HexDir.SOUTH_WEST), "readframerotation", new OpFrameRotation(0));
     public static HexPattern SET_FRAME_ROTATION = register(HexPattern.fromAngles("wwawwqwwawwaqdq", HexDir.SOUTH_WEST), "setframerotation", new OpFrameRotation(1));

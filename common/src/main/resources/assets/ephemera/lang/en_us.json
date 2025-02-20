@@ -61,6 +61,7 @@
   "hexcasting.action.ephemera:getstacksizedeep": "Flock's Reflection II",
   "hexcasting.action.book.ephemera:getstacksizedeep": "Flock's Rfln. II",
   "hexcasting.action.ephemera:ridewisp": "Ride Wisp",
+  "hexcasting.action.ephemera:no": "No",
 
   "hexcasting.mishap.location_ephemera:inputrelaytprange": "Target entity is too far from target node at %s.",
   "hexcasting.mishap.location_ephemera:outputrelaytprange": "Could not find connected node within range of %s.",
@@ -72,6 +73,7 @@
   "ephemera.mishap.toolongiota": "an iota that displays as less than 256 characters",
   "hexcasting.mishap.ephemera:blacklist": "This effect has been blacklisted via tag.",
   "hexcasting.mishap.ephemera:instant": "How did you even get that iota?",
+  "hexcasting.mishap.ephemera:no": "no",
 
   "item.ephemeral.media_armor.tooltip.1": "Bestows %s %s upon the wearer.",
 
