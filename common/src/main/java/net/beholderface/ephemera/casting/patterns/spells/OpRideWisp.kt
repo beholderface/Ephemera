@@ -22,12 +22,12 @@ class OpRideWisp : ConstMediaAction {
         val caster = env.castingEntity ?: throw MishapBadCaster()
         val wisp = args.getBaseWisp(0, argc)
         env.assertEntityInRange(wisp)
-        val wispRange = if (wisp is BaseCastingWisp){
+        val wispRange : Double = if (wisp is BaseCastingWisp){
             wisp.maxSqrCastingDistance()
         } else {
-            4
+            16.0
         }
-        if ((wisp as Entity).pos.distanceTo(caster.pos) > wispRange){
+        if ((wisp as Entity).pos.squaredDistanceTo(caster.pos) > wispRange){
             throw MishapBadLocation(env.castingEntity!!.pos)
         }
         if (wisp.owner() == caster.uuid || wisp is WanderingWisp) {
