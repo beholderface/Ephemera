@@ -11,6 +11,7 @@ import net.minecraft.entity.Entity
 import net.minecraft.server.network.ServerPlayerEntity
 import ram.talia.hexal.api.getBaseWisp
 import ram.talia.hexal.api.linkable.ILinkable
+import ram.talia.hexal.common.entities.BaseCastingWisp
 import ram.talia.hexal.common.entities.TickingWisp
 import ram.talia.hexal.common.entities.WanderingWisp
 
@@ -21,11 +22,15 @@ class OpRideWisp : ConstMediaAction {
         val caster = env.castingEntity ?: throw MishapBadCaster()
         val wisp = args.getBaseWisp(0, argc)
         env.assertEntityInRange(wisp)
-        val wispRange = if (wisp is TickingWisp){
+        val wispRange = if (wisp is BaseCastingWisp){
             if (wisp.seon){
                 32
             } else {
-                8
+                if (wisp is TickingWisp){
+                    8
+                } else {
+                    4
+                }
             }
         } else {
             4
