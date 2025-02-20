@@ -23,15 +23,7 @@ class OpRideWisp : ConstMediaAction {
         val wisp = args.getBaseWisp(0, argc)
         env.assertEntityInRange(wisp)
         val wispRange = if (wisp is BaseCastingWisp){
-            if (wisp.seon){
-                32
-            } else {
-                if (wisp is TickingWisp){
-                    8
-                } else {
-                    4
-                }
-            }
+            wisp.maxSqrCastingDistance()
         } else {
             4
         }
