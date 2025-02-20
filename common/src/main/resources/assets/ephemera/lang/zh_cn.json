@@ -57,8 +57,8 @@
   "hexcasting.action.ephemera:collisionprobe": "空域之纯化",
   "hexcasting.action.book.ephemera:collisionprobe": "空域之纯化",
   "hexcasting.action.ephemera:getiotasize": "群体之纯化",
-  "hexcasting.action.ephemera:getstacksizedeep": "群体之精思，第二型",
   "hexcasting.action.book.ephemera:getiotasize": "群体之纯化",
+  "hexcasting.action.ephemera:getstacksizedeep": "群体之精思，第二型",
   "hexcasting.action.book.ephemera:getstacksizedeep": "群体之精思，第二型",
 
   "hexcasting.mishap.location_ephemera:inputrelaytprange": "目标实体距%s处的目标节点过远。",

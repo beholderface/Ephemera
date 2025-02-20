@@ -72,6 +72,7 @@ public class EphemeraPatternRegistry {
     public static HexPattern PAINT_CONJURED = register(HexPattern.fromAngles("eqdweeqdwweeqddqdwwwdeww", HexDir.WEST), "paintconjured", new OpSplatoon());
     public static HexPattern REVEAL_TO_OTHER = register(HexPattern.fromAngles("qde", HexDir.EAST), "revealtoother", new OpPrintToOther());
     public static HexPattern CLEAR_REVEAL_COST = register(HexPattern.fromAngles("qdeqa", HexDir.EAST), "clearrevealcost", new OpClearTransmitHistory());
+    public static HexPattern RIDE_WISP = register(HexPattern.fromAngles("aqadqqdaqa", HexDir.NORTH_WEST), "ridewisp", new OpRideWisp());
 
     public static void init() {
         try {
