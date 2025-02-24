@@ -62,8 +62,8 @@ public class EphemeraPatternRegistry {
     public static HexPattern THOTH_YOINK = register(HexPattern.fromAngles("qaeaqdadad", HexDir.NORTH_WEST), "thothyoink", new OpThothYoink());
     public static HexPattern THOTH_INSPECT = register(HexPattern.fromAngles("wqaqwadad", HexDir.NORTH_EAST), "thothcount", new OpThothCount());
     public static HexPattern NO = register(HexPattern.fromAngles("wwaedadqdqdqdade", HexDir.NORTH_EAST), "no", new OpNo());
-    public static HexPattern GET_PROPERTIES = register(HexPattern.fromAngles("qqqqeqqqq", HexDir.SOUTH_WEST), "getproperties", new OpGetProperties());
-    public static HexPattern GET_PROPERTY_VALUE = register(HexPattern.fromAngles("eeeeqeeee", HexDir.SOUTH_EAST), "getpropertyvalue", new OpGetPropertyValue());
+    public static HexPattern GET_PROPERTIES = register(HexPattern.fromAngles("qaqqqqqwwdwewdw", HexDir.EAST), "getproperties", new OpGetProperties());
+    public static HexPattern GET_PROPERTY_VALUE = register(HexPattern.fromAngles("qaqqqqqdwawqwaw", HexDir.EAST), "getpropertyvalue", new OpGetPropertyValue());
     //frame stuff
     public static HexPattern READ_FRAME_ROTATION = register(HexPattern.fromAngles("wwawwqwwawwaeae", HexDir.SOUTH_WEST), "readframerotation", new OpFrameRotation(0));
     public static HexPattern SET_FRAME_ROTATION = register(HexPattern.fromAngles("wwawwqwwawwaqdq", HexDir.SOUTH_WEST), "setframerotation", new OpFrameRotation(1));

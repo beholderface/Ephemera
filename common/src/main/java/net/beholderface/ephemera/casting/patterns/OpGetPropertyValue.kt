@@ -3,6 +3,7 @@ package net.beholderface.ephemera.casting.patterns
 import at.petrak.hexcasting.api.casting.castables.ConstMediaAction
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
 import at.petrak.hexcasting.api.casting.getBlockPos
+import at.petrak.hexcasting.api.casting.getVec3
 import at.petrak.hexcasting.api.casting.iota.*
 import net.beholderface.ephemera.api.toVec3d
 import net.minecraft.state.property.BooleanProperty
@@ -18,6 +19,7 @@ class OpGetPropertyValue : ConstMediaAction {
     override val argc = 2
     override fun execute(args: List<Iota>, env: CastingEnvironment): List<Iota> {
         val target = args.getBlockPos(0, argc)
+        env.assertVecInRange(args.getVec3(0, argc))
         val state = env.world.getBlockState(target)
         val key = args.getString(1, argc).lowercase(Locale.getDefault())
         for (property in state.properties){
