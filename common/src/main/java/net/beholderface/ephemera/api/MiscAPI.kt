@@ -143,6 +143,9 @@ fun arbitraryLog(base: Double, num: Double): Double {
 fun Vec3d.toVec3i() : Vec3i {
     return Vec3i(floor(this.x).toInt(), floor(this.y).toInt(), floor(this.z).toInt())
 }
+fun Vec3i.toVec3d() : Vec3d {
+    return Vec3d(this.x.toDouble(), this.y.toDouble(), this.z.toDouble())
+}
 
 fun Box.containsPermissive(pos: Vec3d): Boolean {
     return this.containsPermissive(pos.x, pos.y, pos.z)
