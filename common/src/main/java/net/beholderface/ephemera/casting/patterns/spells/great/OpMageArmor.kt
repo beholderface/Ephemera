@@ -76,7 +76,7 @@ class OpMageArmor() : SpellAction {
                 affectedSlots++
             }
         }
-        val baseLifetime = (durability / 60) //minutes
+        val baseLifetime = (durability / 60.0) //minutes
         var cost : Long = (((armorStrength.toDouble().pow(1.5) * baseLifetime) / 4) * affectedSlots).coerceAtLeast(effectStrength * 5.0).coerceAtMost((Integer.MAX_VALUE - 1).toDouble()).toLong()
         if (effect != null){
             cost *= (effectStrength + 2).coerceAtMost(Integer.MAX_VALUE - 1)
