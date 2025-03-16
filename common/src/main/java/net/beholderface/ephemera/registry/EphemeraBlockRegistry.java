@@ -27,4 +27,6 @@ public class EphemeraBlockRegistry {
     public static final RegistrySupplier<BlockEntityType<RelayIndexBlockEntity>> RELAY_INDEX_ENTITY = BLOCK_ENTITIES.register("relay_index_entity", () -> BlockEntityType.Builder.create(RelayIndexBlockEntity::new, RELAY_INDEX.get()).build(null));
 
     public static final RegistrySupplier<InertSlateBlock> FAKE_SLATE = BLOCKS.register("fakeslate", ()->new InertSlateBlock(AbstractBlock.Settings.copy(HexBlocks.SLATE)));
+
+    public static final RegistrySupplier<Block> TEST_BLOCK = BLOCKS.register("testblock", ()->new Block(AbstractBlock.Settings.create().requiresTool().solid()));
 }

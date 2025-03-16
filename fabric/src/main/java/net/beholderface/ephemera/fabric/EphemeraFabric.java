@@ -1,8 +1,14 @@
 package net.beholderface.ephemera.fabric;
 
 import dev.architectury.event.events.common.LifecycleEvent;
+import net.beholderface.ephemera.registry.EphemeraAttributes;
 import net.fabricmc.api.ModInitializer;
 import net.beholderface.ephemera.Ephemera;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
+
+import java.util.function.BiConsumer;
 
 /**
  * This is your loading entrypoint on fabric(-likes), in case you need to initialize
@@ -16,5 +22,8 @@ public class EphemeraFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         Ephemera.init();
+        EphemeraAttributes.register((attribute, id)->{
+            Registry.register(Registries.ATTRIBUTE, id, attribute);
+        });
     }
 }

@@ -6,6 +6,8 @@
   "client": [
   ],
   "mixins": [
+    "FabricPlayerMixin",
+    "BreakTierMixinCheck"
   ],
   "injectors": {
     "defaultRequire": 1

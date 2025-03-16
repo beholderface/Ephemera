@@ -1,8 +1,6 @@
 {
   "replace": false,
   "values": [
-    "ephemera:relay_tp_detector",
-    "ephemera:relay_index",
     "ephemera:testblock"
   ]
 }
