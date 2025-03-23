@@ -46,8 +46,8 @@
       "type": "hexcasting:pattern",
       "op_id": "ephemera:collisionprobe",
       "anchor": "ephemera:collisionprobe",
-      "input": "",
-      "output": "num",
+      "input": "vec",
+      "output": "bool",
       "text": "ephemera.page.miscpatterns.6"
     },
     {
@@ -72,7 +72,7 @@
       "anchor": "ephemera:getproperties",
       "input": "vec",
       "output": "[string]",
-      "text": "ephemera.page.miscpatterns.10"
+      "text": "ephemera.page.miscpatterns.9"
     },
     {
       "type": "hexcasting:pattern",
@@ -80,7 +80,7 @@
       "anchor": "ephemera:getpropertyvalue",
       "input": "vec, string",
       "output": "bool|num|vec|string",
-      "text": "ephemera.page.miscpatterns.11"
+      "text": "ephemera.page.miscpatterns.10"
     },
     {
       "type": "hexcasting:pattern",
@@ -88,7 +88,24 @@
       "anchor": "ephemera:ridewisp",
       "input": "wisp",
       "output": "",
-      "text": "ephemera.page.miscpatterns.9"
+      "text": "ephemera.page.miscpatterns.11"
+    },
+    "ephemera.page.miscpatterns.12",
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:dismount",
+      "anchor": "ephemera:dismount",
+      "input": "",
+      "output": "",
+      "text": "ephemera.page.miscpatterns.13"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:getrider",
+      "anchor": "ephemera:getrider",
+      "input": "entity",
+      "output": "[entity]",
+      "text": "ephemera.page.miscpatterns.14"
     }
   ]
 }

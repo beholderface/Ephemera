@@ -64,6 +64,7 @@ public class EphemeraPatternRegistry {
     public static HexPattern NO = register(HexPattern.fromAngles("wwaedadqdqdqdade", HexDir.NORTH_EAST), "no", new OpNo());
     public static HexPattern GET_PROPERTIES = register(HexPattern.fromAngles("qaqqqqqwwdwewdw", HexDir.EAST), "getproperties", new OpGetProperties());
     public static HexPattern GET_PROPERTY_VALUE = register(HexPattern.fromAngles("qaqqqqqdwawqwaw", HexDir.EAST), "getpropertyvalue", new OpGetPropertyValue());
+    public static HexPattern GET_RIDER = register(HexPattern.fromAngles("eqqaqqwaaw", HexDir.NORTH_EAST), "getrider", new OpGetRider());
     //frame stuff
     public static HexPattern READ_FRAME_ROTATION = register(HexPattern.fromAngles("wwawwqwwawwaeae", HexDir.SOUTH_WEST), "readframerotation", new OpFrameRotation(0));
     public static HexPattern SET_FRAME_ROTATION = register(HexPattern.fromAngles("wwawwqwwawwaqdq", HexDir.SOUTH_WEST), "setframerotation", new OpFrameRotation(1));
@@ -76,6 +77,7 @@ public class EphemeraPatternRegistry {
     public static HexPattern REVEAL_TO_OTHER = register(HexPattern.fromAngles("qde", HexDir.EAST), "revealtoother", new OpPrintToOther());
     public static HexPattern CLEAR_REVEAL_COST = register(HexPattern.fromAngles("qdeqa", HexDir.EAST), "clearrevealcost", new OpClearTransmitHistory());
     public static HexPattern RIDE_WISP = register(HexPattern.fromAngles("aqadqqdaqa", HexDir.NORTH_WEST), "ridewisp", new OpRideWisp());
+    public static HexPattern DISMOUNT = register(HexPattern.fromAngles("awqqaee", HexDir.SOUTH_WEST), "dismount", new OpDismount());
 
     public static void init() {
         try {

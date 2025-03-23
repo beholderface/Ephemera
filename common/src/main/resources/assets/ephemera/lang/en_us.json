@@ -60,10 +60,13 @@
   "hexcasting.action.book.ephemera:getiotasize": "Flock's Prfn.",
   "hexcasting.action.ephemera:getstacksizedeep": "Flock's Reflection II",
   "hexcasting.action.book.ephemera:getstacksizedeep": "Flock's Rfln. II",
-  "hexcasting.action.ephemera:ridewisp": "Ride Wisp",
   "hexcasting.action.ephemera:no": "No",
   "hexcasting.action.ephemera:getproperties": "State Purification",
   "hexcasting.action.ephemera:getpropertyvalue": "State Distillation",
+  "hexcasting.action.ephemera:ridewisp": "Ride Wisp",
+  "hexcasting.action.ephemera:dismount": "Dismount",
+  "hexcasting.action.ephemera:getrider": "Equestrian Purification",
+  "hexcasting.action.book.ephemera:getrider": "Equestrian Prfn.",
 
   "hexcasting.mishap.location_ephemera:inputrelaytprange": "Target entity is too far from target node at %s.",
   "hexcasting.mishap.location_ephemera:outputrelaytprange": "Could not find connected node within range of %s.",
@@ -100,9 +103,12 @@
   "ephemera.page.miscpatterns.6": "Accepts a vector, and returns whether that vector is within (or just on the edge of) the block in that space. Seems to involve the boxes I see in my mind's eye.",
   "ephemera.page.miscpatterns.7": "Returns the total size of all iotas on my stack, including the contents of lists and similar. If this number ever reaches 1024, my stack shall come crashing down into garbage.",
   "ephemera.page.miscpatterns.8": "Accepts any iota, and returns its total size.",
-  "ephemera.page.miscpatterns.9": "Accepts one of my wisps (or a wandering wisp), and places me atop it, similar to sitting in a minecart. I must be within the wisp's ambit, or four blocks for wandering wisps. Costs one amethyst shard.",
-  "ephemera.page.miscpatterns.10": "Accepts a vector, and returns a list of strings corresponding to values contained in the state of the block at the corresponding position.",
-  "ephemera.page.miscpatterns.11": "Accepts a vector and a string, and uses the string as a key to retrieve the value it corresponds to in the target block's state, or null if there is no corresponding value.",
+  "ephemera.page.miscpatterns.9": "Accepts a vector, and returns a list of strings corresponding to values contained in the state of the block at the corresponding position.",
+  "ephemera.page.miscpatterns.10": "Accepts a vector and a string, and uses the string as a key to retrieve the value it corresponds to in the target block's state, or null if there is no corresponding value.",
+  "ephemera.page.miscpatterns.11": "Accepts one of my wisps (or a wandering wisp), and places me atop it, similar to sitting in a minecart. I must be within the wisp's ambit, or four blocks for wandering wisps. Costs one amethyst shard.",
+  "ephemera.page.miscpatterns.12": "I should take care not to accelerate too quickly when riding a wisp, as unlike with Impulse, the acceleration is not applied evenly across my body, and can thus cause significant harm. The threshold for how quickly I can accelerate safely seems to be about 98 m/s over one second.$(br)I should take care when mounting fast wisps, as the instantaneous velocity involved can contribute to this damage if I am too far from my final seated position.",
+  "ephemera.page.miscpatterns.13": "Takes me off of whatever entity I may be riding when cast. Costs 1/100 of a dust.",
+  "ephemera.page.miscpatterns.14": "Accepts an entity, and returns a list of entities seated atop it.",
 
   "ephemera.page.particleburst.1": "Accepts two vectors and two numbers, and uses them to define a burst of particles. Costs a negligible amount of media.",
   "ephemera.page.particleburst.2": "The first vector determines the burst's origin position, and the second vector determines its direction and speed. The first number determines the scale of random numbers added to each position component, and the second does the same for the direction vector.",
@@ -160,5 +166,7 @@
   "text.ephemera.revealIntroduction": "Transmission from %s: ",
   "text.ephemera.nosender": "unknown",
 
-  "enchantment.ephemera.shame": "Curse of Shame"
+  "enchantment.ephemera.shame": "Curse of Shame",
+  
+  "death.attack.ephemera:acceleration": "%s was subjected to lethal acceleration."
 }
