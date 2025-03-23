@@ -65,6 +65,7 @@ public class EphemeraPatternRegistry {
     public static HexPattern GET_PROPERTIES = register(HexPattern.fromAngles("qaqqqqqwwdwewdw", HexDir.EAST), "getproperties", new OpGetProperties());
     public static HexPattern GET_PROPERTY_VALUE = register(HexPattern.fromAngles("qaqqqqqdwawqwaw", HexDir.EAST), "getpropertyvalue", new OpGetPropertyValue());
     public static HexPattern GET_RIDER = register(HexPattern.fromAngles("eqqaqqwaaw", HexDir.NORTH_EAST), "getrider", new OpGetRider());
+    public static HexPattern GET_MOUNT = register(HexPattern.fromAngles("eeedeewaaw", HexDir.NORTH_EAST), "getmount", new OpGetMount());
     //frame stuff
     public static HexPattern READ_FRAME_ROTATION = register(HexPattern.fromAngles("wwawwqwwawwaeae", HexDir.SOUTH_WEST), "readframerotation", new OpFrameRotation(0));
     public static HexPattern SET_FRAME_ROTATION = register(HexPattern.fromAngles("wwawwqwwawwaqdq", HexDir.SOUTH_WEST), "setframerotation", new OpFrameRotation(1));

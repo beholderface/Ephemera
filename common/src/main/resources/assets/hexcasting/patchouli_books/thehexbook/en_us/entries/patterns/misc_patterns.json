@@ -106,6 +106,14 @@
       "input": "entity",
       "output": "[entity]",
       "text": "ephemera.page.miscpatterns.14"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:getmount",
+      "anchor": "ephemera:getmount",
+      "input": "entity",
+      "output": "entity",
+      "text": "ephemera.page.miscpatterns.15"
     }
   ]
 }

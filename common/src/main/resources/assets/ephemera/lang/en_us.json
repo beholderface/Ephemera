@@ -67,6 +67,8 @@
   "hexcasting.action.ephemera:dismount": "Dismount",
   "hexcasting.action.ephemera:getrider": "Equestrian Purification",
   "hexcasting.action.book.ephemera:getrider": "Equestrian Prfn.",
+  "hexcasting.action.ephemera:getmount": "Equestrian Purification II",
+  "hexcasting.action.book.ephemera:getmount": "Equestrian Prfn. II",
 
   "hexcasting.mishap.location_ephemera:inputrelaytprange": "Target entity is too far from target node at %s.",
   "hexcasting.mishap.location_ephemera:outputrelaytprange": "Could not find connected node within range of %s.",
@@ -109,6 +111,7 @@
   "ephemera.page.miscpatterns.12": "I should take care not to accelerate too quickly when riding a wisp, as unlike with Impulse, the acceleration is not applied evenly across my body, and can thus cause significant harm. The threshold for how quickly I can accelerate safely seems to be about 98 m/s over one second.$(br)I should take care when mounting fast wisps, as the instantaneous velocity involved can contribute to this damage if I am too far from my final seated position.",
   "ephemera.page.miscpatterns.13": "Takes me off of whatever entity I may be riding when cast. Costs 1/100 of a dust.",
   "ephemera.page.miscpatterns.14": "Accepts an entity, and returns a list of entities seated atop it.",
+  "ephemera.page.miscpatterns.15": "Accepts an entity, and returns the entity it is seated atop.",
 
   "ephemera.page.particleburst.1": "Accepts two vectors and two numbers, and uses them to define a burst of particles. Costs a negligible amount of media.",
   "ephemera.page.particleburst.2": "The first vector determines the burst's origin position, and the second vector determines its direction and speed. The first number determines the scale of random numbers added to each position component, and the second does the same for the direction vector.",
@@ -167,6 +170,6 @@
   "text.ephemera.nosender": "unknown",
 
   "enchantment.ephemera.shame": "Curse of Shame",
-  
+
   "death.attack.ephemera:acceleration": "%s was subjected to lethal acceleration."
 }
