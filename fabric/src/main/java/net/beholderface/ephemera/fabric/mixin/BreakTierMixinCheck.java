@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 public class BreakTierMixinCheck {
     @WrapOperation(method = "isCorrectTierForDrops(Lnet/minecraft/item/ToolMaterial;Lnet/minecraft/block/BlockState;)Z",
     at = @At(value = "INVOKE", target = "Lat/petrak/hexcasting/api/mod/HexConfig$ServerConfigAccess;opBreakHarvestLevelBecauseForgeThoughtItWasAGoodIdeaToImplementHarvestTiersUsingAnHonestToGodTopoSort()I",
-    remap = false), remap = false)
+    remap = false), remap = true)
     public int possiblyUpgradeTier(HexConfig.ServerConfigAccess instance, Operation<Integer> original){
         return (int)Math.min(Math.max(original.call(instance) + (int)Math.floor(SharedMixinData.breakBoost), 0), 4);
     }
