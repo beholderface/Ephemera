@@ -28,7 +28,7 @@ permissions:
 
 jobs:
   hexdoc:
-    uses: hexdoc-dev/hexdoc/.github/workflows/hexdoc.yml@v1!0.1.dev
+    uses: hexdoc-dev/actions/.github/workflows/hexdoc.yml@v1
     permissions:
       contents: write
       pages: read
@@ -56,7 +56,7 @@ jobs:
       id-token: write
     steps:
       - name: Download package artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: hexdoc-build
           path: dist
@@ -77,7 +77,7 @@ jobs:
   #     id-token: write
   #   steps:
   #     - name: Download package artifact
-  #       uses: actions/download-artifact@v3
+  #       uses: actions/download-artifact@v4
   #       with:
   #         name: hexdoc-build
   #         path: dist
