@@ -77,7 +77,7 @@
       <ul class="nav navbar-nav navbar-right">
             <li>
     <a
-      href="https://github.com/beholderface/Ephemera/tree/2fadc3bf1160966565d223bc61aa02535ea5a5f3"
+      href="https://github.com/beholderface/Ephemera/tree/5e000e947f695c4114f989fbb4ee99477466cb6c"
         target="_blank"
       class="navbar-link"
       role="button"
@@ -149,7 +149,7 @@
           <li><a href="#items/specialslates" class="toc-elem spoilered"><img
       title="Inert Slate"
       alt="Inert Slate"
-      src="https://raw.githubusercontent.com/beholderface/Ephemera/2fadc3bf1160966565d223bc61aa02535ea5a5f3/common/src/main/resources/assets/ephemera/textures/item/fakeslate.png"
+      src="https://raw.githubusercontent.com/beholderface/Ephemera/5e000e947f695c4114f989fbb4ee99477466cb6c/common/src/main/resources/assets/ephemera/textures/item/fakeslate.png"
       loading="lazy"
       class="item-texture  texture pixelated"
     > Modified Slates</a></li>
@@ -223,6 +223,13 @@
       loading="lazy"
       class="item-texture  texture pixelated"
     > Particle Burst</a></li>
+          <li><a href="#patterns/spells/ephemeral_flight" class="toc-elem "><img
+      title="Phantom Membrane"
+      alt="Phantom Membrane"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/phantom_membrane.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > Additional Flight Patterns</a></li>
           <li><a href="#patterns/spells/network" class="toc-elem "><img
       title="Chain"
       alt="Chain"
@@ -251,7 +258,7 @@
           <li><a href="#patterns/spells/great/magearmor" class="toc-elem "><img
       title="Hexformed Chestplate"
       alt="Hexformed Chestplate"
-      src="https://raw.githubusercontent.com/beholderface/Ephemera/2fadc3bf1160966565d223bc61aa02535ea5a5f3/common/src/main/resources/assets/ephemera/textures/item/media_chestplate.png"
+      src="https://raw.githubusercontent.com/beholderface/Ephemera/5e000e947f695c4114f989fbb4ee99477466cb6c/common/src/main/resources/assets/ephemera/textures/item/media_chestplate.png"
       loading="lazy"
       class="item-texture  texture pixelated"
     > Instant Aegis</a></li>
@@ -292,7 +299,7 @@
     <img
       title="Inert Slate"
       alt="Inert Slate"
-      src="https://raw.githubusercontent.com/beholderface/Ephemera/2fadc3bf1160966565d223bc61aa02535ea5a5f3/common/src/main/resources/assets/ephemera/textures/item/fakeslate.png"
+      src="https://raw.githubusercontent.com/beholderface/Ephemera/5e000e947f695c4114f989fbb4ee99477466cb6c/common/src/main/resources/assets/ephemera/textures/item/fakeslate.png"
       loading="lazy"
       class="item-texture  texture pixelated"
     >Modified Slates<a
@@ -310,12 +317,12 @@
   <div class="spotlight">
     <img
       alt="Spotlight inventory slot"
-      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/efe7bc759418e9fd07f95f8d5edd2f02bc0e37bf/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/820bf7407ce94dbd03e41b02f1d16695f8895f80/src/hexdoc/_export/resources/assets/hexdoc/textures/gui/spotlight.png"
     >
     <img
       title="Inert Slate"
       alt="Inert Slate"
-      src="https://raw.githubusercontent.com/beholderface/Ephemera/2fadc3bf1160966565d223bc61aa02535ea5a5f3/common/src/main/resources/assets/ephemera/textures/item/fakeslate.png"
+      src="https://raw.githubusercontent.com/beholderface/Ephemera/5e000e947f695c4114f989fbb4ee99477466cb6c/common/src/main/resources/assets/ephemera/textures/item/fakeslate.png"
       loading="lazy"
       class="item-texture  texture pixelated"
     >
@@ -2187,6 +2194,194 @@
     <p>Mod author&#39;s note for Forge users: This spell does not work on Forge. I do not know why. I&#39;ve set the cost on Forge to zero so at least it won&#39;t waste media. Sorry.</p><p>I&#39;ll try to get it working eventually.</p>
 <br />
 </div>
+<div id="patterns/spells/ephemeral_flight" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="Phantom Membrane"
+      alt="Phantom Membrane"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/phantom_membrane.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >Additional Flight Patterns<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/ephemeral_flight"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+    <p>I&#39;ve often found the preexisting suite of flight-related patterns to be a bit lackluster. They work perfectly well if all you want to do is cast the spell and go, but they are not well-suited to doing anything more complex. These patterns should help with that.</p>
+<br />
+  <div id="patterns/spells/ephemeral_flight@ephemera:cancelflight" class="">
+<h4 class="pattern-title">Terminate Flight<a
+    href="#patterns/spells/ephemeral_flight@ephemera:cancelflight"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="awawaawe"
+        data-start="south_west"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: awawaawe</canvas>
+  </details>
+      <p>Cancels my current flight ability, at a cost of one tenth of an Amethyst Dust. Casting a new flight spell in the same instant allows me to continue flying, potentially with different parameters.</p>
+  </div>
+<br />
+  <div id="patterns/spells/ephemeral_flight@ephemera:getflight/type" class="">
+<h4 class="pattern-title">Aviator&#39;s Purification II (player → bool | null)<a
+    href="#patterns/spells/ephemeral_flight@ephemera:getflight/type"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="dwdwdewqded"
+        data-start="north_east"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: dwdwdewqded</canvas>
+  </details>
+      <p>Returns true if the target is under the effects of Anchorite&#39;s Flight, false if Wayfarer&#39;s Flight, null if neither.</p>
+  </div>
+<br />
+  <div id="patterns/spells/ephemeral_flight@ephemera:getflight/remaining" class="">
+<h4 class="pattern-title">Aviator&#39;s Purification III (player → num | null)<a
+    href="#patterns/spells/ephemeral_flight@ephemera:getflight/remaining"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="dwdwdewqdedd"
+        data-start="north_east"
+        data-per-world="False"
+      >Your browser does not support visualizing patterns. Pattern code: dwdwdewqdedd</canvas>
+  </details>
+      <p>Returns how close the target is to the end of their flight spell, represented as either their distance to the boundary or how many seconds remain.</p>
+  </div>
+<br />
+</div>
 <div id="patterns/spells/network" class="entry">
     <h3 class="entry-title page-header">
     <img
@@ -2330,7 +2525,7 @@
         <img
       title="Crafting Table"
       alt="Crafting Table"
-      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/efe7bc759418e9fd07f95f8d5edd2f02bc0e37bf/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/820bf7407ce94dbd03e41b02f1d16695f8895f80/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
       class="texture pixelated"
     >
   <div class="crafting-table-grid">
@@ -2424,7 +2619,7 @@
         <img
       title="Crafting Table"
       alt="Crafting Table"
-      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/efe7bc759418e9fd07f95f8d5edd2f02bc0e37bf/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/820bf7407ce94dbd03e41b02f1d16695f8895f80/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
       class="texture pixelated"
     >
   <div class="crafting-table-grid">
@@ -2775,7 +2970,7 @@
     <img
       title="Hexformed Chestplate"
       alt="Hexformed Chestplate"
-      src="https://raw.githubusercontent.com/beholderface/Ephemera/2fadc3bf1160966565d223bc61aa02535ea5a5f3/common/src/main/resources/assets/ephemera/textures/item/media_chestplate.png"
+      src="https://raw.githubusercontent.com/beholderface/Ephemera/5e000e947f695c4114f989fbb4ee99477466cb6c/common/src/main/resources/assets/ephemera/textures/item/media_chestplate.png"
       loading="lazy"
       class="item-texture  texture pixelated"
     >Instant Aegis<a
