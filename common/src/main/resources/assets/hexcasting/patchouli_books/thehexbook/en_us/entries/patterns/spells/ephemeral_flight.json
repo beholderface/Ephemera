@@ -1,0 +1,35 @@
+{
+  "name": "ephemera.entry.flight",
+  "category": "hexcasting:patterns/spells",
+  "icon": "minecraft:phantom_membrane",
+  "sortnum": 8,
+  "advancement": "hexcasting:root",
+  "read_by_default": false,
+  "pages": [
+    "ephemera.page.flight.1",
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:cancelflight",
+      "anchor": "ephemera:cancelflight",
+      "input": "",
+      "output": "",
+      "text": "ephemera.page.flight.2"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:getflight/type",
+      "anchor": "ephemera:getflight/type",
+      "input": "player",
+      "output": "bool | null",
+      "text": "ephemera.page.flight.3"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "ephemera:getflight/remaining",
+      "anchor": "ephemera:getflight/remaining",
+      "input": "player",
+      "output": "num | null",
+      "text": "ephemera.page.flight.4"
+    }
+  ]
+}

@@ -66,6 +66,8 @@ public class EphemeraPatternRegistry {
     public static HexPattern GET_PROPERTY_VALUE = register(HexPattern.fromAngles("qaqqqqqdwawqwaw", HexDir.EAST), "getpropertyvalue", new OpGetPropertyValue());
     public static HexPattern GET_RIDER = register(HexPattern.fromAngles("eqqaqqwaaw", HexDir.NORTH_EAST), "getrider", new OpGetRider());
     public static HexPattern GET_MOUNT = register(HexPattern.fromAngles("eeedeewaaw", HexDir.NORTH_EAST), "getmount", new OpGetMount());
+    public static HexPattern GET_FLIGHT_TYPE = register(HexPattern.fromAngles("dwdwdewqded", HexDir.NORTH_EAST), "getflight/type", new OpFlightType());
+    public static HexPattern GET_FLIGHT_REMAINING = register(HexPattern.fromAngles("dwdwdewqdedd", HexDir.NORTH_EAST), "getflight/remaining", new OpFlightRemaining());
     //frame stuff
     public static HexPattern READ_FRAME_ROTATION = register(HexPattern.fromAngles("wwawwqwwawwaeae", HexDir.SOUTH_WEST), "readframerotation", new OpFrameRotation(0));
     public static HexPattern SET_FRAME_ROTATION = register(HexPattern.fromAngles("wwawwqwwawwaqdq", HexDir.SOUTH_WEST), "setframerotation", new OpFrameRotation(1));
@@ -79,14 +81,19 @@ public class EphemeraPatternRegistry {
     public static HexPattern CLEAR_REVEAL_COST = register(HexPattern.fromAngles("qdeqa", HexDir.EAST), "clearrevealcost", new OpClearTransmitHistory());
     public static HexPattern RIDE_WISP = register(HexPattern.fromAngles("aqadqqdaqa", HexDir.NORTH_WEST), "ridewisp", new OpRideWisp());
     public static HexPattern DISMOUNT = register(HexPattern.fromAngles("awqqaee", HexDir.SOUTH_WEST), "dismount", new OpDismount());
+    public static HexPattern CANCEL_FLIGHT = register(HexPattern.fromAngles("awawaawe", HexDir.SOUTH_WEST), "cancelflight", new OpCancelFlight());
 
+    private static boolean alreadyInit = false;
     public static void init() {
-        try {
-            for (Triple<HexPattern, Identifier, Action> patternTriple : PATTERNS) {
-                Registry.register(HexActions.REGISTRY, patternTriple.getSecond(), new ActionRegistryEntry(patternTriple.getFirst(), patternTriple.getThird()));
+        if (!alreadyInit){
+            alreadyInit = true;
+            try {
+                for (Triple<HexPattern, Identifier, Action> patternTriple : PATTERNS) {
+                    Registry.register(HexActions.REGISTRY, patternTriple.getSecond(), new ActionRegistryEntry(patternTriple.getFirst(), patternTriple.getThird()));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 

@@ -1,8 +1,9 @@
 package net.beholderface.ephemera;
 
 import at.petrak.hexcasting.api.HexAPI;
+import at.petrak.hexcasting.api.player.FlightAbility;
+import at.petrak.hexcasting.xplat.IXplatAbstractions;
 import com.mojang.datafixers.util.Either;
-import com.mojang.datafixers.util.Pair;
 import dev.architectury.event.events.common.LifecycleEvent;
 import dev.architectury.event.events.common.TickEvent;
 import net.beholderface.ephemera.casting.ChunkLoadingManager;
@@ -12,14 +13,11 @@ import net.beholderface.ephemera.registry.*;
 import net.beholderface.ephemera.networking.EphemeraNetworking;
 import net.beholderface.ephemera.status.MemeticDiseaseEffect;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.DamageSources;
 import net.minecraft.entity.damage.DamageType;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
@@ -29,7 +27,9 @@ import org.apache.logging.log4j.Logger;
 import ram.talia.hexal.common.entities.BaseWisp;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import static net.beholderface.ephemera.items.ConjuredArmorItem.SHAME_MAP;
 
@@ -78,6 +78,7 @@ public class Ephemera {
         TickEvent.SERVER_POST.register((server)->{
             MemeticDiseaseEffect.processDiseaseRetention(Either.left(server));
             processWispAccelDamage(server);
+            processFlightReset(server);
         });
     }
 
@@ -111,6 +112,19 @@ public class Ephemera {
             }
             lastVelocityMap.put(player, currentVel);
         }
+    }
+
+    private static final Set<ServerPlayerEntity> flightResetSet = new HashSet<>();
+    private static void processFlightReset(MinecraftServer server){
+        for (ServerPlayerEntity player : flightResetSet){
+            if (IXplatAbstractions.INSTANCE.getFlight(player) == null){
+                IXplatAbstractions.INSTANCE.setFlight(player, new FlightAbility(0, server.getOverworld().getRegistryKey(), Vec3d.ZERO, 0.0));
+            }
+        }
+        flightResetSet.clear();
+    }
+    public static boolean notifyFlightReset(ServerPlayerEntity player){
+        return flightResetSet.add(player);
     }
 
     /**

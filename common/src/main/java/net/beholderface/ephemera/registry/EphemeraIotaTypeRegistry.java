@@ -18,10 +18,13 @@ public class EphemeraIotaTypeRegistry {
     public static final IotaType<PotionIota> POTION = type("potion", PotionIota.TYPE);
     public static final IotaType<HashIota> HASH = type("hash", HashIota.TYPE);
 
+    private static boolean alreadyInit = false;
     public static void init() {
-        //Ephemera.LOGGER.info("Attempting to register iota types.");
-        for (Map.Entry<Identifier, IotaType<?>> entry : TYPES.entrySet()) {
-            Registry.register(HexIotaTypes.REGISTRY, entry.getKey(), entry.getValue());
+        if (!alreadyInit){
+            alreadyInit = true;
+            for (Map.Entry<Identifier, IotaType<?>> entry : TYPES.entrySet()) {
+                Registry.register(HexIotaTypes.REGISTRY, entry.getKey(), entry.getValue());
+            }
         }
     }
 
