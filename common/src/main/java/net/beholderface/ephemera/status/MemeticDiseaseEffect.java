@@ -34,7 +34,8 @@ public class MemeticDiseaseEffect extends StatusEffect {
     //private static final Pair<Long, Integer> DEFAULT_PAIR = new Pair<>(-1L, -1);
     @Override
     public boolean canApplyUpdateEffect(int duration, int amplifier){
-        return true;//duration % 200 == 0;
+        //until I actually get this stuff implemented
+        return false;
     }
 
     @Override
@@ -81,7 +82,7 @@ public class MemeticDiseaseEffect extends StatusEffect {
     @Override
     public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
         if (entity.hasStatusEffect(EphemeraMiscRegistry.BRAINROT_PREVENTION.get())){
-            entity.removeStatusEffect(EphemeraMiscRegistry.BRAINROT.get());
+            entity.removeStatusEffect(this);
             MemeticDiseaseEffect.DISEASE_MAP.remove(entity);
         }
     }

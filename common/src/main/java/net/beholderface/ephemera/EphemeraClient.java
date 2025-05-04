@@ -10,6 +10,6 @@ import net.beholderface.ephemera.status.MemeticDiseaseEffect;
 public class EphemeraClient {
 
     public static void init() {
-        ClientTickEvent.CLIENT_POST.register((client)-> MemeticDiseaseEffect.processDiseaseRetention(Either.right(client)));
+        //ClientTickEvent.CLIENT_POST.register((client)-> MemeticDiseaseEffect.processDiseaseRetention(Either.right(client)));
     }
 }

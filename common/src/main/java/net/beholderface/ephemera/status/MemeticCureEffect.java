@@ -26,7 +26,8 @@ public class MemeticCureEffect extends StatusEffect {
     public static final int SPREAD_DURATION = 20 * 60 * 10; //ten minutes
     @Override
     public boolean canApplyUpdateEffect(int duration, int amplifier){
-        return duration % 200 == 0;
+        return false;
+        //return duration % 200 == 0;
     }
 
     @Override
