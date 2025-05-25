@@ -61,7 +61,7 @@ class OpMageArmor() : SpellAction {
             })
         } else {
             0 //no stay of execution armor either
-        }
+        } + 1
         val slotBools = booleanArrayOf(false, false, false, false)
         val items = arrayOf(EphemeraItemRegistry.MEDIA_BOOTS.get(), EphemeraItemRegistry.MEDIA_LEGGINGS.get(),
             EphemeraItemRegistry.MEDIA_CHESTPLATE.get(), EphemeraItemRegistry.MEDIA_HELMET.get())
@@ -76,13 +76,13 @@ class OpMageArmor() : SpellAction {
                 affectedSlots++
             }
         }
-        val baseLifetime = (durability / 60.0) //minutes
+        val baseLifetime = (durability.toDouble() / 60.0) //minutes
         var cost : Long = (((armorStrength.toDouble().pow(1.5) * baseLifetime) / 4) * affectedSlots).coerceAtLeast(effectStrength * 5.0).coerceAtMost((Integer.MAX_VALUE - 1).toDouble()).toLong()
         if (effect != null){
             cost *= (effectStrength + 2).coerceAtMost(Integer.MAX_VALUE - 1)
         }
         cost = (cost * MediaConstants.DUST_UNIT).coerceAtMost(Long.MAX_VALUE - 1)
-        return SpellAction.Result(Spell(target, slotBools, durability, armorStrength, effect, effectStrength), cost, listOf(
+        return SpellAction.Result(Spell(target, slotBools, durability, armorStrength, effect, effectStrength - 1), cost, listOf(
             ParticleSpray.cloud(target.pos, 2.0)))
     }
 
