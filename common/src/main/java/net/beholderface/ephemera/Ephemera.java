@@ -100,14 +100,16 @@ public class Ephemera {
             Vec3d currentVel = HexAPI.instance().getEntityVelocitySpecial(player);
             if (player.getVehicle() instanceof BaseWisp && !player.isInvulnerableTo(player.getDamageSources().flyIntoWall())){
                 Vec3d previousVel = lastVelocityMap.get(player);
-                Vec3d differenceVel = previousVel.subtract(currentVel);
-                float differenceMagnitude = (float) differenceVel.length();
-                float threshold = (9.8f * 10.0f) / 20.0f; //the magnitude of the vector if you accelerate by ten Gs in a single tick
-                if (differenceMagnitude > threshold){
-                    float amountOverThreshold = differenceMagnitude - threshold;
-                    float damagePerHalfSecond = amountOverThreshold * 5;
-                    player.damage(ACCELERATION_DAMAGE, damagePerHalfSecond);
-                    //LOGGER.info(differenceVel + ", " + differenceMagnitude);
+                if (previousVel != null){
+                    Vec3d differenceVel = previousVel.subtract(currentVel);
+                    float differenceMagnitude = (float) differenceVel.length();
+                    float threshold = (9.8f * 10.0f) / 20.0f; //the magnitude of the vector if you accelerate by ten Gs in a single tick
+                    if (differenceMagnitude > threshold){
+                        float amountOverThreshold = differenceMagnitude - threshold;
+                        float damagePerHalfSecond = amountOverThreshold * 5;
+                        player.damage(ACCELERATION_DAMAGE, damagePerHalfSecond);
+                        //LOGGER.info(differenceVel + ", " + differenceMagnitude);
+                    }
                 }
             }
             lastVelocityMap.put(player, currentVel);
