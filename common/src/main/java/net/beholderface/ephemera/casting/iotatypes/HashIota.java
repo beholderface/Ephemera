@@ -40,8 +40,11 @@ public class HashIota extends Iota {
         NbtElement serialized = iota.serialize();
         try {
             NbtCompound iotaData = HexUtils.downcast(serialized, NbtCompound.TYPE);
-            if (Platform.isModLoaded("hexgloop") && iota.getType() == HexIotaTypes.ENTITY){
-                iotaData.remove("keyUUID");
+            if (iota.getType() == HexIotaTypes.ENTITY){
+                iotaData.remove("name");
+                if (Platform.isModLoaded("hexgloop")){
+                    iotaData.remove("keyUUID");
+                }
             }
             container.put(DATA_KEY, iotaData);
         } catch (IllegalArgumentException ignored){

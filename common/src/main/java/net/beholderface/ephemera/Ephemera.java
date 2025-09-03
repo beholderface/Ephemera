@@ -98,7 +98,7 @@ public class Ephemera {
     private static void processWispAccelDamage(MinecraftServer server){
         for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()){
             Vec3d currentVel = HexAPI.instance().getEntityVelocitySpecial(player);
-            if (player.getVehicle() instanceof BaseWisp && !player.isInvulnerableTo(player.getDamageSources().flyIntoWall())){
+            if (player.getVehicle() instanceof BaseWisp && !player.isInvulnerableTo(ACCELERATION_DAMAGE)){
                 Vec3d previousVel = lastVelocityMap.get(player);
                 if (previousVel != null){
                     Vec3d differenceVel = previousVel.subtract(currentVel);
