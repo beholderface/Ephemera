@@ -45,15 +45,23 @@ class OpRemoveStatus : SpellAction {
         if (costExponent == 1.1){
             cost /= 10
         }
+        var infinite = false
+        if (existingEffect.isInfinite){
+            cost = 0
+            infinite = true
+        }
         //ctx.caster.sendMessage(Text.of((cost.toDouble() / MediaConstants.DUST_UNIT).toString() + " dust"))
         return SpellAction.Result(
-            Spell(target, effect),
+            Spell(target, effect, infinite),
             cost,
             listOf(ParticleSpray.cloud(env.mishapSprayPos(), 2.0))
         )
     }
-    private data class Spell(val target : LivingEntity, val effect : StatusEffect) : RenderedSpell {
+    private data class Spell(val target : LivingEntity, val effect : StatusEffect, val infinite : Boolean) : RenderedSpell {
         override fun cast(env: CastingEnvironment){
+            if (infinite){
+                return
+            }
             if (target.hasStatusEffect(effect)){
                 target.removeStatusEffect(effect)
             }
