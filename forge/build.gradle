@@ -17,8 +17,8 @@ loom {
         convertAccessWideners = true
         extraAccessWideners.add loom.accessWidenerPath.get().asFile.name
 
-        //mixinConfig "ephemera-common.mixins.json"
-        //mixinConfig "ephemera.mixins.json"
+        mixinConfig "ephemera-common.mixins.json"
+        mixinConfig "ephemera.mixins.json"
     }
     runs {
         client {

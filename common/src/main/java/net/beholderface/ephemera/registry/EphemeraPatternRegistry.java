@@ -6,8 +6,11 @@ import at.petrak.hexcasting.api.casting.math.HexDir;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
 import at.petrak.hexcasting.api.misc.MediaConstants;
 import at.petrak.hexcasting.common.casting.actions.spells.OpPotionEffect;
-import at.petrak.hexcasting.common.lib.hex.HexActions;
+import at.petrak.hexcasting.common.lib.HexRegistries;
+import at.petrak.hexcasting.xplat.IXplatAbstractions;
+import dev.architectury.registry.registries.DeferredRegister;
 import kotlin.Triple;
+import net.beholderface.ephemera.Ephemera;
 import net.beholderface.ephemera.casting.patterns.OpIotaSize;
 import net.beholderface.ephemera.casting.patterns.OpStackSizeDeep;
 import net.beholderface.ephemera.casting.patterns.*;
@@ -28,16 +31,13 @@ import java.util.List;
 
 import static net.beholderface.ephemera.Ephemera.id;
 
-@SuppressWarnings("unused")
 public class EphemeraPatternRegistry {
-    public static List<Triple<HexPattern, Identifier, Action>> PATTERNS = new ArrayList<>();
-    public static List<Triple<HexPattern, Identifier, Action>> PER_WORLD_PATTERNS = new ArrayList<>();
+    public static final DeferredRegister<ActionRegistryEntry> ACTIONS = DeferredRegister.create(Ephemera.MOD_ID, HexRegistries.ACTION);
 
     //assorted great spells
-    public static HexPattern INVISIBILITY = registerPerWorld(HexPattern.fromAngles("qqqqqaewawaweqa", HexDir.SOUTH_WEST), "invisibility", new OpPotionEffect(
-            StatusEffects.INVISIBILITY, MediaConstants.DUST_UNIT / 3, false, false));
-    public static HexPattern MAGE_ARMOR = registerPerWorld(HexPattern.fromAngles("qaweqqwqqewaqeqqqqqad", HexDir.NORTH_WEST), "magearmor", new OpMageArmor());
-    public static HexPattern REPAIR = registerPerWorld(HexPattern.fromAngles("waqdqqwqqdqawwqqqqqaqedeq", HexDir.WEST), "repair", new OpRepair());
+    public static HexPattern INVISIBILITY = register(HexPattern.fromAngles("qqqqqaewawaweqa", HexDir.SOUTH_WEST), "invisibility", new OpPotionEffect(StatusEffects.INVISIBILITY, MediaConstants.DUST_UNIT / 3, false, false));
+    public static HexPattern MAGE_ARMOR = register(HexPattern.fromAngles("qaweqqwqqewaqeqqqqqad", HexDir.NORTH_WEST), "magearmor", new OpMageArmor());
+    public static HexPattern REPAIR = register(HexPattern.fromAngles("waqdqqwqqdqawwqqqqqaqedeq", HexDir.WEST), "repair", new OpRepair());
     //status stuff
     public static HexPattern REMOVE_STATUS = register(HexPattern.fromAngles("eeeeedaqdewed", HexDir.SOUTH_WEST), "removestatus", new OpRemoveStatus());
     public static HexPattern GET_STATUS = register(HexPattern.fromAngles("qqqqqedwd", HexDir.SOUTH_WEST), "getstatus", new OpGetEffects());
@@ -87,23 +87,19 @@ public class EphemeraPatternRegistry {
     public static void init() {
         if (!alreadyInit){
             alreadyInit = true;
-            try {
+            /*try {
                 for (Triple<HexPattern, Identifier, Action> patternTriple : PATTERNS) {
                     Registry.register(HexActions.REGISTRY, patternTriple.getSecond(), new ActionRegistryEntry(patternTriple.getFirst(), patternTriple.getThird()));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-            }
+            }*/
+            ACTIONS.register();
         }
     }
 
     private static HexPattern register(HexPattern pattern, String name, Action action) {
-        Triple<HexPattern, Identifier, Action> triple = new Triple<>(pattern, id(name), action);
-        PATTERNS.add(triple);
+        ACTIONS.register(name, ()-> Registry.register(IXplatAbstractions.INSTANCE.getActionRegistry(), Ephemera.id(name), new ActionRegistryEntry(pattern, action)));
         return pattern;
-    }
-
-    private static HexPattern registerPerWorld(HexPattern pattern, String name, Action action) {
-        return register(pattern, name, action);
     }
 }
