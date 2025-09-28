@@ -6,6 +6,7 @@ import at.petrak.hexcasting.xplat.IXplatAbstractions;
 import com.mojang.datafixers.util.Either;
 import dev.architectury.event.events.common.LifecycleEvent;
 import dev.architectury.event.events.common.TickEvent;
+import dev.architectury.platform.Platform;
 import net.beholderface.ephemera.casting.ChunkLoadingManager;
 import net.beholderface.ephemera.recipe.EphemeraRecipeSerializer;
 import net.beholderface.ephemera.recipe.EphemeraRecipeTypes;
@@ -50,8 +51,10 @@ public class Ephemera {
         EphemeraBlockRegistry.init();
         EphemeraMiscRegistry.init();
         EphemeraItemRegistry.init();
-        EphemeraIotaTypeRegistry.init();
-        EphemeraPatternRegistry.init();
+        if (Platform.isFabric()){
+            EphemeraIotaTypeRegistry.init();
+            EphemeraPatternRegistry.init();
+        }
 		EphemeraNetworking.init();
 
         EphemeraRecipeSerializer.registerSerializers(EphemeraRecipeTypes.Companion.bind(Registries.RECIPE_SERIALIZER));

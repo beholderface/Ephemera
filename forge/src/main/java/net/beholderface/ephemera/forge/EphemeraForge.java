@@ -5,6 +5,8 @@ import dev.architectury.platform.forge.EventBuses;
 import net.beholderface.ephemera.Ephemera;
 import net.beholderface.ephemera.forge.ForgePacketHandler;
 import net.beholderface.ephemera.registry.EphemeraAttributes;
+import net.beholderface.ephemera.registry.EphemeraIotaTypeRegistry;
+import net.beholderface.ephemera.registry.EphemeraPatternRegistry;
 import net.minecraft.entity.EntityType;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraftforge.api.distmarker.Dist;
@@ -30,6 +32,10 @@ public class EphemeraForge {
         bus.addListener(EphemeraClientForge::init);
         bus.addListener(EphemeraClientForge::registerRenderers);
         Ephemera.init();
+        bus.addListener((RegisterEvent event) -> {
+            EphemeraIotaTypeRegistry.init();
+            EphemeraPatternRegistry.init();
+        });
         EphemeraAttributes.register((attribute, id)->{
             bus.addListener((RegisterEvent event) -> {
                 event.register(RegistryKeys.ATTRIBUTE, id, ()->attribute);
