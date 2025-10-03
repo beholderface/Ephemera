@@ -19,7 +19,12 @@ class OpHashBits : ConstMediaAction {
             if (index % 4 == 0 && index < bytes.size - 3){
                 ints.add(DoubleIota(ByteBuffer.wrap(byteArrayOf(bytes[index], bytes[index+1], bytes[index+2], bytes[index+3])).getInt().toDouble()))
             } else if (index == 60){
-                ints.add(DoubleIota(ByteBuffer.wrap(byteArrayOf(0, 0, bytes[index], bytes[index+1])).getInt().toDouble()))
+                //ints.add(DoubleIota(ByteBuffer.wrap(byteArrayOf(0, 0, bytes[index], bytes[index+1])).getInt().toDouble()))
+                if (bytes.size == 61){
+                    ints.add(DoubleIota(ByteBuffer.wrap(byteArrayOf(0, 0, 0, bytes[index])).getInt().toDouble()))
+                } else {
+                    ints.add(DoubleIota(ByteBuffer.wrap(byteArrayOf(0, 0, bytes[index], bytes[index+1])).getInt().toDouble()))
+                }
             }
             index++
         }

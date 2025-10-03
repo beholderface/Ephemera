@@ -9,7 +9,6 @@ import at.petrak.hexcasting.common.casting.actions.spells.OpPotionEffect;
 import at.petrak.hexcasting.common.lib.HexRegistries;
 import at.petrak.hexcasting.xplat.IXplatAbstractions;
 import dev.architectury.registry.registries.DeferredRegister;
-import kotlin.Triple;
 import net.beholderface.ephemera.Ephemera;
 import net.beholderface.ephemera.casting.patterns.OpIotaSize;
 import net.beholderface.ephemera.casting.patterns.OpStackSizeDeep;
@@ -24,12 +23,6 @@ import net.beholderface.ephemera.casting.patterns.spells.great.OpRepair;
 import net.beholderface.ephemera.casting.patterns.status.*;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static net.beholderface.ephemera.Ephemera.id;
 
 public class EphemeraPatternRegistry {
     public static final DeferredRegister<ActionRegistryEntry> ACTIONS = DeferredRegister.create(Ephemera.MOD_ID, HexRegistries.ACTION);
@@ -87,19 +80,12 @@ public class EphemeraPatternRegistry {
     public static void init() {
         if (!alreadyInit){
             alreadyInit = true;
-            /*try {
-                for (Triple<HexPattern, Identifier, Action> patternTriple : PATTERNS) {
-                    Registry.register(HexActions.REGISTRY, patternTriple.getSecond(), new ActionRegistryEntry(patternTriple.getFirst(), patternTriple.getThird()));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }*/
             ACTIONS.register();
         }
     }
 
     private static HexPattern register(HexPattern pattern, String name, Action action) {
-        ACTIONS.register(name, ()-> Registry.register(IXplatAbstractions.INSTANCE.getActionRegistry(), Ephemera.id(name), new ActionRegistryEntry(pattern, action)));
+        ACTIONS.register(name, ()-> /*Registry.register(IXplatAbstractions.INSTANCE.getActionRegistry(), Ephemera.id(name), */new ActionRegistryEntry(pattern, action/*)*/));
         return pattern;
     }
 }

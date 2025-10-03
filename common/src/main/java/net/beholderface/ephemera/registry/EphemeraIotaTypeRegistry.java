@@ -21,14 +21,14 @@ public class EphemeraIotaTypeRegistry {
     public static void init() {
         if (!alreadyInit){
             alreadyInit = true;
+            Ephemera.LOGGER.info("Attempting to register iota types");
             IOTATYPES.register();
         }
     }
 
     private static <U extends Iota, T extends IotaType<U>> T type(String name, T type) {
         Identifier id = Ephemera.id(name);
-        IOTATYPES.register(id, ()->Registry.register(IXplatAbstractions.INSTANCE.getIotaTypeRegistry(), id, type));
-        //Ephemera.LOGGER.info("Adding " + name + " to iota type map.");
+        IOTATYPES.register(id, ()-> type /*Registry.register(IXplatAbstractions.INSTANCE.getIotaTypeRegistry(), id, type)*/);
         return type;
     }
 }

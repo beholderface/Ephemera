@@ -52,15 +52,17 @@ public class Ephemera {
         EphemeraMiscRegistry.init();
         EphemeraItemRegistry.init();
         if (Platform.isFabric()){
-            EphemeraIotaTypeRegistry.init();
-            EphemeraPatternRegistry.init();
+            LifecycleEvent.SETUP.register(()->{
+                EphemeraIotaTypeRegistry.init();
+                EphemeraPatternRegistry.init();
+            });
         }
 		EphemeraNetworking.init();
 
         EphemeraRecipeSerializer.registerSerializers(EphemeraRecipeTypes.Companion.bind(Registries.RECIPE_SERIALIZER));
         EphemeraRecipeTypes.registerTypes(EphemeraRecipeTypes.Companion.bind(Registries.RECIPE_TYPE));
 
-        LOGGER.info(EphemeraAbstractions.getConfigDirectory().toAbsolutePath().normalize().toString());
+        //LOGGER.info(EphemeraAbstractions.getConfigDirectory().toAbsolutePath().normalize().toString());
 
         LifecycleEvent.SERVER_STARTED.register((startedserver)->{
             if (SHAME_MAP.isEmpty()){
