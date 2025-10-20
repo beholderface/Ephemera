@@ -34,8 +34,8 @@ subprojects {
         annotationProcessor "org.ow2.asm:asm-tree:${project.asmVersion}"
         annotationProcessor "org.ow2.asm:asm-util:${project.asmVersion}"
 
-        modImplementation "localModLibs:hexal-fabric-${minecraftVersion}-${hexalVersion}"
-        modImplementation "localModLibs:moreiotas-fabric-${minecraftVersion}-${moreiotasVersion}"
+        /*modImplementation "localModLibs:hexal-fabric-${minecraftVersion}-${hexalVersion}"
+        modImplementation "localModLibs:moreiotas-fabric-${minecraftVersion}-${moreiotasVersion}"*/
     }
 
     sourceSets.main.kotlin.srcDirs += 'src/main/java'
