@@ -10,13 +10,16 @@ import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.mishaps.MishapBadLocation
 import at.petrak.hexcasting.api.casting.mishaps.MishapImmuneEntity
 import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota
+import at.petrak.hexcasting.api.casting.mishaps.MishapLocationInWrongDimension
 import at.petrak.hexcasting.api.misc.MediaConstants
+import at.petrak.hexcasting.api.mod.HexConfig
 import at.petrak.hexcasting.api.mod.HexTags
 import net.beholderface.ephemera.api.getConnected
 import net.beholderface.ephemera.api.toVec3i
 import net.beholderface.ephemera.blocks.RelayTPDetectorBlock
 import net.beholderface.ephemera.registry.EphemeraBlockRegistry
 import net.minecraft.entity.Entity
+import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.decoration.ArmorStandEntity
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.util.math.BlockPos
@@ -45,6 +48,10 @@ class OpNetworkTeleport : SpellAction {
         }
         if (!target.canUsePortals() || target.type.isIn(HexTags.Entities.CANNOT_TELEPORT))
             throw MishapImmuneEntity(target)
+        val worldKey = env.world.registryKey
+        if (target is LivingEntity /*teleporting nonliving stuff is probably fine*/ && !HexConfig.server().canTeleportInThisDimension(worldKey)){
+            throw MishapLocationInWrongDimension(worldKey.value)
+        }
         val destination = args.getVec3(2, argc)
         val connectedNodes = inputNode.getConnected(32)
         var foundOutputNode = Optional.empty<ILinkable>()
