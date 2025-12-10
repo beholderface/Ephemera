@@ -36,16 +36,22 @@ dependencies {
 }
 
 publishing {
-    publications {
+    /*publications {
         mavenCommon(MavenPublication) {
             artifactId = project.archivesBaseName
             from components.java
         }
-    }
+    }*/
 
     // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
     repositories {
-        // Add repositories to publish to here.
+        maven {
+            url = uri("https://pkgs.dev.azure.com/hexxy-media/artifacts/_packaging/community/maven/v1")
+            credentials {
+                username = "hexxy-media"
+                password = System.getenv("MAVEN_PASSWORD")
+            }
+        }
     }
 }
 

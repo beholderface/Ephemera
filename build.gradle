@@ -7,6 +7,10 @@ plugins {
 
     // for template.env api keys
     id "co.uzzu.dotenv.gradle" version "2.0.0"
+
+    id "java-library"
+
+    id "maven-publish"
 }
 
 architectury {
@@ -16,6 +20,7 @@ architectury {
 subprojects {
     apply plugin: "org.jetbrains.kotlin.jvm"
     apply plugin: "dev.architectury.loom"
+    apply plugin: "maven-publish"
 
     // Uncomment to silence the mojmap license warning
     // loom {
@@ -107,6 +112,26 @@ allprojects {
     tasks.withType(JavaCompile) {
         options.encoding = "UTF-8"
         options.release = 17
+    }
+
+    publishing {
+        /*publications {
+            mavenCommon(MavenPublication) {
+                artifactId = project.archivesBaseName
+                from components.java
+            }
+        }*/
+
+        // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+        repositories {
+            maven {
+                url = uri("https://pkgs.dev.azure.com/hexxy-media/artifacts/_packaging/community/maven/v1")
+                credentials {
+                    username = "hexxy-media"
+                    password = System.getenv("MAVEN_PASSWORD")
+                }
+            }
+        }
     }
 
     java {
