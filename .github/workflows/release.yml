@@ -60,5 +60,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: maven-dry-run
-          path: ~/.m2/repository/com/example/examplemod  # TODO: fill in the correct path for your mod
+          path: ~/.m2/repository/net/beholderface/ephemera  # TODO: fill in the correct path for your mod
           if-no-files-found: error
