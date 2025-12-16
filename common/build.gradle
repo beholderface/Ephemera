@@ -29,8 +29,8 @@ dependencies {
     modCompileOnly "at.petra-k.hexcasting:hexcasting-fabric-$minecraftVersion:$hexcastingVersion"
     modCompileOnly "vazkii.patchouli:Patchouli-xplat:$minecraftVersion-$patchouliVersion"
     //modImplementation(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-common:${mixinExtrasVersion}"))
-    modImplementation "localModLibs:hexal-fabric-${minecraftVersion}-${hexalVersion}"
-    modImplementation "localModLibs:moreiotas-fabric-${minecraftVersion}-${moreiotasVersion}"
+    modImplementation("ram.talia.hexal:hexal-fabric-${minecraftVersion}:${hexalVersion}") { transitive false }
+    modImplementation("ram.talia.moreiotas:moreiotas-fabric-${minecraftVersion}:${moreiotasVersion}") { transitive false }
     implementation group: "org.jblas", name: "jblas", version: "1.2.5"
 
 }

@@ -63,8 +63,8 @@ dependencies {
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
-    modImplementation "localModLibs:hexal-fabric-${minecraftVersion}-${hexalVersion}"
-    modImplementation "localModLibs:moreiotas-fabric-${minecraftVersion}-${moreiotasVersion}"
+    modImplementation("ram.talia.hexal:hexal-fabric-${minecraftVersion}:${hexalVersion}") { transitive false }
+    modImplementation("ram.talia.moreiotas:moreiotas-fabric-${minecraftVersion}:${moreiotasVersion}") { transitive false}
     implementation group: "org.jblas", name: "jblas", version: "1.2.5"
 
 }
