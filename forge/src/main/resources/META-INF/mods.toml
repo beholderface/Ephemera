@@ -46,3 +46,11 @@ mandatory = true
 versionRange = "[${hexalVersion},)"
 ordering = "BEFORE"
 side = "BOTH"
+side = "BOTH"
+
+[[dependencies.ephemera]]
+modId = "moreiotas"
+mandatory = true
+versionRange = "[${moreiotasVersion},)"
+ordering = "BEFORE"
+side = "BOTH"
