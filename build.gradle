@@ -169,6 +169,7 @@ allprojects {
             "forgeKotlinVersion": project.forgeKotlinVersion,
             "hexcastingVersion": project.hexcastingVersion,
             "hexalVersion": project.hexalVersion,
+            "moreiotasVersion": project.moreiotasVersion,
             "minecraftVersion": project.minecraftVersion,
         ]
 
