@@ -33,6 +33,7 @@
     "fabric-language-kotlin": ">=${fabricKotlinVersion}",
     "architectury": ">=${architecturyVersion}",
     "hexcasting": ">=${hexcastingVersion}",
-    "hexal": ">=${hexalVersion}"
+    "hexal": ">=${hexalVersion}",
+    "moreiotas": ">=${moreiotasVersion}"
   }
 }
