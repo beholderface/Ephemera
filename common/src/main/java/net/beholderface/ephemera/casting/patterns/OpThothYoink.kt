@@ -8,10 +8,9 @@ import at.petrak.hexcasting.api.casting.eval.vm.FrameForEach
 import at.petrak.hexcasting.api.casting.eval.vm.SpellContinuation
 import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.iota.NullIota
-import at.petrak.hexcasting.api.utils.TreeList
 import at.petrak.hexcasting.common.lib.hex.HexEvalSounds
 import net.beholderface.ephemera.casting.mishaps.MishapNoThoth
-import java.util.LinkedList
+import java.util.ArrayDeque
 import java.util.Queue
 
 class OpThothYoink : Action {
@@ -28,13 +27,13 @@ class OpThothYoink : Action {
         if (frameData.found()){
             newContinuation = frameData.foundFrame!!
             val frame = newContinuation.frame as FrameForEach
-            val mutableAccumulator = frame.immutableAcc.toMutableList()
+            var accumulator = frame.immutableAcc
             //pop from accumulator stack
-            if (mutableAccumulator.isNotEmpty()){
-                output = mutableAccumulator.removeLast()
+            if (accumulator.isNotEmpty()){
+                output = accumulator.last()
+                accumulator = accumulator.dropRight(1)
                 //replace original thoth frame with new frame with popped accumulator stack
-                val newImmutable = TreeList.from(mutableAccumulator)
-                newContinuation = newContinuation.copy(frame = frame.copy(immutableAcc = newImmutable))
+                newContinuation = newContinuation.copy(frame = frame.copy(immutableAcc = accumulator))
                 //put old frames back
                 while (!frameData.isQueueEmpty()){
                     newContinuation = newContinuation.pushFrame(frameData.remove()!!.frame) as SpellContinuation.NotDone
@@ -85,7 +84,7 @@ fun SpellContinuation.findThothFrame() : FrameForEach? {
 
 class FoundFrameData {
     var foundFrame : SpellContinuation.NotDone? = null
-    private val otherFrames : Queue<SpellContinuation.NotDone> = LinkedList()
+    private val otherFrames : Queue<SpellContinuation.NotDone> = ArrayDeque()
     fun found() : Boolean = foundFrame != null
     fun add(cont : SpellContinuation.NotDone) {
         otherFrames.add(cont)
