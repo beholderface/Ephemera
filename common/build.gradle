@@ -1,5 +1,5 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.8.0'
+    id 'org.jetbrains.kotlin.jvm' version '2.4.10'
 }
 archivesBaseName = getArtifactId("common")
 
@@ -22,7 +22,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.fabricLoaderVersion}"
     modApi "dev.architectury:architectury:${project.architecturyVersion}"
 
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:2.2.21'
     //implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2' // for @Nonnull
 
     modCompileOnly "at.petra-k.paucal:paucal-common-$minecraftVersion:$paucalVersion"

@@ -17,7 +17,7 @@ class OpThothCount : Action {
         val stack = image.stack.toMutableList()
         val frame = continuation.findThothFrame()
         if (frame != null){
-            stack.add(DoubleIota(frame.acc.size.toDouble()))
+            stack.add(DoubleIota(frame.immutableAcc.size.toDouble()))
         } else {
             stack.add(DoubleIota(-1.0))
         }

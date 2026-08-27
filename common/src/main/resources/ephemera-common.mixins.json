@@ -7,7 +7,6 @@
   ],
   "mixins": [
     "BreakTierMixinCast",
-    "IllegalIotasMixin",
     "NoDispenserAllowedMixin"
   ],
   "injectors": {
