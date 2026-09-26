@@ -3,6 +3,10 @@
   "values": [
     "ephemera:magearmor",
     "ephemera:repair",
-    "ephemera:invisibility"
+    "ephemera:invisibility",
+    {
+      "id": "ephemera:timefreeze",
+      "required": false
+    }
   ]
 }

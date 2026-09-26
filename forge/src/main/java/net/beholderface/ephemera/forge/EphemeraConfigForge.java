@@ -1,6 +1,5 @@
 package net.beholderface.ephemera.forge;
 
-import at.petrak.hexcasting.api.misc.MediaConstants;
 import net.beholderface.ephemera.api.config.EphemeraConfig;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -38,11 +37,11 @@ public class EphemeraConfigForge {
         /*// costs of actions
         private static ForgeConfigSpec.DoubleValue congratsCost;
         private static ForgeConfigSpec.DoubleValue signumCost;*/
-        private static ForgeConfigSpec.BooleanValue lessthanequalSentinel;
+        private static ForgeConfigSpec.BooleanValue nexusLocusEnabled;
 
         public Server(ForgeConfigSpec.Builder builder) {
             builder.translation("text.autoconfig.ephemera.option.server.costs").push("misc");
-            //lessthanequalSentinel = builder.translation("text.autoconfig.ephemera.option.server.misc.lessthanequalSentinel").define("lessthanequalSentinel", DEFAULT_LESSTHANEQUAL_SENTINEL);
+            nexusLocusEnabled = builder.translation("text.autoconfig.ephemera.option.server.misc.nexuslocusenabled").define("nexuslocusenabled", DEFAULT_NEXUS_LOCUS_ENABLED);
 
             //congratsCost = builder.translation("text.autoconfig.ephemera.option.server.costs.congratsCost").defineInRange("congratsCost", DEFAULT_CONGRATS_COST, DEF_MIN_COST, DEF_MAX_COST);
             //signumCost = builder.translation("text.autoconfig.ephemera.option.server.costs.signumCost").defineInRange("signumCost", DEFAULT_SIGNUM_COST, DEF_MIN_COST, DEF_MAX_COST);
@@ -50,9 +49,9 @@ public class EphemeraConfigForge {
             builder.pop();
         }
 
-        /*@Override
-        public boolean getLessThanEqualSentinel() {
-            return lessthanequalSentinel.get();
-        }*/
+        @Override
+        public boolean getNexusLocusEnabled(){
+            return nexusLocusEnabled.get();
+        }
     }
 }

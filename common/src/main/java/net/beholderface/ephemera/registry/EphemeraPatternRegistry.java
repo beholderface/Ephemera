@@ -18,6 +18,7 @@ import net.beholderface.ephemera.casting.patterns.link.OpNodeIndex;
 import net.beholderface.ephemera.casting.patterns.math.OpGaussianRand;
 import net.beholderface.ephemera.casting.patterns.link.OpNetworkTeleport;
 import net.beholderface.ephemera.casting.patterns.spells.*;
+import net.beholderface.ephemera.casting.patterns.spells.great.OpFreezeEntity;
 import net.beholderface.ephemera.casting.patterns.spells.great.OpMageArmor;
 import net.beholderface.ephemera.casting.patterns.spells.great.OpRepair;
 import net.beholderface.ephemera.casting.patterns.status.*;
@@ -31,6 +32,7 @@ public class EphemeraPatternRegistry {
     public static HexPattern INVISIBILITY = register(HexPattern.fromAngles("qqqqqaewawaweqa", HexDir.SOUTH_WEST), "invisibility", new OpPotionEffect(StatusEffects.INVISIBILITY, MediaConstants.DUST_UNIT / 3, false, false));
     public static HexPattern MAGE_ARMOR = register(HexPattern.fromAngles("qaweqqwqqewaqeqqqqqad", HexDir.NORTH_WEST), "magearmor", new OpMageArmor());
     public static HexPattern REPAIR = register(HexPattern.fromAngles("waqdqqwqqdqawwqqqqqaqedeq", HexDir.WEST), "repair", new OpRepair());
+    //public static HexPattern TIME_FREEZE = register(HexPattern.fromAngles("ewewqwqqqwqweweweeweqqeweeqeeweqqewee", HexDir.NORTH_EAST), "timefreeze", new OpFreezeEntity());
     //status stuff
     public static HexPattern REMOVE_STATUS = register(HexPattern.fromAngles("eeeeedaqdewed", HexDir.SOUTH_WEST), "removestatus", new OpRemoveStatus());
     public static HexPattern GET_STATUS = register(HexPattern.fromAngles("qqqqqedwd", HexDir.SOUTH_WEST), "getstatus", new OpGetEffects());

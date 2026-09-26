@@ -1,6 +1,5 @@
 package net.beholderface.ephemera.fabric;
 
-import at.petrak.hexcasting.api.misc.MediaConstants;
 import dev.architectury.platform.Platform;
 import net.beholderface.ephemera.Ephemera;
 import net.beholderface.ephemera.api.config.EphemeraConfig;
@@ -73,11 +72,12 @@ public class EphemeraConfigFabric extends PartitioningSerializer.GlobalData {
 
         static class MiscConfig {
             //boolean lessThanEqualSentinel = DEFAULT_LESSTHANEQUAL_SENTINEL;
+            boolean nexusLocusEnabled = DEFAULT_NEXUS_LOCUS_ENABLED;
         }
 
-        /*@Override
-        public boolean getLessThanEqualSentinel() {
-            return miscConfig.lessThanEqualSentinel;
-        }*/
+        @Override
+        public boolean getNexusLocusEnabled() {
+            return miscConfig.nexusLocusEnabled;
+        }
     }
 }

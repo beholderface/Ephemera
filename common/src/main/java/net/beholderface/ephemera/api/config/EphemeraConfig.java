@@ -2,8 +2,6 @@ package net.beholderface.ephemera.api.config;
 
 import net.beholderface.ephemera.Ephemera;
 
-import java.util.Collection;
-
 /**
  * Platform-agnostic class for statically accessing current config values.
  * If any of the config types (common, client, server) are not needed in your mod,
@@ -15,6 +13,10 @@ public class EphemeraConfig {
     private static final ClientConfigAccess dummyClient = new ClientConfigAccess() {
     };
     private static final ServerConfigAccess dummyServer = new ServerConfigAccess() {
+        @Override
+        public boolean getNexusLocusEnabled() {
+            throw new IllegalStateException("Attempted to access property of Dummy Config Object");
+        }
         /*@Override
         public boolean getLessThanEqualSentinel() {
             throw new IllegalStateException("Attempted to access property of Dummy Config Object");
@@ -82,7 +84,7 @@ public class EphemeraConfig {
     }
 
     public interface ServerConfigAccess {
-        /*boolean DEFAULT_LESSTHANEQUAL_SENTINEL = true;
-        boolean getLessThanEqualSentinel();*/
+        boolean DEFAULT_NEXUS_LOCUS_ENABLED = true;
+        boolean getNexusLocusEnabled();
     }
 }

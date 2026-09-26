@@ -7,6 +7,8 @@
   ],
   "mixins": [
     "BreakTierMixinCast",
+    "MoteNexusLocusMixinBlock",
+    "MoteNexusLocusMixinEntity",
     "NoDispenserAllowedMixin"
   ],
   "injectors": {

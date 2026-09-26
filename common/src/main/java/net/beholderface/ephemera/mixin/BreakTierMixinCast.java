@@ -1,7 +1,7 @@
 package net.beholderface.ephemera.mixin;
 
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment;
-import net.beholderface.ephemera.SharedMixinData;
+import net.beholderface.ephemera.EphemeraMixinUtils;
 import net.beholderface.ephemera.registry.EphemeraAttributes;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
@@ -21,12 +21,12 @@ public class BreakTierMixinCast {
     @Inject(method = "cast(Lat/petrak/hexcasting/api/casting/eval/CastingEnvironment;)V", at = @At(value = "HEAD", remap = false), remap = false)
     public void setBreakBoost(CastingEnvironment env, CallbackInfo ci){
         if (env.getCastingEntity() instanceof ServerPlayerEntity player){
-            SharedMixinData.breakBoost = player.getAttributeValue(EphemeraAttributes.BREAK_TIER_BOOST);
+            EphemeraMixinUtils.breakBoost = player.getAttributeValue(EphemeraAttributes.BREAK_TIER_BOOST);
         }
     }
 
     @Inject(method = "cast(Lat/petrak/hexcasting/api/casting/eval/CastingEnvironment;)V", at = @At(value = "TAIL", remap = false), remap = false)
     public void resetBreakBoost(CastingEnvironment env, CallbackInfo ci){
-        SharedMixinData.breakBoost = 0.0;
+        EphemeraMixinUtils.breakBoost = 0.0;
     }
 }
